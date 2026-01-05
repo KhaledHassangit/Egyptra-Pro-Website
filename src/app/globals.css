@@ -1,26 +1,164 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
+@custom-variant dark (&:is(.dark *));
+
+/* === LIGHT THEME === */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --primary: rgba(38, 93, 146, 1); /* A vibrant, readable blue */
+  --primary-foreground: oklch(1 0 0); /* White */
+  --secondary: oklch(0.75 0.12 75); /* A richer, warm sand/gold */
+  --secondary-foreground: oklch(0.09 0 0); /* Near-black for contrast */
+
+  /* Neutral Colors */
+  --background: oklch(1 0 0); /* Pure white */
+  --foreground: oklch(0.09 0 0); /* Near-black for main text */
+  --card: oklch(1 0 0); /* Same as background */
+  --card-foreground: oklch(0.09 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.09 0 0);
+  --muted: oklch(0.97 0 0); /* Very light gray */
+  --muted-foreground: oklch(0.45 0 0); /* Medium gray for subtle text */
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.09 0 0);
+  --border: oklch(0.92 0 0); /* Light gray border */
+  --input: oklch(0.92 0 0); /* Same as border */
+  --ring: oklch(0.47 0.13 260); /* Matches primary */
+
+  /* Semantic Colors */
+  --destructive: oklch(0.55 0.22 15); /* Clear, strong red */
+  --success: oklch(0.55 0.18 145); /* Pleasant green */
+  --warning: oklch(0.68 0.20 65); /* Attention-grabbing amber */
+
+  /* Chart & Sidebar Colors */
+  --chart-1: oklch(0.47 0.13 260);
+  --chart-2: oklch(0.75 0.12 75);
+  --chart-3: oklch(0.55 0.18 145);
+  --chart-4: oklch(0.68 0.20 65);
+  --chart-5: oklch(0.55 0.22 15);
+  --sidebar: oklch(0.97 0 0);
+  --sidebar-foreground: oklch(0.09 0 0);
+  --sidebar-primary: oklch(0.09 0 0);
+  --sidebar-primary-foreground: oklch(0.97 0 0);
+  --sidebar-accent: oklch(0.92 0 0);
+  --sidebar-accent-foreground: oklch(0.09 0 0);
+  --sidebar-border: oklch(0.92 0 0);
+  --sidebar-ring: oklch(0.47 0.13 260);
+
+  /* Other */
+  --radius: 0.625rem;
 }
 
+/* === DARK THEME === */
+.dark {
+  /* Brand Colors - Same Hue, Adjusted for Dark Background */
+  --primary: oklch(0.70 0.18 260); /* Brighter, more saturated blue */
+  --primary-foreground: oklch(0.09 0 0); /* Dark text for contrast */
+  --secondary: oklch(0.65 0.15 75); /* Brighter, richer gold */
+  --secondary-foreground: oklch(0.09 0 0);
+
+  /* Neutral Colors - Pure Grays for a Clean Look */
+  --background: oklch(0.09 0 0); /* Very dark gray, not pure black */
+  --foreground: oklch(0.95 0 0); /* Off-white, less harsh */
+  --card: oklch(0.12 0 0); /* Slightly raised from background */
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.16 0 0); /* For disabled/less important content */
+  --muted-foreground: oklch(0.55 0 0);
+  --accent: oklch(0.16 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --border: oklch(0.22 0 0); /* Subtle but visible border */
+  --input: oklch(0.22 0 0);
+  --ring: oklch(0.70 0.18 260); /* Matches primary */
+
+  /* Semantic Colors - Brighter for visibility */
+  --destructive: oklch(0.65 0.22 15); /* Brighter red */
+  --success: oklch(0.65 0.18 145); /* Brighter green */
+  --warning: oklch(0.75 0.20 65); /* Brighter amber */
+
+  /* Chart & Sidebar Colors */
+  --chart-1: oklch(0.70 0.18 260);
+  --chart-2: oklch(0.65 0.15 75);
+  --chart-3: oklch(0.65 0.18 145);
+  --chart-4: oklch(0.75 0.20 65);
+  --chart-5: oklch(0.65 0.22 15);
+  --sidebar: oklch(0.12 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.70 0.18 260);
+  --sidebar-primary-foreground: oklch(0.09 0 0);
+  --sidebar-accent: oklch(0.16 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.22 0 0);
+  --sidebar-ring: oklch(0.70 0.18 260);
+}
+
+/* === TAILWIND CONFIGURATION === */
 @theme inline {
+  /* Brand */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Neutral */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  /* Semantic */
+  --color-destructive: var(--destructive);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+
+  /* Charts */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Sidebar */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Other */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* === BASE STYLES === */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  }
 }

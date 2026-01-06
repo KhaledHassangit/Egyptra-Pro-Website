@@ -1,6 +1,4 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { TrustIndicators } from "@/components/home/TrustIndicators";
-import { AboutSection } from "@/components/home/AboutSection";
 import { DestinationsSection } from "@/components/home/DestinationsSection";
 import { PopularTourSection } from "@/components/home/PopularTourSection";
 import { ActivityTypeSection } from "@/components/home/ActivityTypeSection";
@@ -12,9 +10,7 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       <HeroSection />
-      <div className="pt-[220px]"></div>
-      <TrustIndicators />
-      <AboutSection />  
+      <div className="pt-[260px]"></div>
       <DestinationsSection />
       <PopularTourSection />
       <ActivityTypeSection />

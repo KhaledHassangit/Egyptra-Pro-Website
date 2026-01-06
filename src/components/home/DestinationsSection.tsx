@@ -1,53 +1,118 @@
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Image from "next/image"
+import Container from "@/util/Container"
+import UIButton from "@/util/UIButton"
+import SectionHeader from "@/util/SectionHeader"
 
 export function DestinationsSection() {
   return (
-    <section className="max-w-7xl mx-auto px-4 w-full" id="destinations">
-      <div className="flex justify-between items-end mb-8">
+    <Container className="py-12 ">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 ml-4 sm:ml-0 mr-4 sm:mr-0">
         <div>
-          <h2 className="text-3xl font-bold mb-2">Top Egypt Destinations</h2>
-          <p className="text-gray-600">Top Ranked Egypt Things to do, Tours.</p>
+          <SectionHeader 
+            title="Top Egypt Destinations"
+            description="Top Ranked Egypt Things to do, Tours."
+          />
         </div>
-        <Button variant="outline" className="hidden sm:inline-flex border-primary text-primary hover:bg-primary hover:text-white">Explore Destinations</Button>
+        <UIButton className="me-12">
+          Explore Destinations
+        </UIButton>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:h-[500px]">
-        {/* Grid layout for destinations - custom grid similar to mockup */}
-        <div className="md:col-span-1 md:row-span-2 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-          <Image src="https://z-cdn-media.chatglm.cn/files/95e451a7-0934-4240-9740-73962d2a1e8b.png?auth_key=1867634055-46db1b827aeb4f2d9e23b206e8844c15-0-01869dffc3aa09a0db84e5cdb4704d0c" alt="Hurghada" fill className="object-cover transition-transform group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-            <span className="text-white font-bold text-xl">Hurghada</span>
+      <div className="flex flex-wrap lg:flex-nowrap gap-4 overflow-x-auto ml-4 sm:ml-0 mr-4 sm:mr-0">
+        {/* Column 1 */}
+        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+          {/* Image 1 - 287x324 */}
+          <div className="relative w-full h-84 overflow-hidden group">
+            <Image
+              src="/images/dest1.png"
+              alt="Beach walkway"
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
+          {/* Label 1 - Blue box 287x108 with bottom-left radius */}
+          <div className="w-full h-28 bg-[#265D92] rounded-bl-[88px] flex items-center justify-center">
+            <span className="text-white font-bold text-[20px]">Hurghada</span>
           </div>
         </div>
 
-        <div className="md:col-span-1 md:row-span-1 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-          <Image src="https://z-cdn-media.chatglm.cn/files/95e451a7-0934-4240-9740-73962d2a1e8b.png?auth_key=1867634055-46db1b827aeb4f2d9e23b206e8844c15-0-01869dffc3aa09a0db84e5cdb4704d0c" alt="Desert" fill className="object-cover transition-transform group-hover:scale-105" />
+        {/* Column 2 */}
+        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+          {/* Image 2 - 287x216 with top-right radius */}
+          <div className="relative w-full h-56 rounded-tr-[20px] overflow-hidden group">
+            <Image
+              src="/images/dest2.jpg"
+              alt="Beach"
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
+          {/* Image 5 - 287x216 with bottom-right radius */}
+          <div className="relative w-full h-56 rounded-br-[20px] overflow-hidden group">
+            <Image
+              src="/images/dest5.jpg"
+              alt="Beach destination"
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
         </div>
 
-        <div className="md:col-span-1 md:row-span-1 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-          <Image src="https://z-cdn-media.chatglm.cn/files/95e451a7-0934-4240-9740-73962d2a1e8b.png?auth_key=1867634055-46db1b827aeb4f2d9e23b206e8844c15-0-01869dffc3aa09a0db84e5cdb4704d0c" alt="Marsa Alam" fill className="object-cover transition-transform group-hover:scale-105" />
+        {/* Column 3 */}
+        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+          {/* Image 3 - 287x216 with top-right radius and -180 rotation */}
+          <div
+            className="relative w-full h-56 rounded-tr-[20px] overflow-hidden group"
+            style={{ transform: "rotateY(180deg)" }}
+          >
+            <Image
+              src="/images/dest3.jpg"
+              alt="Suspension bridge"
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
+          {/* Image 6 - 287x216 with bottom-right radius and -180 rotation */}
+          <div
+            className="relative w-full h-56 rounded-br-[20px] overflow-hidden group"
+            style={{ transform: "rotateY(180deg)" }}
+          >
+            <Image
+              src="/images/dest6.jpg"
+              alt="Sharm el shakh"
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
         </div>
 
-        <div className="md:col-span-1 md:row-span-2 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-          <Image src="https://z-cdn-media.chatglm.cn/files/95e451a7-0934-4240-9740-73962d2a1e8b.png?auth_key=1867634055-46db1b827aeb4f2d9e23b206e8844c15-0-01869dffc3aa09a0db84e5cdb4704d0c" alt="Luxor" fill className="object-cover transition-transform group-hover:scale-105" />
-        </div>
-
-        <div className="md:col-span-1 md:row-span-1 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-          <Image src="https://z-cdn-media.chatglm.cn/files/95e451a7-0934-4240-9740-73962d2a1e8b.png?auth_key=1867634055-46db1b827aeb4f2d9e23b206e8844c15-0-01869dffc3aa09a0db84e5cdb4704d0c" alt="Diving" fill className="object-cover transition-transform group-hover:scale-105" />
-        </div>
-
-        <div className="md:col-span-1 md:row-span-1 relative h-64 md:h-full rounded-2xl overflow-hidden group bg-primary">
-          {/* Fallback or colored Text Box like 'Sharm el shakh' in mockup */}
-          <Image src="https://z-cdn-media.chatglm.cn/files/95e451a7-0934-4240-9740-73962d2a1e8b.png?auth_key=1867634055-46db1b827aeb4f2d9e23b206e8844c15-0-01869dffc3aa09a0db84e5cdb4704d0c" alt="Sharm el shakh" fill className="object-cover transition-transform group-hover:scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-            <span className="text-white font-bold text-xl">Sharm el shakh</span>
+        {/* Column 4 */}
+        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+          <div className="relative w-full h-84 overflow-hidden group" style={{ transform: "rotateY(180deg)" }}>
+            <Image
+              src="/images/dest4.jpg"
+              alt="Lake and mountains"
+              fill
+              className="object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
+          <div
+            className="w-full h-28 bg-[#D0A87D] rounded-bl-[88px] flex items-center justify-center"
+            style={{ transform: "rotateY(-180deg)" }}
+          >
+            <span className="text-white font-bold text-[20px]" style={{ transform: "rotateY(180deg)" }}>
+              Sharm el shakh
+            </span>
           </div>
         </div>
       </div>
-      <div className="mt-4 sm:hidden">
-        <Button variant="outline" className="w-full border-primary text-primary">Explore Destinations</Button>
+
+      {/* Single mobile button - only visible on small screens */}
+      <div className="mt-8 sm:hidden mx-4">
+        <UIButton className="w-full">
+          Explore Destinations
+        </UIButton>
       </div>
-    </section>
-  );
+    </Container>
+  )
 }

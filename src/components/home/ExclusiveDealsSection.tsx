@@ -1,19 +1,68 @@
-import { Button } from "@/components/ui/button";
+import Container from "@/util/Container";
+import UIButton from "@/util/UIButton";
 
-export function ExclusiveDealsSection() {
+interface ExclusiveDealsSectionProps {
+  backgroundImage?: string;
+}
+
+export function ExclusiveDealsSection({
+  backgroundImage = "/images/banner.png" 
+}: ExclusiveDealsSectionProps) {
   return (
-    <section className="max-w-7xl mx-auto px-4 w-full">
-      <div className="bg-primary rounded-2xl overflow-hidden h-80 md:h-96 relative">
-        <div className="absolute inset-0 flex items-center justify-center p-8">
-          <div className="bg-white/10 backdrop-blur-sm p-8 md:p-12 rounded-2xl max-w-3xl w-full flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Exclusive Egypt Deals</h3>
-              <p className="text-blue-100 text-lg">Save Up to 40% on select tours</p>
+    <Container className="py-8">
+      <section className="relative rounded-[10px] overflow-hidden h-[243px] w-full">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${backgroundImage})`
+          }}
+        />
+        
+        {/* Overlay Container */}
+        <div className="absolute inset-0 flex items-center justify-center p-4">
+          <div 
+            className="bg-[#FFFFFFE5] rounded-[20px] h-[192px] w-full max-w-[calc(100%-100px)] flex flex-col md:flex-row items-center justify-between gap-4 p-8"
+          >
+            {/* Text Content */}
+            <div className="text-center md:text-left">
+              <h3 
+                className="text-2xl md:text-3xl font-bold mb-2"
+                style={{ 
+                  color: "#000000",
+                  fontWeight: 700 
+                }}
+              >
+                Exclusive Egypt Deals
+              </h3>
+              <p 
+                className="text-lg"
+                style={{ 
+                  color: "#D0A87D",
+                  fontWeight: 400 
+                }}
+              >
+                Save Up to 40% on select tours
+              </p>
             </div>
-            <Button size="lg" className="bg-white hover:bg-gray-100 text-primary min-w-[150px]">Explore Tours</Button>
+            
+            {/* Button - Aligned with the paragraph text */}
+            <UIButton 
+              className="bg-primary hover:bg-primary/90 text-white min-w-[150px]"
+              style={{ 
+                height: "50px", 
+                borderRadius: "4px", 
+                fontWeight: 500, 
+                fontSize: "16px",
+                marginTop: "auto",
+                marginBottom: "auto"
+              }}
+            >
+              Explore Tours
+            </UIButton>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Container>
   );
 }

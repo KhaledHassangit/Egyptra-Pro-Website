@@ -6,7 +6,7 @@
 /* === LIGHT THEME === */
 :root {
   /* Brand Colors */
-  --primary: rgba(38, 93, 146, 1); /* A vibrant, readable blue */
+  --primary: rgba(3, 115, 222, 1); /* A vibrant, readable blue */
   --primary-foreground: oklch(1 0 0); /* White */
   --secondary: oklch(0.75 0.12 75); /* A richer, warm sand/gold */
   --secondary-foreground: oklch(0.09 0 0); /* Near-black for contrast */

@@ -5,6 +5,7 @@ export function WhyChooseUsSection() {
   return (
     <section className="bg-white py-16 w-full">
       <div className="max-w-7xl mx-auto px-4">
+        {/* Header */}
         <div className="mb-12">
           <h2 className="text-4xl font-bold mb-4">Why Choose Us</h2>
           <p className="text-gray-600 max-w-xl text-sm leading-relaxed">
@@ -14,90 +15,115 @@ export function WhyChooseUsSection() {
           </p>
         </div>
 
+        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Features */}
           <div className="space-y-6">
-            {/* Feature 1 - Blue */}
+            {/* Feature 1 - Location Icon with Primary Background */}
             <div className="flex items-start gap-4">
-              <div className="bg-blue-600 text-white p-3 rounded-xl flex-shrink-0 flex items-center justify-center w-12 h-12">
+              <div className="bg-primary text-white p-3 rounded-xl flex-shrink-0 flex items-center justify-center w-12 h-12">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Expert Local Guides</h3>
-                <p className="text-gray-600 text-sm">Professional Egyptologist guides bring.</p>
+                <p className="text-gray-600 text-sm">Professional Egyptologist guides.</p>
               </div>
             </div>
 
-            {/* Feature 2 - Orange/Tan */}
+            {/* Feature 2 - Star Icon with Custom Orange/Tan */}
             <div className="flex items-start gap-4">
-              <div className="bg-amber-400 text-white p-3 rounded-xl flex-shrink-0 flex items-center justify-center w-12 h-12">
+              <div
+                className="text-white p-3 rounded-xl flex-shrink-0 flex items-center justify-center w-12 h-12"
+                style={{ backgroundColor: "#EBB67E" }}
+              >
                 <Star className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Average rating</h3>
-                <p className="text-gray-600 text-sm">Set the date you want</p>
+                <p className="text-gray-600 text-sm">Rated 4.9/5 by our travelers.</p>
               </div>
             </div>
 
-            {/* Feature 3 - Blue */}
+            {/* Feature 3 - Gift Icon with Primary Background */}
             <div className="flex items-start gap-4">
-              <div className="bg-blue-500 text-white p-3 rounded-xl flex-shrink-0 flex items-center justify-center w-12 h-12">
+              <div className="bg-primary text-white p-3 rounded-xl flex-shrink-0 flex items-center justify-center w-12 h-12">
                 <Gift className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Best Price Guarantee</h3>
-                <p className="text-gray-600 text-sm">Get discount for every services</p>
+                <p className="text-gray-600 text-sm">Best prices guaranteed.</p>
               </div>
             </div>
 
-            {/* Stats */}
+            {/* Stats Section */}
             <div className="grid grid-cols-3 gap-6 pt-8">
               <div className="text-center">
-                <p className="text-4xl font-bold text-blue-600 mb-1">15+</p>
+                <p className="text-4xl font-bold text-primary mb-1">15+</p>
                 <p className="text-xs text-gray-600">Years Experience</p>
               </div>
               <div className="text-center">
-                <p className="text-4xl font-bold text-blue-600 mb-1">100K+</p>
-                <p className="text-xs text-gray-600">Response Time</p>
+                <p className="text-4xl font-bold text-primary mb-1">100K+</p>
+                <p className="text-xs text-gray-600">Happy Travelers</p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-bold text-blue-600 mb-1">24/7</p>
+                <p className="text-3xl font-bold text-primary mb-1">24/7</p>
                 <p className="text-xs text-gray-600">Expert Support</p>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Images with Decorative Elements */}
-          <div className="relative h-full">
-            {/* Decorative "egypt" text - Top */}
-            <div className="absolute -top-8 right-12 pointer-events-none">
-              <svg viewBox="0 0 200 80" className="w-32 h-auto opacity-30">
-                <text x="0" y="60" fontSize="60" fontStyle="italic" fontFamily="cursive" fill="#1e40af">
-                  egypt
-                </text>
-              </svg>
+          {/* Right Column - Images with Overlapping Staggered Layout */}
+          <div className="relative w-full" style={{ height: "650px" }}>
+            {/* SVG 1 - "egypt" text - Behind first image, top-right corner */}
+            <div className="absolute top-12 right-12 w-56 pointer-events-none z-0">
+              <Image
+                src="/images/Egypt.svg"
+                alt=""
+                width={200}
+                height={120}
+                className="opacity-30 w-full h-auto"
+                unoptimized
+              />
             </div>
 
-            {/* Images Container */}
-            <div className="relative h-96 mt-8">
-              {/* Top Image - Blue Border */}
-              <div className="absolute top-0 right-0 w-64 h-48 rounded-3xl overflow-hidden border-4 border-blue-600 shadow-lg z-20">
-                <Image src="/placeholder.jpg" alt="Egypt tourist destination" fill className="object-cover" />
-              </div>
-
-              {/* Bottom Image - Tan/Beige Border */}
-              <div className="absolute bottom-0 left-0 w-64 h-48 rounded-3xl overflow-hidden border-4 border-amber-400 shadow-lg z-10">
-                <Image src="/placeholder.jpg" alt="Egypt coastal view" fill className="object-cover" />
-              </div>
+            {/* First Image - 444x499 - Top Left with Blue Border */}
+            <div
+              className="absolute top-0 left-0 rounded-3xl overflow-hidden border-4 border-primary shadow-lg z-10"
+              style={{ width: "280px", height: "315px" }}
+            >
+              <Image
+                src="/images/dest4.jpg"
+                alt="Egypt tourist destination"
+                width={444}
+                height={499}
+                className="object-cover w-full h-full"
+              />
             </div>
 
-            {/* Decorative "eg" text - Bottom */}
-            <div className="absolute bottom-4 left-4 pointer-events-none">
-              <svg viewBox="0 0 150 80" className="w-24 h-auto opacity-30">
-                <text x="0" y="60" fontSize="50" fontStyle="italic" fontFamily="cursive" fill="#1e40af">
-                  eg
-                </text>
-              </svg>
+            {/* SVG 2 - "eg" text - Behind second image, left-center */}
+            <div className="absolute top-48 left-20 w-48 pointer-events-none z-20">
+              <Image
+                src="/images/Egypt1.svg"
+                alt=""
+                width={150}
+                height={100}
+                className="opacity-30 w-full h-auto"
+                unoptimized
+              />
+            </div>
+
+            {/* Second Image - 444x669 - Bottom Right with Tan/Orange Border */}
+            <div
+              className="absolute bottom-0 right-0 rounded-3xl overflow-hidden border-4 shadow-lg z-30"
+              style={{ borderColor: "#EBB67E", width: "280px", height: "420px" }}
+            >
+              <Image
+                src="/images/5.jpg"
+                alt="Egypt coastal view"
+                width={444}
+                height={669}
+                className="object-cover w-full h-full"
+              />
             </div>
           </div>
         </div>

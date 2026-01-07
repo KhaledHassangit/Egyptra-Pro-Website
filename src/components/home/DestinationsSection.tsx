@@ -8,13 +8,13 @@ export function DestinationsSection() {
     <Container className="py-12 ">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-8 ml-4 sm:ml-0 mr-4 sm:mr-0">
         <div>
-          <SectionHeader 
+          <SectionHeader
             title="Top Egypt Destinations"
             description="Top Ranked Egypt Things to do, Tours."
           />
         </div>
         <UIButton className="me-12">
-          Explore Destinations
+          View All Destinations
         </UIButton>
       </div>
 
@@ -31,7 +31,7 @@ export function DestinationsSection() {
             />
           </div>
           {/* Label 1 - Blue box 287x108 with bottom-left radius */}
-          <div className="w-full h-28 bg-[#265D92] rounded-bl-[88px] flex items-center justify-center">
+          <div className="w-full h-28 bg-primary rounded-bl-[88px] flex items-center justify-center">
             <span className="text-white font-bold text-[20px]">Hurghada</span>
           </div>
         </div>
@@ -101,7 +101,7 @@ export function DestinationsSection() {
             style={{ transform: "rotateY(-180deg)" }}
           >
             <span className="text-white font-bold text-[20px]" style={{ transform: "rotateY(180deg)" }}>
-              Sharm el shakh
+              Sharm El Sheikh
             </span>
           </div>
         </div>

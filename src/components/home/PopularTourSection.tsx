@@ -9,9 +9,9 @@ import SectionHeader from "@/util/SectionHeader";
 
 export function PopularTourSection() {
   const [activeTab, setActiveTab] = useState(0);
-  
+
   const cities = ['Cairo', 'Hurghada', 'Luxor', 'Aswan'];
-  
+
   // Map each city to its specific image
   const cityImages = {
     'Cairo': "/images/dest1.png",
@@ -19,7 +19,7 @@ export function PopularTourSection() {
     'Luxor': "/images/dest5.jpg",
     'Aswan': "/images/dest3.jpg"
   };
-  
+
   // Different image sets for each city
   const cityTourImages = {
     'Cairo': [
@@ -55,7 +55,7 @@ export function PopularTourSection() {
       "/images/dest5.jpg"
     ]
   };
-  
+
   // Tour data for each city
   const tourData = {
     'Cairo': [
@@ -91,38 +91,36 @@ export function PopularTourSection() {
       { city: 'Aswan', title: 'Botanical Garden & Kitchener Island', price: '$ 55', rating: '4.4 (110)' }
     ]
   };
-  
+
   const totalCards = 6;
   const currentCity = cities[activeTab];
   const currentCityImages = cityTourImages[currentCity];
   const currentTourData = tourData[currentCity];
-  
+
   return (
     <section className="py-16 w-full" id="trips">
       <Container>
         <div className="flex flex-col md:flex-row justify-between md:items-center mb-8 gap-4">
           <div>
-            <SectionHeader 
+            <SectionHeader
               title="Most Popular tour"
               description="Discover our most loved tours and unforgettable experiences in Egypt"
             />
             <div className="flex gap-4 mt-6 overflow-x-auto pb-2">
               {cities.map((city, idx) => (
-                <button 
-                  key={city} 
-                  className={`flex items-center gap-2 pb-2 border-b-2 transition-colors whitespace-nowrap ${
-                    idx === activeTab 
-                      ? 'border-[#265D92] text-[#265D92] font-normal' 
+                <button
+                  key={city}
+                  className={`flex items-center gap-2 pb-2 border-b-2 transition-colors whitespace-nowrap ${idx === activeTab
+                      ? 'border-[#265D92] text-[#265D92] font-normal'
                       : 'border-transparent text-gray-500 hover:text-gray-900'
-                  }`}
+                    }`}
                   onClick={() => setActiveTab(idx)}
                 >
                   <div className="w-[29px] h-[29px] rounded-full bg-gray-200 overflow-hidden relative">
                     <Image src={cityImages[city]} alt={city} fill className="object-cover" />
                   </div>
-                  <span className={`text-base font-normal ${
-                    idx === activeTab ? 'text-[#265D92]' : ''
-                  }`}>
+                  <span className={`text-base font-normal ${idx === activeTab ? 'text-[#265D92]' : ''
+                    }`}>
                     {city}
                   </span>
                 </button>
@@ -130,9 +128,9 @@ export function PopularTourSection() {
             </div>
           </div>
           <UIButton
-            className="px-8 me-1" 
+            className="px-8 me-1"
           >
-            Explore Tours
+            View All Tours
           </UIButton>
         </div>
 
@@ -146,8 +144,8 @@ export function PopularTourSection() {
           <CarouselContent className="-ml-6">
             {Array.from({ length: totalCards }).map((_, item) => (
               <CarouselItem key={item} className="pl-6 md:basis-1/2 lg:basis-1/4">
-                <TourCard 
-                  imageIndex={item} 
+                <TourCard
+                  imageIndex={item}
                   city={currentCity}
                   tourData={currentTourData[item]}
                   imagePath={currentCityImages[item]}
@@ -161,22 +159,22 @@ export function PopularTourSection() {
   );
 }
 
-function TourCard({ imageIndex, city, tourData, imagePath }: { 
-  imageIndex: number; 
-  city: string; 
+function TourCard({ imageIndex, city, tourData, imagePath }: {
+  imageIndex: number;
+  city: string;
   tourData: { city: string; title: string; price: string; rating: string };
   imagePath: string;
 }) {
   return (
-    <div 
-      className="bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[335px] flex flex-col" 
+    <div
+      className="bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[335px] flex flex-col"
     >
       <div className="relative h-[180px]">
-        <Image 
+        <Image
           src={imagePath}
-          alt={`${city} Tour`} 
-          fill 
-          className="object-cover" 
+          alt={`${city} Tour`}
+          fill
+          className="object-cover"
         />
       </div>
       <div className="p-4 flex flex-col flex-1 justify-between">

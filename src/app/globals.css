@@ -7,8 +7,9 @@
 :root {
   /* Brand Colors */
   --primary: rgba(3, 115, 222, 1); /* A vibrant, readable blue */
+  --primaryy: rgba(38, 93, 146, 1); /* A vibrant, readable blue */
   --primary-foreground: oklch(1 0 0); /* White */
-  --secondary: oklch(0.75 0.12 75); /* A richer, warm sand/gold */
+  --secondary: rgba(235, 182, 126, 1); /* A richer, warm sand/gold */
   --secondary-foreground: oklch(0.09 0 0); /* Near-black for contrast */
 
   /* Neutral Colors */
@@ -150,7 +151,12 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
 }
-
+.bg-2nd-primary {
+  background-color: var(--primaryy);
+}
+.text-2nd-primary {
+  color: var(--primaryy);
+}
 button {
   cursor: pointer;  
 }

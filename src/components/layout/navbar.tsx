@@ -4,12 +4,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Container from '@/util/Container';
+import { cn } from '@/lib/utils';
 
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const pathname = usePathname();
+    const isWhyUsPage = pathname === '/why_us';
 
     const navLinks = [
         { name: 'Home', href: '/' },
@@ -19,9 +23,9 @@ export function Navbar() {
     ];
 
     return (
-        <nav className="bg-primary">
-            <div className="mt-4">
-                <Container className="rounded-[20px] bg-white   z-50">
+        <nav className={cn("w-full z-50 transition-all duration-300", isWhyUsPage ? "bg-white text-white" : "bg-primary")}>
+            <div className={cn(isWhyUsPage ? "py-4" : "mt-4")}>
+                <Container className={cn("transition-all duration-300", isWhyUsPage ? "bg-transparent text-white" : "rounded-[20px] bg-white z-50")}>
                     <div className="flex justify-between h-20 items-center">
                         {/* Logo */}
                         <div className="flex-shrink-0 flex items-center">
@@ -44,19 +48,24 @@ export function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-foreground/80 hover:text-primary transition-colors font-medium"
+                                    className={cn(
+                                        "transition-colors font-medium",
+                                        "text-[#00000080] hover:text-black"
+                                    )}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
-                            <Button className="bg-primary hover:bg-primary/90 text-white">Book Now</Button>
+                            <Button className={cn("text-white", isWhyUsPage ? "bg-white text-primary hover:bg-white/90" : "bg-primary hover:bg-primary/90")}>
+                                Book Now
+                            </Button>
                         </div>
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden flex items-center">
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="text-foreground hover:text-primary focus:outline-none"
+                                className={cn("focus:outline-none", isWhyUsPage ? "text-white" : "text-foreground hover:text-primary")}
                             >
                                 {isOpen ? <X size={24} /> : <Menu size={24} />}
                             </button>

@@ -160,7 +160,10 @@
 button {
   cursor: pointer;  
 }
+.overlay-bg {
+  background: linear-gradient(135deg, rgba(38, 93, 146, 0.8) 0%, rgba(38, 93, 146, 0.8) 50%, rgba(38, 93, 146, 0.8) 100%);
 
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -170,4 +173,11 @@ button {
     @apply bg-background text-foreground;
     font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   }
+}
+
+.login-page-bg {
+  background: linear-gradient(to bottom, rgba(3, 115, 222, 0.4), rgba(3, 115, 222, 0.2)), url('https://images.unsplash.com/photo-1549557688-644b92c478a3?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }

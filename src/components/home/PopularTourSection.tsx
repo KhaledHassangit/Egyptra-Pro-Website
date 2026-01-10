@@ -6,7 +6,7 @@ import Container from "@/util/Container";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import UIButton from "@/util/UIButton";
 import SectionHeader from "@/util/SectionHeader";
-import { TourCard } from "@/components/tours/TourCard";
+import { TourCard } from "../shared/TourCard";
 
 export function PopularTourSection() {
   const [activeTab, setActiveTab] = useState(0);
@@ -162,16 +162,3 @@ export function PopularTourSection() {
 }
 
 
-function TourCardPlaceholder({ imageIndex, city, tourData, imagePath }: {
-  imageIndex: number;
-  city: string;
-  tourData: { city: string; title: string; price: string; rating: string };
-  imagePath: string;
-}) {
-  // This is just a wrapper to adapt the props if needed, or we can update the usage directly.
-  // The previous component was defined inside the file.
-  // We will now use the imported TourCard.
-  // However, the props are slightly different (object naming).
-  // Let's just update the usage in the map function and remove this function.
-  return null;
-}

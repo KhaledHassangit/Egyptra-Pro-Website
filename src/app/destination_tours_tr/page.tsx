@@ -9,6 +9,8 @@ import SectionHeader from "@/util/SectionHeader";
 import PageHero from "@/util/PageHero";
 import { TourCard } from "@/components/shared/TourCard";
 import { SectionCarousel } from "@/components/shared/section-carousel";
+import Link from "next/link";
+import ImageBox from "@/components/shared/ImageBox";
 
 export default function DestinationPage() {
     const searchParams = useSearchParams();
@@ -17,61 +19,61 @@ export default function DestinationPage() {
 
     // Mock data - in a real app this would come from an API based on 'location'
     const mockTours = [
-        { 
-            id: 1, 
-            title: 'Dolphin watching boat tour with snorkeling', 
-            price: '$ 254', 
-            rating: '4.2 (200)', 
+        {
+            id: 1,
+            title: 'Dolphin watching boat tour with snorkeling',
+            price: '$ 254',
+            rating: '4.2 (200)',
             image: '/images/dest2.jpg',
             duration: '3 hours',
             location: 'Hurghada',
             groupSize: 'Max 15 people'
         },
-        { 
-            id: 2, 
-            title: 'Red Sea Snorkeling Adventure', 
-            price: '$ 185', 
-            rating: '4.6 (180)', 
+        {
+            id: 2,
+            title: 'Red Sea Snorkeling Adventure',
+            price: '$ 185',
+            rating: '4.6 (180)',
             image: '/images/dest5.jpg',
             duration: '4 hours',
             location: 'Red Sea',
             groupSize: 'Max 20 people'
         },
-        { 
-            id: 3, 
-            title: 'Desert Safari with BBQ Dinner', 
-            price: '$ 95', 
-            rating: '4.7 (220)', 
+        {
+            id: 3,
+            title: 'Desert Safari with BBQ Dinner',
+            price: '$ 95',
+            rating: '4.7 (220)',
             image: '/images/dest3.jpg',
             duration: '6 hours',
             location: 'Desert',
             groupSize: 'Max 25 people'
         },
-        { 
-            id: 4, 
-            title: 'Submarine Tour in Red Sea', 
-            price: '$ 120', 
-            rating: '4.5 (160)', 
+        {
+            id: 4,
+            title: 'Submarine Tour in Red Sea',
+            price: '$ 120',
+            rating: '4.5 (160)',
             image: '/images/dest6.jpg',
             duration: '2 hours',
             location: 'Red Sea',
             groupSize: 'Max 10 people'
         },
-        { 
-            id: 5, 
-            title: 'Giftun Island Boat Trip', 
-            price: '$ 75', 
-            rating: '4.8 (280)', 
+        {
+            id: 5,
+            title: 'Giftun Island Boat Trip',
+            price: '$ 75',
+            rating: '4.8 (280)',
             image: '/images/dest4.jpg',
             duration: '5 hours',
             location: 'Giftun Island',
             groupSize: 'Max 30 people'
         },
-        { 
-            id: 6, 
-            title: 'Hurghada City Tour & Shopping', 
-            price: '$ 55', 
-            rating: '4.3 (140)', 
+        {
+            id: 6,
+            title: 'Hurghada City Tour & Shopping',
+            price: '$ 55',
+            rating: '4.3 (140)',
             image: '/images/dest1.png',
             duration: '4 hours',
             location: 'Hurghada City',
@@ -84,6 +86,8 @@ export default function DestinationPage() {
         { name: 'Hurghada', image: '/images/dest1.png', count: '500+ tours available' },
         { name: 'Cairo', image: '/images/dest2.jpg', count: '500+ tours available' },
         { name: 'Luxor', image: '/images/dest5.jpg', count: '500+ tours available' },
+        { name: 'Sharm El Sheikh', image: '/images/dest6.jpg', count: '500+ tours available' },
+        { name: 'Aswan', image: '/images/dest4.jpg', count: '500+ tours available' },
     ];
 
     const handleSearch = (query: string) => {
@@ -93,15 +97,13 @@ export default function DestinationPage() {
 
     return (
         <div className="bg-white min-h-screen pb-20">
-            {/* Replace the hero section with PageHero component */}
-            <PageHero 
+            <PageHero
                 title={`Tours & Activities in ${formattedLocation}`}
                 currentPage={formattedLocation}
                 currentPageUrl={`/destinations?location=${location}`}
             />
 
-            {/* Use the new SearchBar component */}
-            <SearchBar 
+            <SearchBar
                 onSearch={handleSearch}
             />
 
@@ -122,12 +124,15 @@ export default function DestinationPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {mockTours.slice(0, 8).map((tour) => (
                         <TourCard
-                            key={tour.id}
+                            variant="detailed"
                             imagePath={tour.image}
                             city={formattedLocation}
                             title={tour.title}
                             price={tour.price}
                             rating={tour.rating}
+                            duration={tour.duration}
+                            location={tour.location}
+                            groupSize={tour.groupSize}
                         />
                     ))}
                 </div>
@@ -181,91 +186,87 @@ export default function DestinationPage() {
                 </SectionCarousel>
             </Container>
 
-            {/* 4. Explore More Egyptian Destinations - Restored to original design */}
+            {/* 4. Explore More Egyptian Destinations -  */}
             <Container>
-                <SectionHeader
+                <SectionCarousel
                     title="Explore More Egyptian Destinations"
                     description="Discover our most loved tours and unforgettable experiences in Egypt"
-                    titleClassName="text-2xl"
-                />
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                >
                     {exploreDestinations.map((dest, i) => (
-                        <div key={i} className="" >
-                            <div className="relative h-[200px] rounded-lg overflow-hidden mb-3">
-                                <Image src={dest.image} alt={dest.name} fill className="object-cover" />
+                        <CarouselItem key={i} className="pl-6 pb-4 md:basis-1/2 lg:basis-1/3">
+                            <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                                <div className="relative h-[180px] w-full overflow-hidden">
+                                    <Image src={dest.image} alt={dest.name} fill className="object-cover" />
+                                </div>
+                                <div className="p-4">
+                                    <h3 className="text-primary font-medium text-lg">{dest.name}</h3>
+                                    <p className="text-[#282828] text-sm mb-2">{dest.count}</p>
+                                    <Link href={`/destinations?location=${dest.name.toLowerCase()}`} className="text-primary text-sm font-medium flex items-center gap-1">
+                                        Explore {dest.name} →
+                                    </Link>
+                                </div>
                             </div>
-                            <h3 className="text-[#265D92] font-medium text-lg">{dest.name}</h3>
-                            <p className="text-gray-500 text-sm mb-2">{dest.count}</p>
-                            <a href="#" className="text-blue-500 text-sm font-medium flex items-center gap-1">
-                                Explore properties &rarr;
-                            </a>
-                        </div>
+                        </CarouselItem>
                     ))}
-                </div>
+                </SectionCarousel>
             </Container>
 
             {/* 5. Banner Section (250+ Amazing Things) */}
-            <div className="mt-16 mb-16">
-                <Container>
-                    <div className="relative bg-[#265D92] rounded-[24px] overflow-hidden text-white min-h-[400px] flex items-center">
-                        <div className="absolute inset-0 z-0">
-                            {/* This would be the background image if provided, for now blue bg */}
-                            {/* Alternatively, split layout like design */}
-                        </div>
-
-                        <div className="relative z-10 w-full flex flex-col md:flex-row">
-                            <div className="p-12 md:w-1/2">
-                                <h2 className="text-3xl font-bold mb-4 leading-tight">
-                                    Discover 250+ Amazing Things to Do in {formattedLocation}
-                                </h2>
-                                <p className="text-blue-100 mb-8 font-light">
-                                    From world-class diving or kite Mohamed to thrilling desert safari, explore the best {formattedLocation} has to offer.
-                                    Book excursions in Sharm El Sheikh and activities in Dream of islands like never before with instant confirmation and best rates guaranteed!
+            <div className="mt-16 mb-16 ">
+                <Container >
+                    <div className="relative bg-primary rounded-[8px] overflow-hidden text-white  h-[700px] mx-auto">
+                        <div className="relative z-10 w-full flex flex-col md:flex-row h-full">
+                            <div className="p-12 flex flex-col justify-center">
+                                <p className="text-[24px] font-semibold leading-[160%] mb-8">
+                                    Discover 250+ Amazing Things to Do in Makadi Bay From world-class diving at Ras Mohammed to thrilling desert safaris, explore the best Sharm El Sheikh tours, excursions in Sharm El Sheikh, and activities in Sharm El Sheikh. Book online with instant confirmation and best price guarantee!
                                 </p>
 
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="bg-white text-center py-4 rounded-xl text-[#265D92]">
-                                        <div className="text-xl font-bold">250+</div>
-                                        <div className="text-xs text-gray-500">Tour combinations</div>
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className=" h-[150px] bg-white rounded-[21px] flex flex-col items-center justify-center">
+                                        <div className="text-primary text-[36px] font-bold">250+</div>
+                                        <div className="text-[#282828] font-medium text-[18px] leading-[30px] text-center">Tour combinations</div>
                                     </div>
-                                    <div className="bg-white text-center py-4 rounded-xl text-[#265D92]">
-                                        <div className="text-xl font-bold">4.8</div>
-                                        <div className="text-xs text-gray-500">Average Rating</div>
+                                    <div className=" h-[150px] bg-white rounded-[21px] flex flex-col items-center justify-center">
+                                        <div className="text-primary text-[36px] font-bold">4.8</div>
+                                        <div className="text-[#282828] font-medium text-[18px] leading-[30px] text-center">Average Rating</div>
                                     </div>
-                                    <div className="bg-white text-center py-4 rounded-xl text-[#265D92]">
-                                        <div className="text-xl font-bold">€25</div>
-                                        <div className="text-xs text-gray-500">Starting From</div>
+                                    <div className="h-[150px] bg-white rounded-[21px] flex flex-col items-center justify-center">
+                                        <div className="text-primary text-[36px] font-bold">€25</div>
+                                        <div className="text-[#282828] font-medium text-[18px] leading-[30px] text-center">Starting From</div>
                                     </div>
-                                    <div className="bg-white text-center py-4 rounded-xl text-[#265D92]">
-                                        <div className="text-xl font-bold">100%</div>
-                                        <div className="text-xs text-gray-500">Satisfaction</div>
+                                    <div className="h-[150px] bg-white rounded-[21px] flex flex-col items-center justify-center">
+                                        <div className="text-primary text-[36px] font-bold">100%</div>
+                                        <div className="text-[#282828] font-medium text-[18px] leading-[30px] text-center">Satisfaction</div>
                                     </div>
                                 </div>
                             </div>
-                            <div className="md:w-1/2 relative min-h-[300px] md:min-h-full">
-                                {/* Image placeholder for the right side of banner */}
-                                <Image
-                                    src="/images/dest6.jpg"
-                                    alt="Banner Image"
-                                    fill
-                                    className="object-cover"
-                                />
+                            <div className="md:w-1/2 relative flex items-center justify-center p-8">
+                                <div className="relative h-[588px] w-[472px] rounded-[21px] overflow-hidden">
+                                    <Image
+                                        src="/images/dest1.png"
+                                        alt="Banner Image"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </Container>
             </div>
 
-            {/* 6. Why Choose Us (Specific design for this page) */}
-            <Container className="mb-20">
-                <div className="flex flex-col md:flex-row gap-12 items-center">
+            <Container className="mb-20 py-10">
+                <div className="flex flex-col justify-between md:flex-row gap-[16px] items-center">
                     <div className="md:w-1/2">
-                        <h2 className="text-3xl font-bold mb-6 text-black">Why Chose Us</h2>
-                        <p className="text-gray-600 mb-8 font-light">
-                            We offer a wide range of tours... (Placeholder text matching screenshot intent)
-                        </p>
+                        <SectionHeader
+                            descriptionClassName=""
+                            title="Why Choose Us"
+                            description="With over 15 years of 
+                experience and 100,000+ happy travelers, we've perfected the art of creating unforgettable Egyptian adventures. Our commitment to quality, 
+                safety, and authentic experiences sets us apart."
+                        />
 
-                        <div className="space-y-6">
+                        <div className="space-y-6 mt-8">
                             {[
                                 { id: 1, title: 'Trust & Recognition', text: '100% Happy customers' },
                                 { id: 2, title: 'Booking Flexibility', text: 'Free Cancellation' },
@@ -274,32 +275,35 @@ export default function DestinationPage() {
                                 { id: 5, title: 'Safety & Security', text: 'Secure Online Payments' },
                             ].map((item) => (
                                 <div key={item.id} className="flex gap-4">
-                                    <div className="w-10 h-10 rounded bg-[#265D92] text-white flex items-center justify-center font-bold shrink-0">
+                                    <div className="w-15 h-15  p-2.5 rounded-[8px] bg-primary text-white flex items-center justify-center font-bold shrink-0">
                                         {item.id}
                                     </div>
                                     <div>
-                                        <h4 className="font-medium text-black">{item.title}</h4>
-                                        <p className="text-sm text-gray-500">{item.text}</p>
+                                        <h4 className="font-bold text-[#3A3A3A] text-lg">{item.title}</h4>
+                                        <p className="text-[#5B5F62] text-sm font-medium ">{item.text}</p>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
-                    <div className="md:w-1/2 relative h-[500px] w-full">
-                        {/* Placeholder for the collage of images */}
-                        <div className="absolute top-0 right-0 w-[80%] h-[60%] rounded-[20px] overflow-hidden border-4 border-blue-100 z-10">
-                            <Image src="/images/dest2.jpg" alt="Why Us 1" fill className="object-cover" />
-                        </div>
-                        <div className="absolute bottom-0 left-10 w-[60%] h-[50%] rounded-[20px] overflow-hidden border-4 border-[#D0A87D] z-20">
+                    <div className="relative flex-1">
+                        <ImageBox />
+                    </div>
+                    {/* <div className="md:w-1/2 relative h-[500px] w-full">
+                        <div className="absolute top-0 right-0 w-[80%] h-[65%] rounded-[30px] overflow-hidden border-[15px] border-primary z-20">
                             <Image src="/images/dest1.png" alt="Why Us 2" fill className="object-cover" />
                         </div>
-                    </div>
+
+                        <div className="absolute bottom-0 left-10 w-[60%] h-[45%] rounded-[30px] overflow-hidden border-[15px] border-secondary z-10">
+                            <Image src="/images/dest2.jpg" alt="Why Us 1" fill className="object-cover" />
+                        </div>
+                    </div> */}
+
                 </div>
             </Container>
 
-            <div className="bg-gray-100 py-4 text-center text-xs text-gray-500">
-                Hurghada To Luxor / Sharm El Sheikh / Cairo Tours / Safari / Snorkeling
-            </div>
+            <div className="bg-[#F1F1F1] py-8 text-center text-sm text-[#000000]">
+                Things to do in Sharm el-Sheikh / Boat Tours / Safari / Contact Us            </div>
         </div>
     );
 }

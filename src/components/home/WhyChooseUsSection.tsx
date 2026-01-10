@@ -2,6 +2,7 @@ import Image from "next/image"
 import { MapPin, Star, Gift } from "lucide-react"
 import Container from "@/util/Container"
 import SectionHeader from "@/util/SectionHeader"
+import ImageBox from "../shared/ImageBox"
 
 export function WhyChooseUsSection() {
   return (
@@ -67,15 +68,7 @@ export function WhyChooseUsSection() {
           </div>
 
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-[339px] h-[548px]">
-              <Image
-                src="/images/Group.png"
-                alt="Why Choose Us"
-                width={339}
-                height={548}
-                className="object-cover w-full h-full rounded-3xl"
-              />
-            </div>
+           <ImageBox />
           </div>
         </div>
       </Container>

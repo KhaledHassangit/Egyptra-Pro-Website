@@ -2,11 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { AuthLayoutProps } from '@/constants/types';
 
-// This component defines the overall page layout with the left carousel and right content area.
-interface AuthLayoutProps {
-  children: React.ReactNode; // The right side content will be passed as children
-}
+
 
 const carouselImages = [
   { src: '/images/1.jpg', alt: 'Egyptian Temple 1' },

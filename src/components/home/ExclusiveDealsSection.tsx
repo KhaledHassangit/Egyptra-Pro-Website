@@ -1,9 +1,8 @@
+import { ExclusiveDealsSectionProps } from "@/constants/types";
 import Container from "@/util/Container";
 import UIButton from "@/util/UIButton";
 
-interface ExclusiveDealsSectionProps {
-  backgroundImage?: string;
-}
+
 
 export function ExclusiveDealsSection({
   backgroundImage = "/images/banner.png" 

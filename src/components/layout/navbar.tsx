@@ -14,9 +14,11 @@ import Logo from '@/util/Logo';
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    const isWhyUsPage = pathname === '/why_us';
+    
+    // Define special page cases
     const isCustomerPage = pathname === '/customer_login'; 
-
+    const isHomePage = pathname === '/';
+    
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'Destinations', href: '#destinations' },
@@ -26,17 +28,16 @@ export function Navbar() {
 
     return (
         <nav className={cn(
-            "w-full z-50 transition-all duration-300", 
-            isWhyUsPage ? "bg-white text-white" : 
-            isCustomerPage ? "bg-primary text-white" : // Add customer page styling
-            "bg-primary"
+            "w-full z-50 transition-all duration-300 relative", // Added relative positioning
+            "bg-white", // Default: why_us styling
+            isCustomerPage && "bg-primary", // Override for customer page
+            isHomePage && "bg-primary" // Override for home page
         )}>
-            <div className={cn(isWhyUsPage ? "py-4" : "mt-4")}>
+            <div className={cn(isHomePage && "mt-4")}>
                 <Container className={cn(
-                    "transition-all duration-300", 
-                    isWhyUsPage ? "bg-transparent text-white" : 
-                    isCustomerPage ? "bg-primary z-50" : // Customer page: primary bg, no rounded corners
-                    "rounded-[20px] bg-white z-50"
+                    "transition-all duration-300 bg-transparent", // Default: why_us styling
+                    isCustomerPage && "bg-primary", // Override for customer page
+                    isHomePage && "rounded-[20px] bg-white" // Override for home page
                 )}>
                     <div className="flex justify-between h-20 items-center">
                         {/* Logo */}
@@ -49,21 +50,16 @@ export function Navbar() {
                                     key={link.name}
                                     href={link.href}
                                     className={cn(
-                                        "transition-colors font-medium",
-                                        // Adjust text color based on background
-                                        isWhyUsPage ? "text-[#00000080] hover:text-black" : 
-                                        isCustomerPage ? "text-white hover:text-gray-200" : // White text for customer page
-                                        "text-[#00000080] hover:text-black"
+                                        "transition-colors font-medium text-[#00000080] hover:text-black", // Default: why_us styling
+                                        (isCustomerPage || isHomePage) && "text-white hover:text-gray-200" // Override for customer and home pages
                                     )}
                                 >
                                     {link.name}
                                 </Link>
                             ))}
                             <Button className={cn(
-                                "text-white", 
-                                isWhyUsPage ? "bg-white text-primary hover:bg-white/90" : 
-                                isCustomerPage ? "bg-white text-primary hover:bg-gray-100" : // White button for customer page
-                                "bg-primary hover:bg-primary/90"
+                                "bg-white text-primary hover:bg-white/90", // Default: why_us styling
+                                (isCustomerPage || isHomePage) && "bg-primary hover:bg-primary/90 text-white" // Override for customer and home pages
                             )}>
                                 Book Now
                             </Button>
@@ -74,10 +70,8 @@ export function Navbar() {
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 className={cn(
-                                    "focus:outline-none", 
-                                    isWhyUsPage ? "text-white" : 
-                                    isCustomerPage ? "text-white" : // White icon for customer page
-                                    "text-foreground hover:text-primary"
+                                    "focus:outline-none text-white", // Default: why_us styling
+                                    !(isCustomerPage || isHomePage) && "text-foreground hover:text-primary" // Override for non-customer, non-home pages
                                 )}
                             >
                                 {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -87,9 +81,9 @@ export function Navbar() {
                 </Container>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Fixed positioning to prevent height increase */}
             {isOpen && (
-                <div className="md:hidden bg-white absolute w-full left-0 top-20 shadow-lg">
+                <div className="md:hidden bg-white absolute w-full left-0 top-full shadow-lg z-50">
                     <Container>
                         <div className="pt-2 pb-4 space-y-2">
                             {navLinks.map((link) => (

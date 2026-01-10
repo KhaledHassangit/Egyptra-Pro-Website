@@ -2,29 +2,10 @@ import React from 'react';
 import { User, Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
-import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
 import LoadingButton from '@/util/LoadingButton';
+import { RegisterFormProps } from '@/constants/types';
 
-// Defines the props the RegisterForm component will receive
-interface RegisterFormProps {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-  errors: Record<string, string>;
-  showPassword: boolean;
-  showConfirmPassword: boolean;
-  isLoading: boolean;
-  onNameChange: (value: string) => void;
-  onEmailChange: (value: string) => void;
-  onPasswordChange: (value: string) => void;
-  onConfirmPasswordChange: (value: string) => void;
-  onTogglePassword: () => void;
-  onToggleConfirmPassword: () => void;
-  onSubmit: (e: React.FormEvent) => void;
-  onClearError: (field: string) => void;
-}
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
   name,

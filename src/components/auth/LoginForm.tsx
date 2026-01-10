@@ -2,23 +2,11 @@ import React from 'react';
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
-import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
 import LoadingButton from '@/util/LoadingButton';
+import { LoginFormProps } from '@/constants/types';
 
-// Defines the props the LoginForm component will receive
-interface LoginFormProps {
-  email: string;
-  password: string;
-  errors: Record<string, string>;
-  showPassword: boolean;
-  isLoading: boolean;
-  onEmailChange: (value: string) => void;
-  onPasswordChange: (value: string) => void;
-  onTogglePassword: () => void;
-  onSubmit: (e: React.FormEvent) => void;
-  onClearError: (field: string) => void;
-}
+
 
 export const LoginForm: React.FC<LoginFormProps> = ({
   email,

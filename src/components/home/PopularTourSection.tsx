@@ -6,6 +6,7 @@ import Container from "@/util/Container";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import UIButton from "@/util/UIButton";
 import SectionHeader from "@/util/SectionHeader";
+import { TourCard } from "@/components/tours/TourCard";
 
 export function PopularTourSection() {
   const [activeTab, setActiveTab] = useState(0);
@@ -13,7 +14,7 @@ export function PopularTourSection() {
   const cities = ['Cairo', 'Hurghada', 'Luxor', 'Aswan'];
 
   // Map each city to its specific image
-  const cityImages = {
+  const cityImages: Record<string, string> = {
     'Cairo': "/images/dest1.png",
     'Hurghada': "/images/dest2.jpg",
     'Luxor': "/images/dest5.jpg",
@@ -21,7 +22,7 @@ export function PopularTourSection() {
   };
 
   // Different image sets for each city
-  const cityTourImages = {
+  const cityTourImages: Record<string, string[]> = {
     'Cairo': [
       "/images/dest1.png",
       "/images/dest2.jpg",
@@ -57,7 +58,7 @@ export function PopularTourSection() {
   };
 
   // Tour data for each city
-  const tourData = {
+  const tourData: Record<string, { city: string; title: string; price: string; rating: string }[]> = {
     'Cairo': [
       { city: 'Cairo', title: 'Pyramids of Giza: Full Day Tour', price: '$ 120', rating: '4.8 (320)' },
       { city: 'Cairo', title: 'Egyptian Museum & Citadel Tour', price: '$ 85', rating: '4.6 (250)' },
@@ -111,8 +112,8 @@ export function PopularTourSection() {
                 <button
                   key={city}
                   className={`flex items-center gap-2 pb-2 border-b-2 transition-colors whitespace-nowrap ${idx === activeTab
-                      ? 'border-[#265D92] text-[#265D92] font-normal'
-                      : 'border-transparent text-gray-500 hover:text-gray-900'
+                    ? 'border-[#265D92] text-[#265D92] font-normal'
+                    : 'border-transparent text-gray-500 hover:text-gray-900'
                     }`}
                   onClick={() => setActiveTab(idx)}
                 >
@@ -145,10 +146,11 @@ export function PopularTourSection() {
             {Array.from({ length: totalCards }).map((_, item) => (
               <CarouselItem key={item} className="pl-6 md:basis-1/2 lg:basis-1/4">
                 <TourCard
-                  imageIndex={item}
-                  city={currentCity}
-                  tourData={currentTourData[item]}
                   imagePath={currentCityImages[item]}
+                  city={currentCity}
+                  title={currentTourData[item].title}
+                  price={currentTourData[item].price}
+                  rating={currentTourData[item].rating}
                 />
               </CarouselItem>
             ))}
@@ -159,39 +161,17 @@ export function PopularTourSection() {
   );
 }
 
-function TourCard({ imageIndex, city, tourData, imagePath }: {
+
+function TourCardPlaceholder({ imageIndex, city, tourData, imagePath }: {
   imageIndex: number;
   city: string;
   tourData: { city: string; title: string; price: string; rating: string };
   imagePath: string;
 }) {
-  return (
-    <div
-      className="bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[335px] flex flex-col"
-    >
-      <div className="relative h-[180px]">
-        <Image
-          src={imagePath}
-          alt={`${city} Tour`}
-          fill
-          className="object-cover"
-        />
-      </div>
-      <div className="p-4 flex flex-col flex-1 justify-between">
-        <div className="space-y-3">
-          <div className="flex justify-between items-center">
-            <span className="text-black text-sm font-medium">{city}</span>
-            <div className="flex items-center gap-1">
-              <Star size={12} className="text-primary fill-current" />
-              <span className="text-black text-xs font-light">{tourData.rating}</span>
-            </div>
-          </div>
-          <h3 className="text-gray-700 text-base font-normal line-clamp-2">
-            {tourData.title}
-          </h3>
-        </div>
-        <p className="text-primary text-base font-medium">{tourData.price}</p>
-      </div>
-    </div>
-  );
+  // This is just a wrapper to adapt the props if needed, or we can update the usage directly.
+  // The previous component was defined inside the file.
+  // We will now use the imported TourCard.
+  // However, the props are slightly different (object naming).
+  // Let's just update the usage in the map function and remove this function.
+  return null;
 }

@@ -1,10 +1,7 @@
 import { Button } from '@/components/ui/button';
+import { LoadingButtonProps, SpinnerProps } from '@/constants/types';
 import React from 'react';
 
-interface SpinnerProps {
-  size?: 'sm' | 'md' | 'lg';
-  color?: string;
-}
 
 const Spinner: React.FC<SpinnerProps> = ({ size = 'md', color = 'white' }) => {
   const sizeClasses = {
@@ -19,15 +16,6 @@ const Spinner: React.FC<SpinnerProps> = ({ size = 'md', color = 'white' }) => {
   );
 };
 
-interface LoadingButtonProps {
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  loadingText?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
-}
 
 const LoadingButton: React.FC<LoadingButtonProps> = ({
   type = 'button',

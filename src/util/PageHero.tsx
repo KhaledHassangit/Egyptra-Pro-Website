@@ -1,12 +1,8 @@
 // components/PageHero.tsx
+import { PageHeroProps } from '@/constants/types'
 import Container from '@/util/Container'
 import Link from 'next/link'
 
-interface PageHeroProps {
-  title: string
-  currentPage: string
-  currentPageUrl?: string
-}
 
 const PageHero = ({ title, currentPage, currentPageUrl }: PageHeroProps) => {
   return (

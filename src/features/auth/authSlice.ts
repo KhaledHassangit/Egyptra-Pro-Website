@@ -1,13 +1,8 @@
+import { AuthState, User } from '@/constants/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
-import { User } from './authApi';
 
 const cookies = new Cookies();
-
-interface AuthState {
-    user: User | null;
-    token: string | null;
-}
 
 const initialState: AuthState = {
     user: null,

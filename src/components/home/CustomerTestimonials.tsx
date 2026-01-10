@@ -5,16 +5,8 @@ import { useEffect, useState } from "react"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { Button } from "@/components/ui/button"
 import Container from "@/util/Container"
+import { Testimonial } from "@/constants/types"
 
-interface Testimonial {
-  id: number
-  rating: number
-  title: string
-  content: string
-  author: string
-  location: string
-  date: string
-}
 
 const testimonials: Testimonial[] = [
   {

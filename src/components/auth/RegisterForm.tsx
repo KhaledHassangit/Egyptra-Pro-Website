@@ -4,6 +4,8 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
+import LoadingButton from '@/util/LoadingButton';
+
 // Defines the props the RegisterForm component will receive
 interface RegisterFormProps {
   name: string;
@@ -50,7 +52,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
           <User className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 z-10" style={{ color: '#717182' }} />
           <Input
             id="username"
-            placeholder="ahmed153"
+            placeholder="Khaled Hassan"
             className="pl-10 h-11"
             style={{
               width: '100%', maxWidth: '448px', height: '48px', backgroundColor: '#F9FAFB',
@@ -136,10 +138,13 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
           I agree to the <a href="#" className="text-primary hover:underline">Terms of Service</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a>
         </label>
       </div>
-
-      <Button type="submit" className="w-full h-11 text-base" disabled={isLoading}>
-        {isLoading ? 'Creating Account...' : 'Create Your Account'}
-      </Button>
+      <LoadingButton
+        type="submit"
+        isLoading={isLoading}
+        loadingText="Creating Account..."
+      >
+        Create Your Account
+      </LoadingButton>
     </form>
   );
 };

@@ -73,7 +73,7 @@ export const useAuth = () => {
       if (error instanceof z.ZodError) {
         const errors: Record<string, string> = {};
         error.issues.forEach((err) => {
-          errors[err.path[0]] = err.message;
+          errors[err.path[0] as string] = err.message;
         });
         setLoginErrors(errors);
       }
@@ -96,7 +96,7 @@ export const useAuth = () => {
       if (error instanceof z.ZodError) {
         const errors: Record<string, string> = {};
         error.issues.forEach((err) => {
-          errors[err.path[0]] = err.message;
+          errors[err.path[0] as string] = err.message;
         });
         setRegisterErrors(errors);
       }
@@ -124,10 +124,12 @@ export const useAuth = () => {
     e.preventDefault();
     if (validateRegisterForm()) {
       try {
+        // Include confirmPassword in the payload
         const userData = await register({
+          username: registerName,
           email: registerEmail,
           password: registerPassword,
-          username: registerName,
+          confirmPassword: registerConfirmPassword,
         }).unwrap();
         dispatch(setCredentials({ user: userData.user, token: userData.access_token }));
         notify('Registration successful', 'success');

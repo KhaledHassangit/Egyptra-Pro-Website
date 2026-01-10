@@ -7,8 +7,6 @@ import { useAuth } from '@/hooks/useAuth';
 import Container from '@/util/Container';
 import Logo from '@/util/Logo';
 
-// This component contains the header, toggle buttons, and renders the correct form.
-// It acts as a "container" that connects the "dumb" UI components to the "smart" logic hook.
 export const AuthFormContainer: React.FC = () => {
   const {
     // Shared state
@@ -28,7 +26,7 @@ export const AuthFormContainer: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <Logo width={11} hight={12} />
+            <Logo width={12} hight={12} />
             <span className="ml-2 text-primary" style={{ fontWeight: '500', fontSize: '24px' }}>
               Welcome to Egyptra
             </span>

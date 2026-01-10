@@ -18,8 +18,10 @@ export const registerSchema = z.object({
     .string()
     .min(1, { message: 'Username is required' })
     .min(3, { message: 'Username must be at least 3 characters' })
-    .max(20, { message: 'Username must be less than 20 characters' })
-    .regex(/^[a-zA-Z0-9_]+$/, { message: 'Username can only contain letters, numbers, and underscores' }),
+    .max(50, { message: 'Username must be less than 50 characters' })
+    .regex(/^[a-zA-Z0-9_ ]+$/, { 
+      message: 'Username can only contain letters, numbers, spaces, and underscores' 
+    }),
   email: z
     .string()
     .min(1, { message: 'Email is required' })
@@ -28,8 +30,8 @@ export const registerSchema = z.object({
     .string()
     .min(1, { message: 'Password is required' })
     .min(8, { message: 'Password must be at least 8 characters' })
-    .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, { 
-      message: 'Password must contain at least one uppercase letter, one lowercase letter, and one number' 
+    .regex(/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{8,}$/, { 
+      message: 'Password must contain at least one letter and one number. Special characters like @, $, !, %, *, ?, & are allowed' 
     }),
   confirmPassword: z
     .string()
@@ -40,6 +42,5 @@ export const registerSchema = z.object({
   path: ["confirmPassword"],
 })
 
-// Types for form data
 export type LoginFormData = z.infer<typeof loginSchema>
 export type RegisterFormData = z.infer<typeof registerSchema>

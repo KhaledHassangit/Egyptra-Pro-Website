@@ -4,6 +4,7 @@ import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { Checkbox } from '../ui/checkbox';
+import LoadingButton from '@/util/LoadingButton';
 
 // Defines the props the LoginForm component will receive
 interface LoginFormProps {
@@ -113,9 +114,13 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         </a>
       </div>
 
-      <Button type="submit" className="w-full h-11 text-base" disabled={isLoading}>
-        {isLoading ? 'Signing In...' : 'Sign In to Your Account'}
-      </Button>
+      <LoadingButton
+        type="submit"
+        isLoading={isLoading}
+        loadingText="Signing In..."
+      >
+        Sign In to Your Account
+      </LoadingButton>
     </form>
   );
 };

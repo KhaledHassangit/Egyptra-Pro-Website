@@ -24,18 +24,18 @@ export function SearchBar({
     <Container className={`mt-6 relative z-10 mb-12 ${className}`}>
       <form 
         onSubmit={handleSearch} 
-        className="bg-white h-[55px] shadow-lg flex items-center max-w-3xl mx-auto border border-gray-100 overflow-hidden"
+        className="bg-white border border-[#D1D5DC]  h-[50px]  rounded-[14px] shadow-md flex items-center max-w-3xl mx-auto overflow-hidden"
       >
-        <Search className="text-gray-400 ml-4 flex-shrink-0" size={20} />
+        <Search className="text-[#99A1AF] ml-4 flex-shrink-0" size={20} />
         <input
           type="text"
           name="query"
-          placeholder={placeholder}
-          className="flex-1 outline-none text-gray-700 h-full pl-3 rounded-l-[14px]"
+          placeholder={placeholder} 
+          className="flex-1 outline-none    text-[#0A0A0A80] h-full pl-3  "
         />
         <Button 
           type="submit" 
-          className="bg-blue-600 text-white px-8 h-full rounded-r-[14px] font-medium hover:bg-blue-700 transition flex items-center justify-center flex-shrink-0"
+          className="bg-primary text-white w-[110px]  rounded-l-none   h-full rounded-r-[14px] font-medium hover:bg-blue-700 transition flex items-center justify-center flex-shrink-0"
         >
           {buttonText}
         </Button>

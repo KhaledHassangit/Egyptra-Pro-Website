@@ -1,3 +1,5 @@
+// hooks/useAuth.ts (or wherever your useAuth hook is located)
+
 "use client";
 
 import { useState } from 'react';
@@ -110,7 +112,13 @@ export const useAuth = () => {
     if (validateLoginForm()) {
       try {
         const userData = await login({ email: loginEmail, password: loginPassword }).unwrap();
-        dispatch(setCredentials({ user: userData.user, token: userData.access_token }));
+        
+        // Dispatch only user and access_token
+        dispatch(setCredentials({ 
+          user: userData.user, 
+          token: userData.access_token 
+        }));
+        
         notify('Login successful', 'success');
         router.push('/');
       } catch (err: any) {
@@ -124,14 +132,19 @@ export const useAuth = () => {
     e.preventDefault();
     if (validateRegisterForm()) {
       try {
-        // Include confirmPassword in the payload
         const userData = await register({
           username: registerName,
           email: registerEmail,
           password: registerPassword,
           confirmPassword: registerConfirmPassword,
         }).unwrap();
-        dispatch(setCredentials({ user: userData.user, token: userData.access_token }));
+
+        // Dispatch only user and access_token
+        dispatch(setCredentials({ 
+          user: userData.user, 
+          token: userData.access_token 
+        }));
+        
         notify('Registration successful', 'success');
         router.push('/');
       } catch (err: any) {

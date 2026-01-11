@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Container from "@/util/Container";
-import { Search,  Ship, Mountain, Bike, Building2 } from "lucide-react";
+import { Search,  Ship, Mountain, Bike, Building2, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
@@ -37,7 +37,7 @@ const SearchPageHero = () => {
                     
                     <div className={cn(
                         "bg-white shadow-lg p-6 flex flex-col gap-6 w-full max-w-4xl",
-                        isAdvancedFiltersOpen ? "rounded-t-xl" : "rounded-xl"
+                        isAdvancedFiltersOpen ? "rounded-t-[16px]" : "rounded-[16px]"
                     )}>
                         {/* Search Bar */}
                         <div className="flex gap-2">
@@ -45,20 +45,20 @@ const SearchPageHero = () => {
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
                                 <Input
                                     placeholder="Search destinations, activities, or experiences..."
-                                    className="pl-10 h-12 text-base border-gray-200"
+                                        className="pl-10 h-12 rounded-[14px] text-base border border-[#D1D5DC] "
                                 />
                             </div>
-                            <Button className="h-12 px-8 bg-[#0373DE] hover:bg-[#025bb5] text-white">
+                            <Button className="h-12 px-8   rounded-[16px] bg-[#155DFC] hover:bg-[#025bb5] text-white">
                                 Search
                             </Button>
                         </div>
 
                         {/* Popular Searches */}
                         <div className="flex flex-col gap-3">
-                            <span className="text-gray-500 text-sm font-medium">Popular searches:</span>
+                            <span className="text-[#4A5565] text-sm font-medium text-left">Popular searches:</span>
                             <div className="flex flex-wrap gap-2">
                                 {["Hurghada", "Luxor", "Cairo", "Sharm El Sheikh", "Desert Safari"].map((tag) => (
-                                    <button key={tag} className="px-4 py-1.5 bg-gray-100 hover:bg-gray-200 rounded-full text-sm text-gray-700 transition-colors">
+                                    <button key={tag} className="px-4 py-2 border bg-[#F3F4F6] hover:bg-gray-200  border-[#E5E7EB] rounded-full text-sm text-[#364153] transition-colors">
                                         {tag}
                                     </button>
                                 ))}
@@ -67,7 +67,7 @@ const SearchPageHero = () => {
 
                         {/* Things To Do */}
                         <div className="flex flex-col gap-3">
-                            <span className="text-black text-sm font-bold">Things To Do</span>
+                            <span className="text-[#101828] text-left text-sm font-bold">Things To Do</span>
                             <div className="flex flex-wrap gap-3">
                                 {[
                                     { icon: Ship, label: "Snorkeling" },
@@ -78,7 +78,7 @@ const SearchPageHero = () => {
                                 ].map((item, index) => (
                                     <button
                                         key={index}
-                                        className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-full hover:border-[#0373DE] hover:text-[#0373DE] text-gray-600 transition-colors"
+                                        className="flex items-center gap-2 px-4 py-2 border border-[#D1D5DC] rounded-full hover:border-[#0373DE] hover:text-[#0373DE] text-gray-600 transition-colors"
                                     >
                                         <item.icon size={16} />
                                         <span className="text-sm font-medium">{item.label}</span>
@@ -87,18 +87,16 @@ const SearchPageHero = () => {
                             </div>
                         </div>
 
-                        {/* Divider */}
-                        <div className="h-px bg-gray-100 w-full" />
+                        <div className="h-[1px] bg-[#E5E7EB] w-full" />
 
-                        {/* Advanced Filters Toggle */}
                         <div>
                             <button
                                 onClick={() => setIsAdvancedFiltersOpen(!isAdvancedFiltersOpen)}
-                                className="flex items-center gap-2 text-[#0373DE] font-medium text-sm hover:underline"
+                                className="flex items-center gap-2 text-[#0373DE] font-medium text-sm"
                             >
                                 Advanced Filters
                                 <span className={cn("transition-transform", isAdvancedFiltersOpen ? "rotate-180" : "")}>
-                                    ▼
+                                    <ChevronDown size={18} />
                                 </span>
                             </button>
                         </div>

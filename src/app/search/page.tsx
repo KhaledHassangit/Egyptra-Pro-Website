@@ -3,8 +3,8 @@
 import Container from "@/util/Container";
 import SectionHeader from "@/util/SectionHeader";
 import SearchPageHero from "@/components/search/SearchPageHero";
-import { TourCard } from "@/components/shared/TourCard";
 import TrustBadges from "@/components/search/TrustBadges";
+import { TourCard } from "@/components/shared/TourCard";
 
 const SearchPage = () => {
     const mockTours = [

@@ -34,8 +34,23 @@ export interface RegisterFormProps {
 export interface User {
     id: string;
     email: string;
-    username: string;
-    role: string;
+    firstName: string;
+    lastName: string;
+    phone?: string | null;
+    avatar?: string | null;
+    roleId?: string;
+    createdAt?: string;
+    updatedAt?: string;
+    role?: string | {
+        id: string;
+        name: string;
+        description: string;
+        permissions: Array<{
+            id: string;
+            name: string;
+            description: string;
+        }>;
+    };
 }
 
 export interface AuthResponse {

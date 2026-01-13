@@ -11,8 +11,9 @@ import { TourCard } from "@/components/shared/TourCard";
 import { SectionCarousel } from "@/components/shared/section-carousel";
 import Link from "next/link";
 import ImageBox from "@/components/shared/ImageBox";
+import { Suspense } from "react";
 
-export default function DestinationPage() {
+function DestinationPageContent() {
     const searchParams = useSearchParams();
     const location = searchParams.get("location") || "Hurghada";
     const formattedLocation = location.charAt(0).toUpperCase() + location.slice(1);
@@ -218,7 +219,7 @@ export default function DestinationPage() {
                         <div className="relative z-10 w-full flex flex-col md:flex-row h-full">
                             <div className="p-12 flex flex-col justify-center">
                                 <p className="text-[24px] font-semibold leading-[160%] mb-8">
-                                    Discover 250+ Amazing Things to Do in Makadi Bay From world-class diving at Ras Mohammed to thrilling desert safaris, explore the best Sharm El Sheikh tours, excursions in Sharm El Sheikh, and activities in Sharm El Sheikh. Book online with instant confirmation and best price guarantee!
+                                    Discover 250+ Amazing Things to Do in Makadi Bay From world-class diving at Ras Mohammed to thrilling desert safaris, explore the best Sharm El Sheikh tours, excursions in Sharm El Sheikh, and activities in Sharm El Sheikh. Book online with instant confirmation and best price guarantee!
                                 </p>
 
                                 <div className="grid grid-cols-2 gap-6">
@@ -305,5 +306,13 @@ export default function DestinationPage() {
             <div className="bg-[#F1F1F1] py-8 text-center text-sm text-[#000000]">
                 Things to do in Sharm el-Sheikh / Boat Tours / Safari / Contact Us            </div>
         </div>
+    );
+}
+
+export default function DestinationPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <DestinationPageContent />
+        </Suspense>
     );
 }

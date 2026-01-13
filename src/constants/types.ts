@@ -139,3 +139,17 @@ export interface TourCardProps {
     variant?: "default" | "detailed";
     className?: string;
 }
+
+export interface ContactFormData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone?: string;
+  inquiry: string;
+  message: string;
+}
+
+export interface ContactResponse {
+  success: boolean;
+  message: string;
+}

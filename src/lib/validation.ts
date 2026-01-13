@@ -44,3 +44,21 @@ export const registerSchema = z.object({
 
 export type LoginFormData = z.infer<typeof loginSchema>
 export type RegisterFormData = z.infer<typeof registerSchema>
+
+
+// Contact Validation
+
+export const contactFormSchema = z.object({
+  firstName: z.string().min(2, { message: 'First name must be at least 2 characters' }),
+  lastName: z.string().min(2, { message: 'Last name must be at least 2 characters' }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
+  phone: z.string().optional(),
+  inquiry: z.string().min(1, { message: 'Please select an inquiry type' }),
+  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+});
+
+export type ContactFormData = z.infer<typeof contactFormSchema>;
+
+export const validateContactForm = (data: unknown) => {
+  return contactFormSchema.safeParse(data);
+};

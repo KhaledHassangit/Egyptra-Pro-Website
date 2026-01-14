@@ -1,3 +1,4 @@
+// SearchPage.tsx
 "use client";
 
 import Container from "@/util/Container";
@@ -92,21 +93,21 @@ const SearchPage = () => {
     ];
 
     return (
-        <main className="pb-20">
+        <main className="pb-12 sm:pb-16 lg:pb-20 xl:pb-24 2xl:pb-32">
             <SearchPageHero />
-            <Container className="mt-20">
-                <div className="space-y-6">
+            <Container className="mt-12 sm:mt-16 lg:mt-20 xl:mt-24 2xl:mt-32">
+                <div className="space-y-4 sm:space-y-6">
                     <SectionHeader
                         title="Tours & Activities"
                         description="6 experiences found"
-                        titleClassName="text-3xl font-bold"
-                        descriptionClassName="text-gray-500 text-lg"
+                        titleClassName="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold"
+                        descriptionClassName="text-gray-500 text-base sm:text-lg lg:text-xl xl:text-2xl"
                     />
                 </div>
 
                 <TrustBadges />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                     {mockTours.map((tour, index) => (
                         <TourCard
                             key={index}
@@ -118,6 +119,7 @@ const SearchPage = () => {
                             duration={tour.duration}
                             location={tour.location}
                             variant="detailed"
+                            className="w-full"
                         />
                     ))}
                 </div> 

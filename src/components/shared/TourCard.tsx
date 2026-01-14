@@ -1,3 +1,4 @@
+// TourCard.tsx
 "use client";
 
 import Image from "next/image";
@@ -80,16 +81,18 @@ export function TourCard({
         return (
             <div
                 className={cn(
-                    "bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[400px] flex flex-col ",
+                    "bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[400px] flex flex-col w-full",
                     className
                 )}
+                style={{ maxWidth: "340px" }}
             >
-                <div className="relative h-[200px] w-full">
+                <div className="relative h-[200px] w-full overflow-hidden">
                     <Image
                         src={imagePath}
                         alt={`${city} Tour`}
                         fill
                         className="object-cover"
+                        sizes="(max-width: 768px) 340px, (max-width: 1200px) 50vw, 25vw"
                     />
                     {/* Heart and Share Icons */}
                     <div className="absolute top-3 right-3 flex gap-2 flex-col">
@@ -204,17 +207,19 @@ export function TourCard({
     return (
         <div
             className={cn(
-                "bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[335px] flex flex-col ",
+                "bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[335px] flex flex-col w-full",
                 className
             )}
+            style={{ maxWidth: "340px" }}
         >
-            <div className="relative h-[180px] w-full">
+            <div className="relative h-[180px] w-full overflow-hidden">
                 <Image
                     src={imagePath}
                     alt={`${city} Tour`}
-                fill
-                className="object-cover"
-            />
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 340px, (max-width: 1200px) 50vw, 25vw"
+                />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
                 <div className="space-y-3">

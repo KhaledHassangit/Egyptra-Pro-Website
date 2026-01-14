@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button"
 import Container from "@/util/Container"
 import { Testimonial } from "@/constants/types"
 
-
 const testimonials: Testimonial[] = [
   {
     id: 1,
@@ -87,18 +86,18 @@ export function CustomerTestimonials() {
   }
 
   return (
-    <Container className="py-12">
+    <Container className="py-8 sm:py-12 px-4">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-5">
-        <div className="mb-4 md:mb-0 ms-4">
-          <h2 className="text-3xl font-bold mb-2">What Our Customers Say</h2>
-          <p className="text-gray-600">Read authentic reviews from our satisfied customers who experienced.</p>
+        <div className="mb-4 md:mb-0 ms-0 sm:ms-4 text-center sm:text-left w-full md:w-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">What Our Customers Say</h2>
+          <p className="text-gray-600 text-sm sm:text-base">Read authentic reviews from our satisfied customers who experienced.</p>
         </div>
 
-        <div className="flex gap-2 me-4">
+        <div className="hidden sm:flex gap-2 me-0 sm:me-4">
           <Button
             variant="outline"
             size="icon"
-            className={`w-[40px] h-[40px] rounded text-white transition-colors ${
+            className={`w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded text-white transition-colors ${
               canScrollPrev 
                 ? 'bg-primary hover:bg-primary/90 border-primary' 
                 : 'bg-gray-300 border-gray-300 cursor-not-allowed'
@@ -106,13 +105,13 @@ export function CustomerTestimonials() {
             onClick={scrollPrev}
             disabled={!canScrollPrev}
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={16} />
             <span className="sr-only">Previous testimonial</span>
           </Button>
           <Button
             variant="outline"
             size="icon"
-            className={`w-[40px] h-[40px] rounded text-white transition-colors ${
+            className={`w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded text-white transition-colors ${
               canScrollNext 
                 ? 'bg-[#D0A87D] hover:bg-[#D0A87D]/90 border-[#D0A87D]' 
                 : 'bg-gray-300 border-gray-300 cursor-not-allowed'
@@ -120,7 +119,7 @@ export function CustomerTestimonials() {
             onClick={scrollNext}
             disabled={!canScrollNext}
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={16} />
             <span className="sr-only">Next testimonial</span>
           </Button>
         </div>
@@ -132,15 +131,15 @@ export function CustomerTestimonials() {
           loop: false,
         }}
         setApi={setApi}
-        className="w-full p-4"
+        className="w-full p-2 sm:p-4"
       >
-        <CarouselContent className="-ml-6">
+        <CarouselContent className="-ml-4 sm:-ml-6">
           {testimonials.map((testimonial) => (
             <CarouselItem 
               key={testimonial.id} 
-              className="pl-6 basis-full md:basis-1/2 lg:basis-1/3"
+              className="pl-4 sm:pl-6 basis-full sm:basis-1/2 lg:basis-1/3"
             >
-              <div className="bg-white shadow-sm h-full flex flex-col p-6 w-[390px] border border-[#D0A87D] rounded-[18px]">
+              <div className="bg-white shadow-sm h-full flex flex-col p-4 sm:p-6 w-full border border-[#D0A87D] rounded-[18px]">
                 <div className="flex items-center mb-4">
                   <span className="font-normal text-sm mr-2 text-primary">
                     5.0
@@ -156,22 +155,22 @@ export function CustomerTestimonials() {
                   </div>
                 </div>
 
-                <h3 className="font-normal text-lg mb-3 text-[#4A4A4A]">
+                <h3 className="font-normal text-base sm:text-lg mb-3 text-[#4A4A4A]">
                   {testimonial.title}
                 </h3>
-                <p className="text-[#282828] font-light text-base leading-5 mb-6 flex-grow">
+                <p className="text-[#282828] font-light text-sm sm:text-base leading-5 mb-6 flex-grow">
                   {testimonial.content}
                 </p>
 
-                <div className="pt-4 ">
-                  <p className="font-normal text-base text-primary">
+                <div className="pt-4">
+                  <p className="font-normal text-sm sm:text-base text-primary">
                     {testimonial.author}
                   </p>
                   <div className="flex items-center justify-between">
-                    <p className="font-normal text-sm text-primary mr-2">
+                    <p className="font-normal text-xs sm:text-sm text-primary mr-2">
                       {testimonial.location}
                     </p>
-                    <p className="font-normal text-sm text-[#4A4A4A] ml-2">
+                    <p className="font-normal text-xs sm:text-sm text-[#4A4A4A] ml-2">
                       {testimonial.date}
                     </p>
                   </div>

@@ -11,7 +11,7 @@ export function HeroSection() {
           {/* Left Content */}
           <div className="space-y-6 z-10 max-w-lg pt-4">
             <h1 className="text-[48px] font-medium text-white leading-[1.3]">
-              Discover Egypt's Top<br />Ranked Egypt
+              Discover Egypt&apos;s Top<br />Ranked Egypt
             </h1>
             <p className="text-[#EDEDED] text-[26px] font-light leading-relaxed">
               Top Ranked Egypt Things to do, Tours and Activities.

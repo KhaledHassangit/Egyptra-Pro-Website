@@ -21,35 +21,37 @@ export const AuthFormContainer: React.FC = () => {
   } = useAuth();
 
   return (
-    <Container>
-      <div className="w-full max-w-md space-y-8">
+    <Container className="px-4 sm:px-6">
+      <div className="w-full max-w-md sm:max-w-lg mx-auto space-y-6 sm:space-y-8">
         {/* Header */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center mb-4">
             <Logo width={12} hight={12} />
-            <span className="ml-2 text-primary" style={{ fontWeight: '500', fontSize: '24px' }}>
+            <span className="ml-2 text-primary" style={{ fontWeight: '500', fontSize: 'clamp(18px, 4vw, 24px)' }}>
               Welcome to Egyptra
             </span>
           </div>
-          <h2 className="text-3xl font-bold mt-2" style={{ fontWeight: '400', fontSize: '32px', color: '#101828' }}>
+          <h2 className="text-2xl sm:text-3xl font-bold mt-2" style={{ fontWeight: '400', color: '#101828' }}>
             Start Your Egyptian Journey
           </h2>
-          <p className="mt-2" style={{ color: '#282828', fontSize: '16px', lineHeight: '24px', fontWeight: '400' }}>
+          <p className="mt-2 text-sm sm:text-base" style={{ color: '#282828', lineHeight: '1.5', fontWeight: '400' }}>
             Join thousands of travelers discovering authentic Egyptian experiences
           </p>
         </div>
 
         {/* Toggle Buttons */}
-        <div className="flex p-1 rounded-lg mb-8" style={{ backgroundColor: '#F9FAFB' }}>
+        <div className="flex p-1 rounded-lg mb-6 sm:mb-8" style={{ backgroundColor: '#F9FAFB' }}>
           <button
             onClick={() => toggleView('login')}
             className={cn(
-              "flex-1 py-2.5 text-sm font-medium rounded-md transition-all duration-200",
+              "flex-1 py-2.5 px-2 sm:px-4 text-sm font-medium rounded-md transition-all duration-200",
               isLogin ? "bg-white text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
             )}
             style={{
-              width: '200px', height: '50px', border: isLogin ? '0.8px solid #E5E7EB' : '0.8px solid transparent',
-              borderRadius: '10px', backgroundColor: isLogin ? '#FFFFFF' : 'transparent'
+              height: '44px sm:h-50px',
+              border: isLogin ? '0.8px solid #E5E7EB' : '0.8px solid transparent',
+              borderRadius: '10px',
+              backgroundColor: isLogin ? '#FFFFFF' : 'transparent'
             }}
           >
             Login
@@ -57,12 +59,14 @@ export const AuthFormContainer: React.FC = () => {
           <button
             onClick={() => toggleView('register')}
             className={cn(
-              "flex-1 py-2.5 text-sm font-medium rounded-md transition-all duration-200",
+              "flex-1 py-2.5 px-2 sm:px-4 text-sm font-medium rounded-md transition-all duration-200",
               !isLogin ? "bg-white text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"
             )}
             style={{
-              width: '200px', height: '50px', border: !isLogin ? '0.8px solid #E5E7EB' : '0.8px solid transparent',
-              borderRadius: '10px', backgroundColor: !isLogin ? '#FFFFFF' : 'transparent'
+              height: '44px sm:h-50px',
+              border: !isLogin ? '0.8px solid #E5E7EB' : '0.8px solid transparent',
+              borderRadius: '10px',
+              backgroundColor: !isLogin ? '#FFFFFF' : 'transparent'
             }}
           >
             Register

@@ -4,8 +4,6 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { AuthLayoutProps } from '@/constants/types';
 
-
-
 const carouselImages = [
   { src: '/images/1.jpg', alt: 'Egyptian Temple 1' },
   { src: '/images/2.jpg', alt: 'Egyptian Temple 2' },
@@ -32,7 +30,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col">
       <main className="flex-1 flex w-full">
         {/* Left Section: Carousel */}
-        <div className="hidden lg:flex lg:w-1/2 relative items-end p-12 text-white overflow-hidden">
+        <div className="hidden lg:flex lg:w-1/2 relative items-end p-6 sm:p-8 lg:p-12 text-white overflow-hidden">
           <div className="absolute inset-0">
             {carouselImages.map((image, index) => (
               <div
@@ -55,19 +53,19 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
             ))}
           </div>
 
-          <div className="relative z-10 ps-22 max-w-screen-xl mb-10">
-            <h1 className="text-[36px] font-normal leading-[40px] mb-4">Walk Among History</h1>
-            <p className="text-[18px] font-normal leading-[28px]" style={{ color: '#FFFFFFE5' }}>
+          <div className="relative z-10 ps-4 sm:ps-8 lg:ps-22 max-w-screen-xl mb-8 sm:mb-10">
+            <h1 className="text-2xl sm:text-3xl lg:text-[36px] font-normal leading-tight lg:leading-[40px] mb-4">Walk Among History</h1>
+            <p className="text-base sm:text-lg lg:text-[18px] font-normal leading-relaxed lg:leading-[28px]" style={{ color: '#FFFFFFE5' }}>
               Visit the majestic temples of Luxor
             </p>
 
-            <div className="flex gap-2 mt-8">
+            <div className="flex gap-2 mt-6 sm:mt-8">
               {carouselImages.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
                   className={cn(
-                    "h-1 w-8 rounded-full transition-all duration-200",
+                    "h-1 w-6 sm:w-8 rounded-full transition-all duration-200",
                     currentSlide === index ? "bg-white" : "bg-white/50"
                   )}
                 />
@@ -77,7 +75,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
         </div>
 
         {/* Right Section: Forms and other content */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center p-6 lg:p-12 bg-background">
+        <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-background">
           {children}
         </div>
       </main>

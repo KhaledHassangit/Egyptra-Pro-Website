@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { MapPin, Star, Gift } from "lucide-react"
 import Container from "@/util/Container"
 import SectionHeader from "@/util/SectionHeader"
@@ -6,7 +5,7 @@ import ImageBox from "../shared/ImageBox"
 
 export function WhyChooseUsSection() {
   return (
-    <section className="bg-white p-16 w-full">
+    <section className=" py-16 ">
       <Container>
         <div className="flex flex-col lg:flex-row gap-12 items-stretch">
           <div className="flex-1 flex flex-col">
@@ -67,7 +66,7 @@ export function WhyChooseUsSection() {
             </div>
           </div>
 
-          <div className="flex-1 flex items-center justify-center">
+          <div className="flex-1 md:flex hidden items-center justify-center ">
            <ImageBox />
           </div>
         </div>

@@ -124,6 +124,7 @@ export interface SectionCarouselProps {
     className?: string
     headerClassName?: string
     carouselClassName?: string
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     opts?: any
 }
 
@@ -152,4 +153,9 @@ export interface ContactFormData {
 export interface ContactResponse {
   success: boolean;
   message: string;
+}
+
+export interface ComparisonItem {
+    icon: boolean;
+    text: string;
 }

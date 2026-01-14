@@ -1,83 +1,81 @@
+
+// CompareSave.tsx
 import Container from '@/util/Container'
 import { Check, X } from 'lucide-react'
-import React from 'react'
 import SectionHeader from '@/util/SectionHeader'
+import { rows } from '@/constants/data'
+import { ComparisonItem } from '@/constants/types'
 
 const CompareSave = () => {
-    const rows = [
-        { 
-            feature: 'Direct Local Prices', 
-            egyptra: { icon: true, text: 'No Commission' }, 
-            others: { icon: false, text: '15-30% Commission' } 
-        },
-        { 
-            feature: '24/7 Support', 
-            egyptra: { icon: true, text: 'Direct Team' }, 
-            others: { icon: false, text: 'Limited Hours' } 
-        },
-        { 
-            feature: 'Payment Options', 
-            egyptra: { icon: true, text: 'Cash on Spot Available' }, 
-            others: { icon: false, text: 'Prepayment Required' } 
-        },
-        { 
-            feature: 'Cancellation Policy', 
-            egyptra: { icon: true, text: 'Full Refund (12h)' }, 
-            others: { icon: false, text: 'Partial/No Refund' } 
-        },
-        { 
-            feature: 'Languages', 
-            egyptra: { icon: true, text: '20+ Languages' }, 
-            others: { icon: false, text: '2-5 Languages' } 
-        },
-        { 
-            feature: 'Tour Variety', 
-            egyptra: { icon: true, text: '1000+ Options' }, 
-            others: { icon: false, text: 'Limited Selection' } 
-        },
-        { 
-            feature: 'Experience', 
-            egyptra: { icon: true, text: '20 Years' }, 
-            others: { icon: false, text: 'Variable' } 
-        },
-        { 
-            feature: 'Group Prices for Individuals', 
-            egyptra: { icon: true, text: 'Always' }, 
-            others: { icon: false, text: 'Groups Only' } 
-        },
-    ]
 
-    const getIcon = (value: any) => {
+
+    const getIcon = (value: ComparisonItem) => {
         return (
             <div 
                 className="flex items-center justify-center text-white flex-shrink-0"
                 style={{ 
-                    width: "30px", 
-                    height: "30px",
+                    width: "24px", 
+                    height: "24px",
                     borderRadius: "50%",
                     backgroundColor: value.icon ? "#00C950" : "#FB2D36"
                 }}
             >
-                {value.icon ? <Check size={16} /> : <X size={18} />}
+                {value.icon ? <Check size={14} /> : <X size={16} />}
             </div>
         )
     }
 
     return (
-        <section className="py-20 ">
+        <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="compare-heading">
             <Container>
-                <div className="text-center mb-16">
+                <header className="text-center mb-10 sm:mb-12 lg:mb-16 px-4 sm:px-6 lg:px-0">
                     <SectionHeader 
                         title="Compare & Save" 
                         description="Discover our most loved tours and unforgettable experiences in Egypt" 
                     />
+                </header>
+                
+                {/* Mobile View - Card Layout */}
+                <div className="block lg:hidden">
+                    <div className="space-y-4">
+                        {rows.map((row, index) => (
+                            <div 
+                                key={index} 
+                                className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+                            >
+                                <div 
+                                    className="px-4 py-3 font-medium text-primary"
+                                    style={{ backgroundColor: "#0373DE1A" }}
+                                >
+                                    {row.feature}
+                                </div>
+                                <div className="p-4 space-y-3">
+                                    <div className="flex items-center gap-3">
+                                        {getIcon(row.egyptra)}
+                                        <div>
+                                            <div className="font-medium text-sm text-primary">Egyptra Travel</div>
+                                            <div className="text-sm text-gray-600">{row.egyptra.text}</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-3">
+                                        {getIcon(row.others)}
+                                        <div>
+                                            <div className="font-medium text-sm text-primary">Other Agencies</div>
+                                            <div className="text-sm text-gray-600">{row.others.text}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                {/* Responsive wrapper */}
-                <div className="w-full max-w-[1220px] mx-auto overflow-x-auto">
+                
+                {/* Desktop View - Table Layout */}
+                <div className="hidden lg:block w-full max-w-[1220px] mx-auto overflow-x-auto">
                     <div 
                         className="bg-white overflow-hidden"
                         style={{ 
-                            minWidth: "1000px",
+                            minWidth: "800px",
                             border: "1px solid var(--color-primary)",
                             borderRadius: "4px"
                         }}
@@ -96,8 +94,7 @@ const CompareSave = () => {
                                     height: "73px"
                                 }}
                             >
-                                <span className="whitespace-nowrap text-sm sm:text-base md:text-lg 
-                                lg:text-xl xl:text-[20px] ms-12">
+                                <span className="whitespace-nowrap text-lg ms-12">
                                     Features
                                 </span>
                             </div>
@@ -110,8 +107,7 @@ const CompareSave = () => {
                                     height: "73px"
                                 }}
                             >
-                                <span className="whitespace-nowrap text-sm sm:text-base
-                                 md:text-lg lg:text-xl xl:text-[20px] ms-12">
+                                <span className="whitespace-nowrap text-lg ms-12">
                                     Egyptra Travel
                                 </span>
                             </div>
@@ -123,8 +119,7 @@ const CompareSave = () => {
                                     height: "73px"
                                 }}
                             >
-                                <span className="whitespace-nowrap text-sm sm:text-base 
-                                md:text-lg lg:text-xl xl:text-[20px] ms-12">
+                                <span className="whitespace-nowrap text-lg ms-12">
                                     Other Agencies
                                 </span>
                             </div>
@@ -159,7 +154,7 @@ const CompareSave = () => {
                                                 fontWeight: "400"
                                             }}
                                         >
-                                            <span className="whitespace-nowrap text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] ms-12">
+                                            <span className="whitespace-nowrap text-lg ms-12">
                                                 {row.feature}
                                             </span>
                                         </div>
@@ -179,7 +174,7 @@ const CompareSave = () => {
                                                         color: "#4B4B4B",
                                                         fontWeight: "400"
                                                     }}
-                                                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] whitespace-nowrap"
+                                                    className="text-lg whitespace-nowrap"
                                                 >
                                                     {row.egyptra.text}
                                                 </span>
@@ -200,7 +195,7 @@ const CompareSave = () => {
                                                         color: "#4B4B4B",
                                                         fontWeight: "400"
                                                     }}
-                                                    className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-[20px] whitespace-nowrap"
+                                                    className="text-lg whitespace-nowrap"
                                                 >
                                                     {row.others.text}
                                                 </span>

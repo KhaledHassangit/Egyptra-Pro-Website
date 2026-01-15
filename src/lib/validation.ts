@@ -53,8 +53,8 @@ export const contactFormSchema = z.object({
   lastName: z.string().min(2, { message: 'Last name must be at least 2 characters' }),
   email: z.string().email({ message: 'Please enter a valid email address' }),
   phone: z.string().optional(),
-  inquiry: z.string().min(1, { message: 'Please select an inquiry type' }),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+  inquiryType: z.string().min(1, { message: 'Please select an inquiry type' }),
+  message: z.string().min(5, { message: 'Message must be at least 5 characters' }),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

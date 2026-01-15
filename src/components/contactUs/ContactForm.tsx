@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/select'
 import LoadingButton from '@/util/LoadingButton'
 import { useState, useEffect } from 'react'
-import { notify } from '@/util/notify' 
+import { notify } from '@/util/notify'
 import { useContactForm } from '@/hooks/useContactForm'
 
 interface ContactFormProps {
@@ -35,7 +35,7 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
   useEffect(() => {
     if (isSuccess) {
       notify('Thank you for your message! We will get back to you soon.', 'success');
-      
+
       if (onSubmit) {
         onSubmit(formData);
       }
@@ -44,7 +44,7 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
 
   useEffect(() => {
     if (isError && error) {
-      notify('An error occurred while submitting your message. Please try again.', 'error');
+      notify(error, 'error');
     }
   }, [isError, error]);
 
@@ -56,101 +56,114 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
         </h2>
         <span className="absolute bottom-[-12px] left-0 w-[60px] h-[4px] bg-primary rounded-[2px]"></span>
       </div>
-      
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <Label htmlFor="firstName" className="text-[#717182] text-sm font-medium">First Name</Label>
-            <Input
-              id="firstName"
-              name="firstName"
-              placeholder="First Name"
-              value={formData.firstName}
-              onChange={handleInputChange}
-              className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.firstName ? 'border-red-500' : ''}`}
-            />
-            {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
+
+      {/* Use a div with form element inside to ensure proper event handling */}
+      <div>
+        <form onSubmit={handleSubmit} noValidate className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <Label htmlFor="firstName" className="text-[#717182] text-sm font-medium">First Name</Label>
+              <Input
+                id="firstName"
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleInputChange}
+                className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.firstName ? 'border-red-500' : ''}`}
+                required
+              />
+              {errors.firstName && <p className="text-red-500 text-xs mt-1">{errors.firstName}</p>}
+            </div>
+            <div>
+              <Label htmlFor="lastName" className="text-[#717182] text-sm font-medium">Last Name</Label>
+              <Input
+                id="lastName"
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleInputChange}
+                className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.lastName ? 'border-red-500' : ''}`}
+                required
+              />
+              {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
+            </div>
           </div>
+
           <div>
-            <Label htmlFor="lastName" className="text-[#717182] text-sm font-medium">Last Name</Label>
+            <Label htmlFor="email" className="text-[#717182] text-sm font-medium">Email Address</Label>
             <Input
-              id="lastName"
-              name="lastName"
-              placeholder="Last Name"
-              value={formData.lastName}
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              value={formData.email}
               onChange={handleInputChange}
-              className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.lastName ? 'border-red-500' : ''}`}
+              className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.email ? 'border-red-500' : ''}`}
+              required
             />
-            {errors.lastName && <p className="text-red-500 text-xs mt-1">{errors.lastName}</p>}
+            {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
-        </div>
-        
-        <div>
-          <Label htmlFor="email" className="text-[#717182] text-sm font-medium">Email Address</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleInputChange}
-            className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.email ? 'border-red-500' : ''}`}
-          />
-          {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
-        </div>
-        
-        <div>
-          <Label htmlFor="phone" className="text-[#717182] text-sm font-medium">Phone Number (Optional)</Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            placeholder="Phone Number (Optional)"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className="h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1"
-          />
-        </div>
-        
-        <div>
-          <Label htmlFor="inquiry" className="text-[#717182] text-sm font-medium">General Inquiry</Label>
-          <Select onValueChange={handleSelectChange}>
-            <SelectTrigger className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] w-full focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.inquiry ? 'border-red-500' : ''}`}>
-              <SelectValue placeholder="General Inquiry" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="general">General Inquiry</SelectItem>
-              <SelectItem value="booking">Booking Information</SelectItem>
-              <SelectItem value="feedback">Feedback</SelectItem>
-              <SelectItem value="complaint">Complaint</SelectItem>
-              <SelectItem value="other">Other</SelectItem>
-            </SelectContent>
-          </Select>
-          {errors.inquiry && <p className="text-red-500 text-xs mt-1">{errors.inquiry}</p>}
-        </div>
-        
-        <div>
-          <Label htmlFor="message" className="text-[#717182] text-sm font-medium">Your Message</Label>
-          <Textarea
-            id="message"
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleInputChange}
-            className={`p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] min-h-[120px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.message ? 'border-red-500' : ''}`}
-          />
-          {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
-        </div>
-        
-        <LoadingButton
-          type="submit"
-          className="h-[40px] bg-primary rounded-[4px]"
-          isLoading={isLoading}
-          loadingText="Sending..."
-        >
-          Send Message
-        </LoadingButton>
-      </form>
+
+          <div>
+            <Label htmlFor="phone" className="text-[#717182] text-sm font-medium">Phone Number (Optional)</Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Phone Number (Optional)"
+              value={formData.phone}
+              onChange={handleInputChange}
+              className="h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1"
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="inquiryType" className="text-[#717182] text-sm font-medium">General Inquiry</Label>
+            <Select onValueChange={handleSelectChange} value={formData.inquiryType}>
+              <SelectTrigger className={`h-[40px] p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] w-full focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.inquiryType ? 'border-red-500' : ''}`}>
+                <SelectValue placeholder="Select Inquiry Type" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="general information">General Information</SelectItem>
+                <SelectItem value="tour booking">Tour Booking</SelectItem>
+                <SelectItem value="feedback">Feedback</SelectItem>
+                <SelectItem value="customer support">Customer Support</SelectItem>
+              </SelectContent>
+            </Select>
+            {errors.inquiryType && <p className="text-red-500 text-xs mt-1">{errors.inquiryType}</p>}
+          </div>
+
+          <div>
+            <Label htmlFor="message" className="text-[#717182] text-sm font-medium">Your Message</Label>
+            <Textarea
+              id="message"
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleInputChange}
+              className={`p-2 bg-[#F9FAFB] border-[#D1D5DC] rounded-[4px] min-h-[120px] focus:border-[#0373DE] focus:ring-[#0373DE] focus:ring-opacity-25 mt-1 ${errors.message ? 'border-red-500' : ''}`}
+              required
+            />
+            {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
+          </div>
+
+          {/* 
+          {isError && (
+            <div className="p-3 bg-red-50 border border-red-200 rounded-md">
+              <p className="text-red-600 text-sm">{error}</p>
+            </div>
+          )} */}
+
+          <LoadingButton
+            type="submit"
+            className="h-[40px] bg-primary rounded-[4px]"
+            isLoading={isLoading}
+            loadingText="Sending..."
+          >
+            Send Message
+          </LoadingButton>
+        </form>
+      </div>
     </div>
   )
 }

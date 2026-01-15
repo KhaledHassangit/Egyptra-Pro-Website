@@ -146,7 +146,7 @@ export interface ContactFormData {
   lastName: string;
   email: string;
   phone?: string;
-  inquiry: string;
+  inquiryType: string;
   message: string;
 }
 

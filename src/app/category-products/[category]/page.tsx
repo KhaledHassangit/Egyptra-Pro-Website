@@ -413,6 +413,7 @@ const MobileFilterSheet = ({
 }
 
 const CategoryPage = () => {
+  
   const [showFilters, setShowFilters] = useState(false)
   const [quickFilterOpen, setQuickFilterOpen] = useState(true)
   const [sortByOpen, setSortByOpen] = useState(true)

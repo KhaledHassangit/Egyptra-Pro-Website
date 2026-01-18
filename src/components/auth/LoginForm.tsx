@@ -6,6 +6,7 @@ import { Input } from '../ui/input';
 import { Checkbox } from '../ui/checkbox';
 import LoadingButton from '@/util/LoadingButton';
 import { LoginFormProps } from '@/constants/types';
+import Link from '../shared/link';
 
 export const LoginForm: React.FC<LoginFormProps> = ({
   email,
@@ -92,9 +93,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             Remember me
           </label>
         </div>
-        <a href="#" className="text-sm font-medium text-primary hover:underline">
+        <Link href="#" className="text-sm font-medium text-primary hover:underline">
           Forgot password?
-        </a>
+        </Link>
       </div>
 
       <LoadingButton

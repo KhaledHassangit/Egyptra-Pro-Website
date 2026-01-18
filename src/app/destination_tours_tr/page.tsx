@@ -9,9 +9,9 @@ import SectionHeader from "@/util/SectionHeader";
 import PageHero from "@/util/PageHero";
 import { TourCard } from "@/components/shared/TourCard";
 import { SectionCarousel } from "@/components/shared/section-carousel";
-import Link from "next/link";
 import ImageBox from "@/components/shared/ImageBox";
 import { Suspense } from "react";
+import Link from "@/components/shared/link";
 
 function DestinationPageContent() {
     const searchParams = useSearchParams();

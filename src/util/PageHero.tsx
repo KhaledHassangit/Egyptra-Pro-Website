@@ -1,6 +1,6 @@
 import { PageHeroProps } from '@/constants/types'
 import Container from '@/util/Container'
-import Link from 'next/link'
+import Link from "@/components/shared/link";
 
 const PageHero = ({ title, currentPage, currentPageUrl }: PageHeroProps) => {
   return (

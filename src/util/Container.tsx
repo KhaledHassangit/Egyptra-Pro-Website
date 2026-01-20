@@ -1,10 +1,33 @@
 import { cn } from '@/lib/utils'
 import React from 'react'
 
-const Container = ({children,className}:{children:React.ReactNode,className?:string}) => {
+interface ContainerProps {
+  children: React.ReactNode
+  className?: string
+  size?: 'sm' | 'md' | 'lg' | 'xl'
+}
+
+const Container = ({ 
+  children, 
+  className,
+  size = 'xl' 
+}: ContainerProps) => {
+  const sizeClasses = {
+    sm: 'max-w-4xl',    // 896px
+    md: 'max-w-5xl',    // 1024px  
+    lg: 'max-w-7xl',    // 1280px  
+    xl: 'max-w-screen-2xl' // 1536px  
+  }
+
   return (
-    <div className={cn("max-w-full mx-auto px-8 lg:px-16 xl:px-20 2xl:px-32", className)}>
-    {children}
+    <div 
+      className={cn(
+        "mx-auto w-full px-4 sm:px-6 lg:px-8",
+        sizeClasses[size],
+        className
+      )}
+    >
+      {children}
     </div>
   )
 }

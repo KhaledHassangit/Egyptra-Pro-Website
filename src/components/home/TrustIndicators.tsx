@@ -3,8 +3,8 @@ import Image from 'next/image';
 
 export function TrustIndicators() {
   return (
-    <Container className="pt-8 pb-16 z-20">
-      <div className="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <Container className="py-20 z-20">
+      <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         <TrustItem
           icon={
             <Image 
@@ -23,8 +23,8 @@ export function TrustIndicators() {
             <Image 
               src={"images/streamline.svg"} 
               alt="Flame" 
-              width={40} 
-              height={40}
+              width={50} 
+              height={50}
               className="object-contain"
             />
           }
@@ -36,8 +36,8 @@ export function TrustIndicators() {
             <Image 
               src={"images/star.svg"} 
               alt="Star" 
-              width={40} 
-              height={40}
+              width={35} 
+              height={35}
               className="object-contain"
             />
           }
@@ -49,8 +49,8 @@ export function TrustIndicators() {
             <Image 
               src={"images/clock.svg"} 
               alt="Clock" 
-              width={40} 
-              height={40}
+              width={35} 
+              height={35}
               className="object-contain"
             />
           }
@@ -64,15 +64,15 @@ export function TrustIndicators() {
 
 function TrustItem({ icon, title, desc }: { icon: React.ReactNode, title: string, desc: string }) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center justify-center gap-2">
       <div className="flex items-center justify-center p-3">
         {icon}
       </div>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center text-center">
         <h3 className="mb-1 text-[#2A2A2A] font-normal text-base">
           {title}
         </h3>
-        <p className="text-[#757575] font-normal text-sm text-nowrap">
+        <p className="text-[#757575] font-normal text-sm">
           {desc}
         </p>
       </div>

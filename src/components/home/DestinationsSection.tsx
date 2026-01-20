@@ -6,7 +6,7 @@ import SectionHeader from "@/util/SectionHeader"
 
 export function DestinationsSection() {
   return (
-    <Container className="py-16">
+    <Container className="py-20 overflow-x-hidden">
       {/* Header Section - SectionHeader and button in flex with justify-between */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 md:mb-12 lg:mb-16">
         <div className="mb-4 sm:mb-0">
@@ -28,12 +28,23 @@ export function DestinationsSection() {
         {/* Your city tabs content here */}
       </div>
 
-      {/* Images Grid - Keep existing structure */}
-      <div className="flex w-full flex-wrap mx-auto justify-center lg:flex-nowrap gap-4 overflow-x-auto ml-4 sm:ml-0 mr-4 sm:mr-0">
-        {/* Column 1 */}
-        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+      {/* Images Grid - Fixed structure */}
+      <div className="flex flex-col lg:flex-row flex-wrap justify-center   lg:flex-nowrap gap-4 lg:gap-6 mx-auto">
+        {/* Column 1 - Hurghada (First on mobile) */}
+        <div className="flex flex-col gap-4 w-full lg:w-72 order-1 lg:order-1">
+          {/* Label 1 - Mobile version (top, with opposite border) */}
+          <div className="lg:hidden w-full h-24 sm:h-28 md:h-32 bg-primary 
+                         rounded-tr-[60px] sm:rounded-tr-[88px] md:rounded-tr-[88px] 
+                         flex items-center justify-center" 
+               style={{ transform: "rotateY(180deg)" }}>
+            <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-xl px-2 sm:px-0" 
+                  style={{ transform: "rotateY(180deg)" }}>
+              Hurghada
+            </span>
+          </div>
+          
           {/* Image 1 */}
-          <div className="relative w-full h-84 overflow-hidden group">
+          <div className="relative w-full h-64 lg:h-84 overflow-hidden group">
             <Image
               src="/images/dest1.png"
               alt="Beach walkway"
@@ -41,18 +52,21 @@ export function DestinationsSection() {
               className="object-cover transition-transform group-hover:scale-105"
             />
           </div>
-          {/* Label 1 */}
-          <div className="w-full h-24 sm:h-28 md:h-32 bg-primary rounded-bl-[60px] sm:rounded-bl-[88px] flex items-center justify-center">
-            <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-2xl px-2 sm:px-0">
+          
+          {/* Label 1 - Desktop version (bottom, normal border) */}
+          <div className="hidden lg:flex w-full h-24 sm:h-28 md:h-32 lg:h-28 
+                         bg-primary rounded-bl-[60px] sm:rounded-bl-[88px] lg:rounded-bl-[88px] 
+                         items-center justify-center">
+            <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-xl px-2 sm:px-0 text-center">
               Hurghada
             </span>
           </div>
         </div>
 
         {/* Column 2 */}
-        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+        <div className="flex flex-col gap-4 w-full lg:w-72 order-2 lg:order-2">
           {/* Image 2 */}
-          <div className="relative w-full h-56 rounded-tr-[20px] overflow-hidden group">
+          <div className="relative w-full h-64 lg:h-56 rounded-tr-[20px] overflow-hidden group">
             <Image
               src="/images/dest2.jpg"
               alt="Beach"
@@ -61,7 +75,7 @@ export function DestinationsSection() {
             />
           </div>
           {/* Image 5 */}
-          <div className="relative w-full h-56 rounded-br-[20px] overflow-hidden group">
+          <div className="relative w-full h-64 lg:h-56 rounded-br-[20px] overflow-hidden group">
             <Image
               src="/images/dest5.jpg"
               alt="Beach destination"
@@ -72,10 +86,10 @@ export function DestinationsSection() {
         </div>
 
         {/* Column 3 */}
-        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
+        <div className="flex flex-col gap-4 w-full lg:w-72 order-3 lg:order-3">
           {/* Image 3 */}
           <div
-            className="relative w-full h-56 rounded-tr-[20px] overflow-hidden group"
+            className="relative w-full h-64 lg:h-56 rounded-tr-[20px] overflow-hidden group"
             style={{ transform: "rotateY(180deg)" }}
           >
             <Image
@@ -87,7 +101,7 @@ export function DestinationsSection() {
           </div>
           {/* Image 6 */}
           <div
-            className="relative w-full h-56 rounded-br-[20px] overflow-hidden group"
+            className="relative w-full h-64 lg:h-56 rounded-br-[20px] overflow-hidden group"
             style={{ transform: "rotateY(180deg)" }}
           >
             <Image
@@ -99,9 +113,10 @@ export function DestinationsSection() {
           </div>
         </div>
 
-        {/* Column 4 */}
-        <div className="flex flex-col gap-4 w-full sm:w-72 flex-shrink-0">
-          <div className="relative w-full h-84 overflow-hidden group" style={{ transform: "rotateY(180deg)" }}>
+        {/* Column 4 - Sharm El Sheikh (Last on mobile) */}
+        <div className="flex flex-col gap-4 w-full lg:w-72 order-4 lg:order-4">
+          {/* Image 4 */}
+          <div className="relative w-full h-64 lg:h-84 overflow-hidden group" style={{ transform: "rotateY(180deg)" }}>
             <Image
               src="/images/dest4.jpg"
               alt="Lake and mountains"
@@ -109,11 +124,16 @@ export function DestinationsSection() {
               className="object-cover transition-transform group-hover:scale-105"
             />
           </div>
+          
+          {/* Label 2 - Mobile & Desktop version */}
           <div
-            className="w-full h-24 sm:h-28 md:h-32 bg-[#D0A87D] rounded-bl-[60px] sm:rounded-bl-[88px] flex items-center justify-center"
+            className="w-full h-24 sm:h-28 md:h-32 lg:h-28 
+                       bg-[#D0A87D] rounded-bl-[60px] sm:rounded-bl-[88px] lg:rounded-bl-[88px] 
+                       flex items-center justify-center"
             style={{ transform: "rotateY(-180deg)" }}
           >
-            <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-2xl px-2 sm:px-0" style={{ transform: "rotateY(180deg)" }}>
+            <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-xl px-2 sm:px-0 text-center" 
+                  style={{ transform: "rotateY(180deg)" }}>
               Sharm El Sheikh
             </span>
           </div>

@@ -1,11 +1,10 @@
 import Image from "next/image";
-import UIButton from "@/util/UIButton";
 import Container from "@/util/Container";
 
 export function AboutSection() {
   return (
-    <Container className="py-8 sm:py-12 md:py-16 lg:py-20">
-      <section className="w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16" id="about">
+    <Container >
+      <section className=" grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16" id="about">
         {/* Left side - Image Grid - Hidden on md and below */}
         <div className="hidden lg:grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">
           {/* First image - should match total height of right column */}
@@ -57,11 +56,7 @@ export function AboutSection() {
               Enjoy all-inclusive pricing with transfers and no hidden costs, a best price guarantee for unmatched quality and value, and a flexible policy allowing cancellation up to 12h or changes up to 4h before. Get instant booking confirmations with online or cash payment options.
             </p>
           </div>
-          <div className="flex justify-start pt-2 sm:pt-4">
-            <UIButton className="w-full sm:w-auto min-w-[140px] px-6 py-3">
-              About US
-            </UIButton>
-          </div>
+         
         </div>
       </section>
     </Container>

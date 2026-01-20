@@ -1,5 +1,8 @@
-import {  CreditCard, CheckCircle,
-        Wallet ,DollarSign, ShieldCheck, BadgeCheck  } from 'lucide-react'
+import {
+    CreditCard, CheckCircle,
+    Wallet, DollarSign, ShieldCheck, BadgeCheck
+} from 'lucide-react'
+import { StaticImageData } from 'next/image'
 
 export const cities = ['Cairo', 'Hurghada', 'Luxor', 'Aswan'];
 
@@ -152,38 +155,207 @@ export const rows = [
 ]
 
 export const options = [
-        {
-            icon: Wallet,
-            title: 'Cash on Spot',
-            description: 'Book online and pay cash on arrival. No payment required.'
-        },
-        {
-            icon: CreditCard,
-            title: 'Secure Payment Link',
-            description: 'Protected online payment with instant confirmation.'
-        },
-        {
-            icon: CheckCircle,
-            title: 'No Prepayment',
-            description: 'Book now, pay later. Cancel any time!'
-        }
-    ]
+    {
+        icon: Wallet,
+        title: 'Cash on Spot',
+        description: 'Book online and pay cash on arrival. No payment required.'
+    },
+    {
+        icon: CreditCard,
+        title: 'Secure Payment Link',
+        description: 'Protected online payment with instant confirmation.'
+    },
+    {
+        icon: CheckCircle,
+        title: 'No Prepayment',
+        description: 'Book now, pay later. Cancel any time!'
+    }
+]
 
-    export     const advantages = [
-            {
-                icon: DollarSign,
-                title: 'Best Price Guarantee',
-                description: 'Direct local deals with no commission added. Get exclusive prices on group mixed tours guaranteed the most competitive prices in Egypt!'
-            },
-            {
-                icon: ShieldCheck,
-                title: '100% Secure & Flexible',
-                description: 'Licensed Category A company. Multiple payment options including cash on spot, secure payment links, and no prepayment needed.'
-            },
-            {
-                icon: BadgeCheck,
-                title: 'Local Expertise',
-                description: 'All guides are licensed Egyptologists with 5+ years experience. Discover hidden gems only locals know.'
-            }
-        ]
-    
+export const advantages = [
+    {
+        icon: DollarSign,
+        title: 'Best Price Guarantee',
+        description: 'Direct local deals with no commission added. Get exclusive prices on group mixed tours guaranteed the most competitive prices in Egypt!'
+    },
+    {
+        icon: ShieldCheck,
+        title: '100% Secure & Flexible',
+        description: 'Licensed Category A company. Multiple payment options including cash on spot, secure payment links, and no prepayment needed.'
+    },
+    {
+        icon: BadgeCheck,
+        title: 'Local Expertise',
+        description: 'All guides are licensed Egyptologists with 5+ years experience. Discover hidden gems only locals know.'
+    }
+]
+
+
+// data/navigationData.ts
+export const destinationsData = {
+    'Popular Destinations': [
+        { name: 'Cairo', href: '#' },
+        { name: 'Luxor', href: '#' },
+        { name: 'Hurghada', href: '#' },
+        { name: 'Sharm El Sheikh', href: '#' },
+    ],
+    '': [
+        { name: 'El Gouna', href: '#' },
+        { name: 'Marsa Alam', href: '#' },
+        { name: 'Soma Bay', href: '#' },
+        { name: 'Maadi Bay', href: '#' },
+        { name: 'Salh Hasheed', href: '#' },
+    ]
+};
+
+export const tourCategoryData = [
+    { name: 'Safari', href: '#' },
+    { name: 'Boat Tour', href: '#' },
+    { name: 'Diving', href: '#' },
+    { name: 'Snorkeling', href: '#' },
+    { name: 'Historical', href: '#' },
+    { name: 'City Tour', href: '#' },
+    { name: 'Cultural', href: '#' },
+    { name: 'Multi-day', href: '#' },
+];
+
+export const travelGuideData = [
+    { name: 'Hurghada Guide', href: '#' },
+    { name: 'Sharm El Sheikh Guide', href: '#' },
+    { name: 'Cairo Guide', href: '#' },
+    { name: 'Luxor Guide', href: '#' },
+    { name: 'Marsa Alam Guide', href: '#' },
+];
+
+export const languages = [
+    { code: 'EN', name: 'English', flag: 'gb' },
+    { code: 'IT', name: 'Italiano', flag: 'it' },
+    { code: 'DE', name: 'Deutsch', flag: 'de' },
+    { code: 'FR', name: 'Français', flag: 'fr' },
+    { code: 'ES', name: 'Español', flag: 'es' },
+    { code: 'TR', name: 'Türkçe', flag: 'tr' },
+    { code: 'PL', name: 'Polski', flag: 'pl' },
+    { code: 'RU', name: 'Русский', flag: 'ru' },
+    { code: 'NL', name: 'Nederlands', flag: 'nl' },
+    { code: 'PT', name: 'Português', flag: 'pt' },
+    { code: 'AR', name: 'العربية', flag: 'sa' },
+    { code: 'ZH', name: '中文', flag: 'cn' },
+    { code: 'JA', name: '日本語', flag: 'jp' },
+    { code: 'KO', name: '한국어', flag: 'kr' },
+    { code: 'HI', name: 'हिन्दी', flag: 'in' },
+    { code: 'HU', name: 'Magyar', flag: 'hu' },
+    { code: 'RO', name: 'Română', flag: 'ro' },
+    { code: 'BG', name: 'Български', flag: 'bg' },
+    { code: 'CS', name: 'Čeština', flag: 'cz' },
+    { code: 'SV', name: 'Svenska', flag: 'se' },
+    { code: 'DA', name: 'Dansk', flag: 'dk' },
+    { code: 'NO', name: 'Norsk', flag: 'no' },
+    { code: 'FI', name: 'Suomi', flag: 'fi' },
+    { code: 'EL', name: 'Ελληνικά', flag: 'gr' },
+    { code: 'SR', name: 'Српски', flag: 'rs' },
+    { code: 'SK', name: 'Slovenčina', flag: 'sk' },
+    { code: 'LT', name: 'Lietuvių', flag: 'lt' },
+    { code: 'LV', name: 'Latviešu', flag: 'lv' },
+    { code: 'ET', name: 'Eesti', flag: 'ee' },
+];
+
+export const currencies = [
+    { code: 'EUR', name: 'Euro', symbol: '€' },
+    { code: 'GBP', name: 'British Pound', symbol: '£' },
+    { code: 'USD', name: 'US Dollar', symbol: '$' },
+    { code: 'EGP', name: 'Egyptian Pound', symbol: 'E£' },
+];
+
+
+// Hurghada images
+import hurghada1 from '../../public/assets/destinations/hurghada-1.jpg';
+import hurghada2 from '../../public/assets/destinations/hurghada-2.jpg';
+import hurghada3 from '../../public/assets/destinations/hurghada-3.jpg';
+import hurghada4 from '../../public/assets/destinations/hurghada-4.jpg';
+import hurghada5 from '../../public/assets/destinations/hurghada-5.jpg';
+
+// Cairo images
+import cairo1 from '../../public/assets/destinations/cairo-1.jpg';
+import cairo2 from '../../public/assets/destinations/cairo-2.jpg';
+import cairo3 from '../../public/assets/destinations/cairo-3.jpg';
+import cairo4 from '../../public/assets/destinations/cairo-4.jpg';
+import cairo5 from '../../public/assets/destinations/cairo-5.jpg';
+
+// Luxor images
+import luxor1 from '../../public/assets/destinations/luxor-1.jpg';
+import luxor2 from '../../public/assets/destinations/luxor-2.jpg';
+import luxor3 from '../../public/assets/destinations/luxor-3.jpg';
+import luxor4 from '../../public/assets/destinations/luxor-4.jpg';
+import luxor5 from '../../public/assets/destinations/luxor-5.jpg';
+
+// Sharm images
+import sharm1 from '../../public/assets/destinations/sharm-1.jpg';
+import sharm2 from '../../public/assets/destinations/sharm-2.jpg';
+import sharm3 from '../../public/assets/destinations/sharm-3.jpg';
+import sharm4 from '../../public/assets/destinations/sharm-4.jpg';
+import sharm5 from '../../public/assets/destinations/sharm-5.jpg';
+
+export interface Destination {
+  name: string;
+  href: string;
+  images: StaticImageData[];
+}
+
+export interface DestinationGroups {
+  [key: string]: Destination[];
+}
+
+export const destinationGroups: DestinationGroups = {
+  'Popular Destinations': [
+    { 
+      name: 'Cairo', 
+      href: '#',
+      images: [cairo1, cairo2, cairo3, cairo4, cairo5]
+    },
+    { 
+      name: 'Luxor', 
+      href: '#',
+      images: [luxor1, luxor2, luxor3, luxor4, luxor5]
+    },
+    { 
+      name: 'Hurghada', 
+      href: '#',
+      images: [hurghada1, hurghada2, hurghada3, hurghada4, hurghada5]
+    },
+    { 
+      name: 'Sharm El Sheikh', 
+      href: '#',
+      images: [sharm1, sharm2, sharm3, sharm4, sharm5]
+    },
+  ],
+  '': [
+    { 
+      name: 'El Gouna', 
+      href: '#',
+      images: [hurghada1, hurghada4, hurghada3, hurghada2, hurghada5]
+    },
+    { 
+      name: 'Marsa Alam', 
+      href: '#',
+      images: [sharm1, hurghada1, sharm3, hurghada4, sharm5]
+    },
+    { 
+      name: 'Soma Bay', 
+      href: '#',
+      images: [hurghada5, hurghada2, hurghada1, hurghada3, hurghada4]
+    },
+    { 
+      name: 'Maadi Bay', 
+      href: '#',
+      images: [sharm2, sharm4, sharm1, hurghada1, sharm5]
+    },
+    { 
+      name: 'Sahl Hasheesh', 
+      href: '#',
+      images: [hurghada4, hurghada1, hurghada5, hurghada2, hurghada3]
+    },
+  ]
+};
+
+// Flatten all destinations for easy carousel navigation
+export const allDestinations: Destination[] = Object.values(destinationGroups).flat();

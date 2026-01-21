@@ -208,7 +208,6 @@ export function Navbar() {
                                 </div>
                             </div>
 
-                            {/* Icons with Badges */}
                             <IconWithBadge
                                 icon={Heart}
                                 badgeVariant="default"

@@ -37,20 +37,20 @@ export function PopularTourSection() {
         </div>
 
         {/* City Tabs */}
-        <div className="flex gap-4 mb-8 overflow-x-auto pb-2">
+        <div className="flex gap-4 mb-8 overflow-x-auto pb-2  ">
           {cities.map((city, idx) => (
             <button
               key={city}
-              className={`flex items-center gap-2 pb-2 border-b-2 transition-colors whitespace-nowrap ${idx === activeTab
-                ? 'border-[#265D92] text-[#265D92] font-normal'
+              className={`flex items-center gap-3 pb-2 border-b-2 transition-colors whitespace-nowrap ${idx === activeTab
+                ? 'border-[#265D92] text-[#265D92] font-medium'
                 : 'border-transparent text-gray-500 hover:text-gray-900'
                 }`}
               onClick={() => setActiveTab(idx)}
             >
-              <div className="w-[29px] h-[29px] rounded-full bg-gray-200 overflow-hidden relative">
+              <div className=" w-[25px] h-[25px] lg:w-[29px] lg:h-[29px] rounded-full bg-gray-200 overflow-hidden relative">
                 <Image src={cityImages[city]} alt={city} fill className="object-cover" />
               </div>
-              <span className={`text-base font-normal ${idx === activeTab ? 'text-[#265D92]' : ''
+              <span className={`text-sm font-medium ${idx === activeTab ? 'text-[#265D92]' : ''
                 }`}>
                 {city}
               </span>

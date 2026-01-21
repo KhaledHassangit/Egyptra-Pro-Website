@@ -148,7 +148,7 @@ function DestinationPageContent() {
                     className="hide-nav-at-md"
                 >
                     {mockTours.map((tour) => (
-                        <CarouselItem key={tour.id} className="pl-6 md:basis-1/2 lg:basis-1/4">
+                        <CarouselItem key={tour.id} className="pl-6 md:basis-1/2 lg:basis-1/4 ">
                             <TourCard
                                 variant="detailed"
                                 imagePath={tour.image}

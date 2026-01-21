@@ -55,7 +55,7 @@ export function SectionCarousel({
                     )}
                 </div>
 
-                <div className="flex gap-2">
+                <div className=" gap-2 hidden sm:flex">
                     <Button
                         variant="outline"
                         size="icon"

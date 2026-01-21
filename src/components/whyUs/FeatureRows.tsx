@@ -24,7 +24,7 @@ const FeatureRows = () => {
     ]
 
     return (
-        <section className="py-12 sm:py-16 lg:py-20 bg-gray-50" aria-labelledby="features-heading">
+        <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="features-heading">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
                     {/* Left Column: Image */}

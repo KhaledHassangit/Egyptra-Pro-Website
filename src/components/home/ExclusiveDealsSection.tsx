@@ -19,7 +19,7 @@ export function ExclusiveDealsSection({
         {/* Overlay Container */}
         <div className="absolute inset-0 flex items-center justify-center p-4">
           <div 
-            className="bg-[#FFFFFFE5] px-4 sm:px-6 md:px-10 rounded-[20px] h-auto min-h-[150px] md:h-[192px] w-[90%] sm:w-[85%] md:w-[calc(100%-100px)] max-w-[1200px] flex flex-col md:flex-row items-center justify-between gap-4 p-4 sm:p-6 md:p-8"
+            className="bg-[#FFFFFFE5]  px-4 sm:px-6 md:px-10 rounded-[20px] h-auto min-h-[150px] md:h-[192px] sm:w-[85%] md:w-[calc(100%-100px)] max-w-[1200px] flex flex-col md:flex-row items-center justify-between gap-4 p-4 sm:p-6 md:p-8"
           >
             {/* Text Content */}
             <div className="text-center md:text-left flex-1">

@@ -10,7 +10,7 @@ import SafetySecurity from '@/components/whyUs/SafetySecurity'
 
 const WhyUsPage = () => {
   return (
-    <main className="bg-white overflow-x-hidden">
+    <main className=" overflow-x-hidden">
       <WhyUsHero />
       <TrustNumbers />
       <UnbeatableAdvantages />

@@ -81,7 +81,7 @@ export function TourCard({
         return (
             <div
                 className={cn(
-                    "bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[400px] flex flex-col w-full",
+                    "bg-white border text-left mx-auto border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[400px] flex flex-col w-full",
                     className
                 )}
                 style={{ maxWidth: "340px" }}

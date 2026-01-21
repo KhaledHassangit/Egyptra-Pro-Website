@@ -86,7 +86,7 @@ export function CustomerTestimonials() {
   }
 
   return (
-    <Container className="py-8 sm:py-12 px-4">
+    <Container className="py-20 ">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-5">
         <div className="mb-4 md:mb-0 ms-0 sm:ms-4 text-center sm:text-left w-full md:w-auto">
           <h2 className="text-2xl sm:text-3xl font-bold mb-2">What Our Customers Say</h2>
@@ -133,7 +133,7 @@ export function CustomerTestimonials() {
         setApi={setApi}
         className="w-full p-2 sm:p-4"
       >
-        <CarouselContent className="-ml-4 sm:-ml-6">
+        <CarouselContent>
           {testimonials.map((testimonial) => (
             <CarouselItem 
               key={testimonial.id} 
@@ -166,7 +166,7 @@ export function CustomerTestimonials() {
                   <p className="font-normal text-sm sm:text-base text-primary">
                     {testimonial.author}
                   </p>
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between mt-1">
                     <p className="font-normal text-xs sm:text-sm text-primary mr-2">
                       {testimonial.location}
                     </p>

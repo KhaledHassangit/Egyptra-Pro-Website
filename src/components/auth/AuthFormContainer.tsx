@@ -21,12 +21,12 @@ export const AuthFormContainer: React.FC = () => {
   } = useAuth();
 
   return (
-    <Container className="px-4 sm:px-6">
+    <Container >
       <div className="w-full max-w-md sm:max-w-lg mx-auto space-y-6 sm:space-y-8">
         {/* Header */}
         <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center mb-4">
-            <Logo width={12} hight={12} />
+            <Logo width={12} height={12} />
             <span className="ml-2 text-primary" style={{ fontWeight: '500', fontSize: 'clamp(18px, 4vw, 24px)' }}>
               Welcome to Egyptra
             </span>

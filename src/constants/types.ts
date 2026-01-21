@@ -88,13 +88,13 @@ export interface SpinnerProps {
 }
 
 export interface LoadingButtonProps {
-  type?: 'button' | 'submit' | 'reset';
-  className?: string;
-  disabled?: boolean;
-  isLoading?: boolean;
-  loadingText?: string;
-  children: React.ReactNode;
-  onClick?: () => void;
+    type?: 'button' | 'submit' | 'reset';
+    className?: string;
+    disabled?: boolean;
+    isLoading?: boolean;
+    loadingText?: string;
+    children: React.ReactNode;
+    onClick?: () => void;
 }
 
 
@@ -142,20 +142,113 @@ export interface TourCardProps {
 }
 
 export interface ContactFormData {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
-  inquiryType: string;
-  message: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone?: string;
+    inquiryType: string;
+    message: string;
 }
 
 export interface ContactResponse {
-  success: boolean;
-  message: string;
+    success: boolean;
+    message: string;
 }
 
 export interface ComparisonItem {
     icon: boolean;
     text: string;
+}
+
+
+// types/category.ts
+export interface Tour {
+    id: number
+    imagePath: string
+    city: string
+    title: string
+    price: string
+    rating: string
+    duration: string
+    category: string
+    variant: "detailed" | "simple"
+}
+
+export interface FilterState {
+    quickFilter: string
+    sortBy: string
+    priceMin: number
+    priceMax: number
+    minRating: string
+    destination: string
+}
+
+export interface FilterOption {
+    id: string
+    label: string
+    stars?: number
+}
+
+export interface SortOption {
+    value: string
+    label: string
+}
+
+
+export interface MobileFilterSheetProps {
+    isOpen: boolean
+    onClose: () => void
+    selectedFilters: any
+    handleFilterChange: (filterType: string, value: any) => void
+    applyFilters: () => void
+    resetFilters: () => void
+    quickFilters: FilterOption[]
+    ratingOptions: FilterOption[]
+    sortOptions: SortOption[]
+    destinationOptions: SortOption[]
+    quickFilterOpen: boolean
+    setQuickFilterOpen: (open: boolean) => void
+    sortByOpen: boolean
+    setSortByOpen: (open: boolean) => void
+    priceRangeOpen: boolean
+    setPriceRangeOpen: (open: boolean) => void
+    ratingOpen: boolean
+    setRatingOpen: (open: boolean) => void
+    destinationOpen: boolean
+    setDestinationOpen: (open: boolean) => void
+    isDraggingMin: boolean
+    setIsDraggingMin: (dragging: boolean) => void
+    isDraggingMax: boolean
+    setIsDraggingMax: (dragging: boolean) => void
+}
+export interface CustomDropdownProps {
+    value: string
+    onValueChange: (value: string) => void
+    options: { value: string, label: string }[]
+    placeholder: string
+}
+
+export interface FilterSidebarProps {
+  selectedFilters: FilterState
+  handleFilterChange: (filterType: string, value: any) => void
+  applyFilters: () => void
+  resetFilters: () => void
+  quickFilters: FilterOption[]
+  ratingOptions: FilterOption[]
+  sortOptions: SortOption[]
+  destinationOptions: SortOption[]
+  quickFilterOpen: boolean
+  setQuickFilterOpen: (open: boolean) => void
+  sortByOpen: boolean
+  setSortByOpen: (open: boolean) => void
+  priceRangeOpen: boolean
+  setPriceRangeOpen: (open: boolean) => void
+  ratingOpen: boolean
+  setRatingOpen: (open: boolean) => void
+  destinationOpen: boolean
+  setDestinationOpen: (open: boolean) => void
+  isDraggingMin: boolean
+  setIsDraggingMin: (dragging: boolean) => void
+  isDraggingMax: boolean
+  setIsDraggingMax: (dragging: boolean) => void
 }

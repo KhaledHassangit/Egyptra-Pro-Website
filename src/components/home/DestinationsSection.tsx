@@ -29,10 +29,10 @@ export function DestinationsSection() {
       </div>
 
       {/* Images Grid - Fixed structure */}
-      <div className="flex flex-col lg:flex-row flex-wrap justify-center   lg:flex-nowrap gap-4 lg:gap-6 mx-auto">
-        {/* Column 1 - Hurghada (First on mobile) */}
-        <div className="flex flex-col gap-4 w-full lg:w-72 order-1 lg:order-1">
-          {/* Label 1 - Mobile version (top, with opposite border) */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 lg:gap-6">
+        {/* Column 1 - Hurghada */}
+        <div className="flex flex-col gap-4 order-1 lg:order-1">
+          {/* Label 1 - Mobile version */}
           <div className="lg:hidden w-full h-24 sm:h-28 md:h-32 bg-primary 
                          rounded-tr-[60px] sm:rounded-tr-[88px] md:rounded-tr-[88px] 
                          flex items-center justify-center" 
@@ -43,17 +43,19 @@ export function DestinationsSection() {
             </span>
           </div>
           
-          {/* Image 1 */}
-          <div className="relative w-full h-64 lg:h-84 overflow-hidden group">
+          {/* Image 1 - Fixed with full width/height */}
+          <div className="relative w-full h-64 lg:h-[336px] overflow-hidden group">
             <Image
               src="/images/dest1.png"
               alt="Beach walkway"
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              priority
             />
           </div>
           
-          {/* Label 1 - Desktop version (bottom, normal border) */}
+          {/* Label 1 - Desktop version */}
           <div className="hidden lg:flex w-full h-24 sm:h-28 md:h-32 lg:h-28 
                          bg-primary rounded-bl-[60px] sm:rounded-bl-[88px] lg:rounded-bl-[88px] 
                          items-center justify-center">
@@ -64,74 +66,74 @@ export function DestinationsSection() {
         </div>
 
         {/* Column 2 */}
-        <div className="flex flex-col gap-4 w-full lg:w-72 order-2 lg:order-2">
+        <div className="flex flex-col gap-4 order-2 lg:order-2">
           {/* Image 2 */}
-          <div className="relative w-full h-64 lg:h-56 rounded-tr-[20px] overflow-hidden group">
+          <div className="relative w-full h-64 lg:h-[224px] overflow-hidden group">
             <Image
               src="/images/dest2.jpg"
               alt="Beach"
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           {/* Image 5 */}
-          <div className="relative w-full h-64 lg:h-56 rounded-br-[20px] overflow-hidden group">
+          <div className="relative w-full h-64 lg:h-[224px] overflow-hidden group">
             <Image
               src="/images/dest5.jpg"
               alt="Beach destination"
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         </div>
 
         {/* Column 3 */}
-        <div className="flex flex-col gap-4 w-full lg:w-72 order-3 lg:order-3">
+        <div className="flex flex-col gap-4 order-3 lg:order-3">
           {/* Image 3 */}
-          <div
-            className="relative w-full h-64 lg:h-56 rounded-tr-[20px] overflow-hidden group"
-            style={{ transform: "rotateY(180deg)" }}
-          >
+          <div className="relative w-full hidden lg:flex h-64 lg:h-[224px] overflow-hidden group"
+               style={{ transform: "rotateY(180deg)" }}>
             <Image
               src="/images/dest3.jpg"
               alt="Suspension bridge"
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           {/* Image 6 */}
-          <div
-            className="relative w-full h-64 lg:h-56 rounded-br-[20px] overflow-hidden group"
-            style={{ transform: "rotateY(180deg)" }}
-          >
+          <div className="relative hidden lg:flex w-full h-64 lg:h-[224px] overflow-hidden group"
+               style={{ transform: "rotateY(180deg)" }}>
             <Image
               src="/images/dest6.jpg"
               alt="Sharm el shakh"
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
         </div>
 
-        {/* Column 4 - Sharm El Sheikh (Last on mobile) */}
-        <div className="flex flex-col gap-4 w-full lg:w-72 order-4 lg:order-4">
+        {/* Column 4 - Sharm El Sheikh */}
+        <div className="flex flex-col gap-4 order-4 lg:order-4">
           {/* Image 4 */}
-          <div className="relative w-full h-64 lg:h-84 overflow-hidden group" style={{ transform: "rotateY(180deg)" }}>
+          <div className="relative w-full h-64 lg:h-[336px] overflow-hidden group"
+               style={{ transform: "rotateY(180deg)" }}>
             <Image
               src="/images/dest4.jpg"
               alt="Lake and mountains"
               fill
-              className="object-cover transition-transform group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           
-          {/* Label 2 - Mobile & Desktop version */}
-          <div
-            className="w-full h-24 sm:h-28 md:h-32 lg:h-28 
-                       bg-[#D0A87D] rounded-bl-[60px] sm:rounded-bl-[88px] lg:rounded-bl-[88px] 
-                       flex items-center justify-center"
-            style={{ transform: "rotateY(-180deg)" }}
-          >
+          {/* Label 2 */}
+          <div className="w-full h-24 sm:h-28 md:h-32 lg:h-28 
+                         bg-[#D0A87D] rounded-bl-[60px] sm:rounded-bl-[88px] lg:rounded-bl-[88px] 
+                         flex items-center justify-center"
+               style={{ transform: "rotateY(-180deg)" }}>
             <span className="text-white font-bold text-base sm:text-lg md:text-xl lg:text-xl px-2 sm:px-0 text-center" 
                   style={{ transform: "rotateY(180deg)" }}>
               Sharm El Sheikh

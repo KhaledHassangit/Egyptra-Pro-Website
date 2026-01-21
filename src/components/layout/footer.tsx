@@ -221,7 +221,7 @@ export function Footer() {
                         </div>
 
                         {/* Links */}
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2 text-center">
                             <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Sitemap</Link>
                             <span className="text-[#99A1AF]">|</span>
                             <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Privacy Policy</Link>

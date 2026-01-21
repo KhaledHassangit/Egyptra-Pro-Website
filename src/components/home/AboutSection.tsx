@@ -3,7 +3,7 @@ import Container from "@/util/Container";
 
 export function AboutSection() {
   return (
-    <Container >
+    <Container  className="py-20">
       <section className=" grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16" id="about">
         {/* Left side - Image Grid - Hidden on md and below */}
         <div className="hidden lg:grid grid-cols-2 gap-3 sm:gap-4 md:gap-6">

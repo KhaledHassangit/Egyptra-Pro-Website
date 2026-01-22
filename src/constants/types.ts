@@ -252,3 +252,56 @@ export interface FilterSidebarProps {
   isDraggingMax: boolean
   setIsDraggingMax: (dragging: boolean) => void
 }
+
+
+// Define types based on the API response
+export interface User {
+  id: string;
+  firstName: string;
+  lastName: string;
+}
+
+
+
+export interface Review {
+  id: string;
+  rating: number;
+  title: string;
+  content: string;
+  authorName: string;
+  authorLocation: string;
+  userId: string;
+  tourId: string;
+  createdAt: string;
+  updatedAt: string;
+  user: User;
+  tour: Tour;
+}
+
+export interface ReviewsMeta {
+  total: number;
+  page: number;
+  limit: number;
+  totalPages: number;
+  hasNext: boolean;
+  hasPrev: boolean;
+}
+
+export interface ReviewsResponse {
+  data: Review[];
+  meta: ReviewsMeta;
+}
+
+export interface NavigationButtonsProps {
+  canScrollPrev: boolean;
+  canScrollNext: boolean;
+  onPrevClick: () => void;
+  onNextClick: () => void;
+}
+
+export interface ReviewsCarouselProps {
+    testimonials: Review[];
+    isLoading: boolean;
+    api: any;
+    setApi: (api: any) => void;
+}

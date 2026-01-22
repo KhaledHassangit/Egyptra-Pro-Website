@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { Providers } from "@/providers/Providers";
 import { Toaster } from "@/components/ui/sonner";
 import { Navbar } from "@/components/layout/navbar";
+import "react-loadly/styles.css"
 
 const poppins = Poppins({
   variable: "--font-poppins",

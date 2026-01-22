@@ -1,59 +1,25 @@
 "use client"
 
-import { Star, ChevronLeft, ChevronRight } from "lucide-react"
 import { useEffect, useState } from "react"
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
 import Container from "@/util/Container"
-import { Testimonial } from "@/constants/types"
-
-const testimonials: Testimonial[] = [
-  {
-    id: 1,
-    rating: 5,
-    title: "Great experience",
-    content:
-      "It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%! It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%!",
-    author: "Mohamed Ahmed",
-    location: "Roma",
-    date: "September 21, 2022",
-  },
-  {
-    id: 2,
-    rating: 5,
-    title: "Great experience",
-    content:
-      "It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%! It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%!",
-    author: "Mohamed Ahmed",
-    location: "Roma",
-    date: "September 21, 2022",
-  },
-  {
-    id: 3,
-    rating: 5,
-    title: "Great experience",
-    content:
-      "It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%! It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%!",
-    author: "Mohamed Ahmed",
-    location: "Roma",
-    date: "September 21, 2022",
-  },
-  {
-    id: 4,
-    rating: 5,
-    title: "Great experience",
-    content:
-      "It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%! It was one of the best decisions to book Ceren. She once me through Istanbul, we tasted amazing food! 100%!",
-    author: "Mohamed Ahmed",
-    location: "Roma",
-    date: "September 21, 2022",
-  },
-]
+import { useGetReviewsQuery } from '@/features/reviews/reviewsApi';
+import { Review } from "@/constants/types"
+import SectionHeader from "@/util/SectionHeader"
+import { AutoSkeletonLoader } from "react-loadly";
+import { NoReviews, ReviewCard } from "../reviews/ReviewCard";
+import { createSampleReview } from "@/helpers/helpers";
+import { ReviewsCarousel } from "../reviews/ReviewsCarousel";
+import { NavigationButtons } from "../reviews/NavigationButtons";
 
 export function CustomerTestimonials() {
   const [api, setApi] = useState<any>(null)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(true)
+
+  const { data: reviewsData, isLoading, error } = useGetReviewsQuery();
+
+  const testimonials: Review[] = reviewsData?.data || [];
+  const hasReviews = testimonials.length > 0;
 
   useEffect(() => {
     if (!api) return
@@ -85,101 +51,56 @@ export function CustomerTestimonials() {
     api?.scrollNext()
   }
 
+  if (error) return <div className="text-center text-red-500">Error loading reviews</div>;
+
   return (
-    <Container className="py-20 ">
+    <Container className="py-20">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-5">
         <div className="mb-4 md:mb-0 ms-0 sm:ms-4 text-center sm:text-left w-full md:w-auto">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">What Our Customers Say</h2>
-          <p className="text-gray-600 text-sm sm:text-base">Read authentic reviews from our satisfied customers who experienced.</p>
+          <SectionHeader
+            title="What Our Customers Say"
+            description="Read authentic reviews from our satisfied customers who experienced."
+          />
         </div>
 
-        <div className="hidden sm:flex gap-2 me-0 sm:me-4">
-          <Button
-            variant="outline"
-            size="icon"
-            className={`w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded text-white transition-colors ${
-              canScrollPrev 
-                ? 'bg-primary hover:bg-primary/90 border-primary' 
-                : 'bg-gray-300 border-gray-300 cursor-not-allowed'
-            }`}
-            onClick={scrollPrev}
-            disabled={!canScrollPrev}
-          >
-            <ChevronLeft size={16} />
-            <span className="sr-only">Previous testimonial</span>
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className={`w-[36px] h-[36px] sm:w-[40px] sm:h-[40px] rounded text-white transition-colors ${
-              canScrollNext 
-                ? 'bg-[#D0A87D] hover:bg-[#D0A87D]/90 border-[#D0A87D]' 
-                : 'bg-gray-300 border-gray-300 cursor-not-allowed'
-            }`}
-            onClick={scrollNext}
-            disabled={!canScrollNext}
-          >
-            <ChevronRight size={16} />
-            <span className="sr-only">Next testimonial</span>
-          </Button>
-        </div>
+        <NavigationButtons
+          canScrollPrev={canScrollPrev}
+          canScrollNext={canScrollNext}
+          onPrevClick={scrollPrev}
+          onNextClick={scrollNext}
+        />
       </div>
 
-      <Carousel
-        opts={{
-          align: "start",
-          loop: false,
-        }}
-        setApi={setApi}
-        className="w-full p-2 sm:p-4"
-      >
-        <CarouselContent>
-          {testimonials.map((testimonial) => (
-            <CarouselItem 
-              key={testimonial.id} 
-              className="pl-4 sm:pl-6 basis-full sm:basis-1/2 lg:basis-1/3"
-            >
-              <div className="bg-white shadow-sm h-full flex flex-col p-4 sm:p-6 w-full border border-[#D0A87D] rounded-[18px]">
-                <div className="flex items-center mb-4">
-                  <span className="font-normal text-sm mr-2 text-primary">
-                    5.0
-                  </span>
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        size={12}
-                        className="text-[#D0A87D] fill-[#D0A87D]" 
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <h3 className="font-normal text-base sm:text-lg mb-3 text-[#4A4A4A]">
-                  {testimonial.title}
-                </h3>
-                <p className="text-[#282828] font-light text-sm sm:text-base leading-5 mb-6 flex-grow">
-                  {testimonial.content}
-                </p>
-
-                <div className="pt-4">
-                  <p className="font-normal text-sm sm:text-base text-primary">
-                    {testimonial.author}
-                  </p>
-                  <div className="flex items-center justify-between mt-1">
-                    <p className="font-normal text-xs sm:text-sm text-primary mr-2">
-                      {testimonial.location}
-                    </p>
-                    <p className="font-normal text-xs sm:text-sm text-[#4A4A4A] ml-2">
-                      {testimonial.date}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
+      {/* Show skeleton when loading */}
+      {isLoading && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 sm:p-4">
+          {[...Array(3)].map((_, i) => (
+            <div key={`skeleton-${i}`} className="pl-4 sm:pl-6">
+              <AutoSkeletonLoader
+                loading={true}
+                inheritStyles
+                shimmer={true}
+                shimmerColor="#e0e0e0"
+                highlightColor="#f5f5f5"
+                component={<ReviewCard testimonial={createSampleReview()} />}
+              />
+            </div>
           ))}
-        </CarouselContent>
-      </Carousel>
+        </div>
+      )}
+
+      {/* Show actual reviews when not loading and we have reviews */}
+      {!isLoading && hasReviews && (
+        <ReviewsCarousel
+          testimonials={testimonials}
+          isLoading={isLoading}
+          api={api}
+          setApi={setApi}
+        />
+      )}
+
+      {/* Show no reviews message when not loading and we have no reviews */}
+      {!isLoading && !hasReviews && <NoReviews />}
     </Container>
   )
 }

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 
 export function SearchBar({ 
   placeholder = "What do you want to do?", 
-  buttonText = "Search",
+buttonText = "Search",
   className = "",
   onSearch
 }: SearchBarProps) {

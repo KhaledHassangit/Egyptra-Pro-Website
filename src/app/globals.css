@@ -212,7 +212,11 @@ button {
   background: linear-gradient(135deg, rgba(38, 93, 146, 0.8) 0%, rgba(38, 93, 146, 0.8) 50%, rgba(38, 93, 146, 0.8) 100%);
 
 }
-
+input:focus{
+  outline: none !important;
+  border-color: var(--secondary) !important;
+  box-shadow: 0 0 0 3px rgba(200,155,99,0.15) !important;
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;

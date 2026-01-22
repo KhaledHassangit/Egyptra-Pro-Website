@@ -1,8 +1,11 @@
-import React from 'react'
+import { AuthLayout } from '@/components/auth/AuthLayout'
+import { ForgetPassword } from '@/components/auth/ForgetPassword'
 
 const ForgetPasswordPage = () => {
   return (
-    <div>page</div>
+    <AuthLayout>
+      <ForgetPassword />
+    </AuthLayout>
   )
 }
 

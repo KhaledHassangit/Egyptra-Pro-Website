@@ -93,7 +93,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
             Remember me
           </label>
         </div>
-        <Link href="#" className="text-sm font-medium text-primary hover:underline">
+        <Link href="/forgot-password" className="text-sm font-medium text-primary hover:underline">
           Forgot password?
         </Link>
       </div>

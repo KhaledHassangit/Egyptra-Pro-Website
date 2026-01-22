@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import { Eye, EyeOff,  ArrowLeft, Key } from 'lucide-react';
+import { Eye, EyeOff, ArrowLeft, Key } from 'lucide-react';
 import { Label } from '../ui/label';
 import { Input } from '../ui/input';
 import LoadingButton from '@/util/LoadingButton';
@@ -11,7 +11,8 @@ import Container from '@/util/Container';
 import { useResetPasswordMutation } from '@/features/auth/authApi';
 import { notify } from '@/util/notify';
 
-const ResetPassword = () => {
+
+const ResetPasswordContent = () => {
     const searchParams = useSearchParams();
     const router = useRouter();
     const token = searchParams.get('token');
@@ -176,6 +177,14 @@ const ResetPassword = () => {
                 </div>
             </div>
         </Container>
+    );
+};
+
+const ResetPassword = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ResetPasswordContent />
+        </Suspense>
     );
 };
 

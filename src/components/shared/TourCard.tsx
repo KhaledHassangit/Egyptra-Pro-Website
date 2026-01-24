@@ -166,11 +166,11 @@ export function TourCard({
                 <div className="flex justify-between px-2.5 py-2">
                     <div className="bg-[#D0A87D] px-2 rounded flex items-center gap-1">
                         <Clock size={13} className="text-white font-medium" />
-                        <span className="text-white font-medium text-xs">3 Hours</span>
+                        <span className="text-white font-medium text-xs">{duration || "N/A"}</span>
                     </div>
                     <div className="px-3 py-1 rounded flex items-center gap-1 text-primary ">
                         <LayoutGrid size={13} />
-                        <span className="font-medium text-xs">Historical</span>
+                        <span className="font-medium text-xs">{location || city}</span>
                     </div>
                 </div>
                 
@@ -181,7 +181,7 @@ export function TourCard({
                             <span className="text-black text-sm font-medium">{city}</span>
                             <div className="flex items-center gap-1">
                                 <Star size={13} className="fill-current" style={{ color: '#0373DE' }} />
-                                <span className="text-black text-xs font-light">{rating}</span>
+                                <span className="text-black text-xs font-light">{rating || "0.0"}</span>
                             </div>
                         </div>
                         
@@ -227,12 +227,24 @@ export function TourCard({
                         <span className="text-black text-sm font-medium">{city}</span>
                         <div className="flex items-center gap-1">
                             <Star size={12} className="text-primary fill-current" />
-                            <span className="text-black text-xs font-light">{rating}</span>
+                            <span className="text-black text-xs font-light">{rating || "0.0"}</span>
                         </div>
                     </div>
                     <h3 className="text-gray-700 text-base font-normal line-clamp-2">
                         {title}
                     </h3>
+                    {duration && (
+                        <div className="flex items-center gap-1 text-gray-500 text-xs">
+                            <Clock size={12} />
+                            <span>{duration}</span>
+                        </div>
+                    )}
+                    {groupSize && (
+                        <div className="flex items-center gap-1 text-gray-500 text-xs">
+                            <Users size={12} />
+                            <span>Max group: {groupSize}</span>
+                        </div>
+                    )}
                 </div>
                 <p className="text-primary text-base font-medium">{price}</p>
             </div>

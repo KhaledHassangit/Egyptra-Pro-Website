@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { BaseQueryFn } from '@reduxjs/toolkit/query';
 import axios, { AxiosRequestConfig, AxiosError } from 'axios';
 import Cookies from 'universal-cookie';
 
 // const baseURL = process.env.NEXT_PUBLIC_API_URL
-const baseURL = "https://egyptrapro-nestjs-production.up.railway.app/"
+const baseURL = "https://egyptrapro-nestjs-production.up.railway.app"
 const cookies = new Cookies();
 
 const axiosInstance = axios.create({

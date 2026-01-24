@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         hostname: 'z-cdn-media.chatglm.cn',
       },
     ],
+    domains: [
+      'egyptra.pro',
+    ],
+
   },
 };
 

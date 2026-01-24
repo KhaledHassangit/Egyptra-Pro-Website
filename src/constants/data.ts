@@ -1,23 +1,23 @@
 import {
-  CreditCard, CheckCircle,Wallet, 
-  DollarSign, ShieldCheck, 
-  BadgeCheck,Globe,Users,Star,Flag
+  CreditCard, CheckCircle, Wallet,
+  DollarSign, ShieldCheck,
+  BadgeCheck, Globe, Users, Star, Flag
 } from 'lucide-react'
 import { StaticImageData } from 'next/image'
 
-export const cities = ['Cairo', 'Hurghada', 'Luxor', 'Aswan'];
+export const cities = ['cairo', 'hurghada', 'luxor', 'aswan'];
 
 // Map each city to its specific image
 export const cityImages: Record<string, string> = {
-  'Cairo': "/images/dest1.png",
-  'Hurghada': "/images/dest2.jpg",
-  'Luxor': "/images/dest5.jpg",
-  'Aswan': "/images/dest3.jpg"
+  'cairo': "/images/dest1.png",
+  'hurghada': "/images/dest2.jpg",
+  'luxor': "/images/dest5.jpg",
+  'aswan': "/images/dest3.jpg"
 };
 
 // Different image sets for each city
 export const cityTourImages: Record<string, string[]> = {
-  'Cairo': [
+  'cairo': [
     "/images/dest1.png",
     "/images/dest2.jpg",
     "/images/dest5.jpg",
@@ -25,7 +25,7 @@ export const cityTourImages: Record<string, string[]> = {
     "/images/dest6.jpg",
     "/images/dest4.jpg"
   ],
-  'Hurghada': [
+  'hurghada': [
     "/images/dest2.jpg",
     "/images/dest5.jpg",
     "/images/dest3.jpg",
@@ -33,7 +33,7 @@ export const cityTourImages: Record<string, string[]> = {
     "/images/dest4.jpg",
     "/images/dest1.png"
   ],
-  'Luxor': [
+  'luxor': [
     "/images/dest5.jpg",
     "/images/dest3.jpg",
     "/images/dest6.jpg",
@@ -41,7 +41,7 @@ export const cityTourImages: Record<string, string[]> = {
     "/images/dest1.png",
     "/images/dest2.jpg"
   ],
-  'Aswan': [
+  'aswan': [
     "/images/dest3.jpg",
     "/images/dest6.jpg",
     "/images/dest4.jpg",
@@ -53,7 +53,7 @@ export const cityTourImages: Record<string, string[]> = {
 
 // Tour data for each city
 export const tourData: Record<string, { city: string; title: string; price: string; rating: string }[]> = {
-  'Cairo': [
+  'cairo': [
     { city: 'Cairo', title: 'Pyramids of Giza: Full Day Tour', price: '$ 120', rating: '4.8 (320)' },
     { city: 'Cairo', title: 'Egyptian Museum & Citadel Tour', price: '$ 85', rating: '4.6 (250)' },
     { city: 'Cairo', title: 'Nile River Dinner Cruise', price: '$ 65', rating: '4.7 (180)' },
@@ -61,7 +61,7 @@ export const tourData: Record<string, { city: string; title: string; price: stri
     { city: 'Cairo', title: 'Coptic Cairo & Old City Tour', price: '$ 70', rating: '4.4 (120)' },
     { city: 'Cairo', title: 'Sound and Light Show at Pyramids', price: '$ 55', rating: '4.3 (90)' }
   ],
-  'Hurghada': [
+  'hurghada': [
     { city: 'Hurghada', title: 'Dolphin watching boat tour with snorkeling', price: '$ 254', rating: '4.2 (200)' },
     { city: 'Hurghada', title: 'Red Sea Snorkeling Adventure', price: '$ 185', rating: '4.6 (180)' },
     { city: 'Hurghada', title: 'Desert Safari with BBQ Dinner', price: '$ 95', rating: '4.7 (220)' },
@@ -69,7 +69,7 @@ export const tourData: Record<string, { city: string; title: string; price: stri
     { city: 'Hurghada', title: 'Giftun Island Boat Trip', price: '$ 75', rating: '4.8 (280)' },
     { city: 'Hurghada', title: 'Hurghada City Tour & Shopping', price: '$ 55', rating: '4.3 (140)' }
   ],
-  'Luxor': [
+  'luxor': [
     { city: 'Luxor', title: 'Valley of the Kings & Queens Tour', price: '$ 145', rating: '4.9 (350)' },
     { city: 'Luxor', title: 'Karnak & Luxor Temples Day Tour', price: '$ 110', rating: '4.7 (280)' },
     { city: 'Luxor', title: 'Hot Air Balloon over Luxor', price: '$ 175', rating: '4.8 (200)' },
@@ -77,7 +77,7 @@ export const tourData: Record<string, { city: string; title: string; price: stri
     { city: 'Luxor', title: 'Luxor West Bank Full Day Tour', price: '$ 135', rating: '4.7 (220)' },
     { city: 'Luxor', title: 'Sound and Light at Karnak Temple', price: '$ 65', rating: '4.4 (120)' }
   ],
-  'Aswan': [
+  'aswan': [
     { city: 'Aswan', title: 'Philae Temple & High Dam Tour', price: '$ 95', rating: '4.6 (180)' },
     { city: 'Aswan', title: 'Abu Simbel Day Trip by Bus', price: '$ 125', rating: '4.8 (250)' },
     { city: 'Aswan', title: 'Nubian Village Tour', price: '$ 65', rating: '4.5 (140)' },
@@ -193,21 +193,7 @@ export const advantages = [
 
 
 // data/navigationData.ts
-export const destinationsData = {
-  'Popular Destinations': [
-    { name: 'Cairo', href: '#' },
-    { name: 'Luxor', href: '#' },
-    { name: 'Hurghada', href: '#' },
-    { name: 'Sharm El Sheikh', href: '#' },
-  ],
-  '': [
-    { name: 'El Gouna', href: '#' },
-    { name: 'Marsa Alam', href: '#' },
-    { name: 'Soma Bay', href: '#' },
-    { name: 'Maadi Bay', href: '#' },
-    { name: 'Salh Hasheed', href: '#' },
-  ]
-};
+
 
 export const tourCategoryData = [
   { name: 'Safari', href: '#' },
@@ -227,6 +213,23 @@ export const travelGuideData = [
   { name: 'Luxor Guide', href: '#' },
   { name: 'Marsa Alam Guide', href: '#' },
 ];
+// data.ts
+
+export const destinationsData = {
+  'Popular Destinations': [
+    { name: 'Cairo', href: '#' },
+    { name: 'Luxor', href: '#' },
+    { name: 'Hurghada', href: '#' },
+    { name: 'Sharm El Sheikh', href: '#' },
+  ],
+  '': [
+    { name: 'El Gouna', href: '#' },
+    { name: 'Marsa Alam', href: '#' },
+    { name: 'Soma Bay', href: '#' },
+    { name: 'Maadi Bay', href: '#' },
+    { name: 'Salh Hasheed', href: '#' },
+  ]
+};
 
 export const languages = [
   { code: 'EN', name: 'English', flag: 'gb' },

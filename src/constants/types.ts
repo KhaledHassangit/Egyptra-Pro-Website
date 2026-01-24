@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export interface LoginFormProps {
     email: string;
@@ -229,79 +230,207 @@ export interface CustomDropdownProps {
 }
 
 export interface FilterSidebarProps {
-  selectedFilters: FilterState
-  handleFilterChange: (filterType: string, value: any) => void
-  applyFilters: () => void
-  resetFilters: () => void
-  quickFilters: FilterOption[]
-  ratingOptions: FilterOption[]
-  sortOptions: SortOption[]
-  destinationOptions: SortOption[]
-  quickFilterOpen: boolean
-  setQuickFilterOpen: (open: boolean) => void
-  sortByOpen: boolean
-  setSortByOpen: (open: boolean) => void
-  priceRangeOpen: boolean
-  setPriceRangeOpen: (open: boolean) => void
-  ratingOpen: boolean
-  setRatingOpen: (open: boolean) => void
-  destinationOpen: boolean
-  setDestinationOpen: (open: boolean) => void
-  isDraggingMin: boolean
-  setIsDraggingMin: (dragging: boolean) => void
-  isDraggingMax: boolean
-  setIsDraggingMax: (dragging: boolean) => void
+    selectedFilters: FilterState
+    handleFilterChange: (filterType: string, value: any) => void
+    applyFilters: () => void
+    resetFilters: () => void
+    quickFilters: FilterOption[]
+    ratingOptions: FilterOption[]
+    sortOptions: SortOption[]
+    destinationOptions: SortOption[]
+    quickFilterOpen: boolean
+    setQuickFilterOpen: (open: boolean) => void
+    sortByOpen: boolean
+    setSortByOpen: (open: boolean) => void
+    priceRangeOpen: boolean
+    setPriceRangeOpen: (open: boolean) => void
+    ratingOpen: boolean
+    setRatingOpen: (open: boolean) => void
+    destinationOpen: boolean
+    setDestinationOpen: (open: boolean) => void
+    isDraggingMin: boolean
+    setIsDraggingMin: (dragging: boolean) => void
+    isDraggingMax: boolean
+    setIsDraggingMax: (dragging: boolean) => void
 }
 
 
 // Define types based on the API response
 export interface User {
-  id: string;
-  firstName: string;
-  lastName: string;
+    id: string;
+    firstName: string;
+    lastName: string;
 }
 
 
 
 export interface Review {
-  id: string;
-  rating: number;
-  title: string;
-  content: string;
-  authorName: string;
-  authorLocation: string;
-  userId: string;
-  tourId: string;
-  createdAt: string;
-  updatedAt: string;
-  user: User;
-  tour: Tour;
+    id: string;
+    rating: number;
+    title: string;
+    content: string;
+    authorName: string;
+    authorLocation: string;
+    userId: string;
+    tourId: string;
+    createdAt: string;
+    updatedAt: string;
+    user: User;
+    tour: Tour;
 }
 
 export interface ReviewsMeta {
-  total: number;
-  page: number;
-  limit: number;
-  totalPages: number;
-  hasNext: boolean;
-  hasPrev: boolean;
+    total: number;
+    page: number;
+    limit: number;
+    totalPages: number;
+    hasNext: boolean;
+    hasPrev: boolean;
 }
 
 export interface ReviewsResponse {
-  data: Review[];
-  meta: ReviewsMeta;
+  success: boolean;
+  message: string;
+  data: {
+    data: Review[];
+    meta: {
+      total: number;
+      page: number;
+      limit: number;
+      totalPages: number;
+      hasNext: boolean;
+      hasPrev: boolean;
+    };
+  };
 }
 
 export interface NavigationButtonsProps {
-  canScrollPrev: boolean;
-  canScrollNext: boolean;
-  onPrevClick: () => void;
-  onNextClick: () => void;
+    canScrollPrev: boolean;
+    canScrollNext: boolean;
+    onPrevClick: () => void;
+    onNextClick: () => void;
 }
+
 
 export interface ReviewsCarouselProps {
     testimonials: Review[];
     isLoading: boolean;
     api: any;
     setApi: (api: any) => void;
+}
+
+// API Types
+// API Types
+
+export interface ApiPhoto {
+    id: string;
+    url: string;
+    isPrimary: boolean;
+}
+
+export interface ApiVideo {
+    id: string;
+    url: string;
+}
+
+export interface ApiTour {
+    id: string;
+    title: string;
+    slug: string;
+    description: string;
+    shortDesc: string | null;
+    duration: string;
+    maxGroupSize: number;
+    difficulty: string;
+    isOnSale: boolean;
+    salePercentage: number | null;
+    isActive: boolean;
+    adultPrice: string | number;
+    childPrice: string | number | null;
+    infantPrice: string | number | null;
+    guideLanguages: string[];
+    badge: string | null;
+    highlights: string[];
+    inclusions: string[];
+    isPopular: boolean;
+    location: string;
+    averageRating: string | number;
+    reviewsCount: number;
+    // Based on user JSON, these are strings in the response, not objects/IDs
+    destination: string; 
+    category: string; 
+    
+    createdAt: string;
+    updatedAt: string;
+    
+    photos: ApiPhoto[];
+    primaryPhoto: ApiPhoto | null;
+    videos?: ApiVideo[];
+}
+
+export interface ToursResponse {
+    data: ApiTour[];
+    totalPages: number;
+    currentPage: number;
+    totalItems: number;
+}
+
+export interface GetToursParams {
+    location?: string;
+    category?: string;
+    page?: number;
+    limit?: number;
+}
+
+
+// lib/api.ts (add these interfaces)
+
+export interface TourPhoto {
+  id: string;
+  url: string;
+  isPrimary: boolean;
+}
+
+export interface TourVideo {
+  id: string;
+  url: string;
+}
+
+export interface Tour {
+  id: string;
+  title: string;
+  slug: string;
+  description: string;
+  shortDesc: string | null;
+  duration: string;
+  maxGroupSize: number;
+  difficulty: string;
+  isOnSale: boolean;
+  salePercentage: number | null;
+  isActive: boolean;
+  adultPrice: string | number;
+  childPrice: number | null;
+  infantPrice: number | null;
+  guideLanguages: string[];
+  badge: string | null;
+  highlights: string[];
+  inclusions: string[];
+  isPopular: boolean;
+  location: string;
+  averageRating: string | number;
+  reviewsCount: number;
+  category: string;
+  destination: string;
+  createdAt: string;
+  updatedAt: string;
+  photos: TourPhoto[];
+  primaryPhoto: TourPhoto | null;
+  videos?: TourVideo[];
+}
+
+export interface PaginatedResponse<T> {
+  data: T[];
+  totalPages: number;
+  currentPage: number;
+  totalItems: number;
 }

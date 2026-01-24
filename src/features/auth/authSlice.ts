@@ -4,12 +4,10 @@ import { AuthState, User } from '@/constants/types';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import Cookies from 'universal-cookie';
 
-const cookies = new Cookies();
-
-// Define the initial state, checking for an existing token in cookies
+// Initialize with null - hydration happens on client mount
 const initialState: AuthState = {
     user: null,
-    token: cookies.get('accessToken') || null,
+    token: null,
 };
 
 const authSlice = createSlice({
@@ -25,6 +23,7 @@ const authSlice = createSlice({
             state.token = token;
             
             // Store the access token in a cookie
+            const cookies = new Cookies();
             cookies.set('accessToken', token, { path: '/' });
         },
         logout: (state) => {
@@ -32,11 +31,19 @@ const authSlice = createSlice({
             state.token = null;
             
             // Remove the access token from cookies
+            const cookies = new Cookies();
             cookies.remove('accessToken', { path: '/' });
+        },
+        hydrateAuth: (
+            state,
+            action: PayloadAction<{ token: string | null; user: User | null }>
+        ) => {
+            state.token = action.payload.token;
+            state.user = action.payload.user;
         },
     },
 });
 
-export const { setCredentials, logout } = authSlice.actions;
+export const { setCredentials, logout, hydrateAuth } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -1,6 +1,5 @@
-// src/features/reviews/reviewsApi.ts
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { axiosBaseQuery } from '@/lib/api';
+import { axiosBaseQuery } from '@/api/api';
 import { ReviewsResponse , Review} from '@/constants/types';
 
 

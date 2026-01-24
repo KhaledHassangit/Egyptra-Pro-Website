@@ -4,139 +4,80 @@ import Container from "@/util/Container";
 import SectionHeader from "@/util/SectionHeader";
 import { useState, useEffect } from "react";
 
-// Category data
+// Category data with backend values
 export const tourCategoryData = [
-  { name: 'Safari', href: '#' },
-  { name: 'Boat Tour', href: '#' },
-  { name: 'Diving', href: '#' },
-  { name: 'Snorkeling', href: '#' },
-  { name: 'Historical', href: '#' },
-  { name: 'City Tour', href: '#' },
-  { name: 'Cultural', href: '#' },
-  { name: 'Multi-day', href: '#' },
-  { name: 'Adventure', href: '#' }, // Added 9th category
+  { name: 'Popular', value: '', href: '#' },
+  { name: 'Safari', value: 'safari', href: '#' },
+  { name: 'Boat Tour', value: 'boat-tour', href: '#' },
+  { name: 'Diving', value: 'diving', href: '#' },
+  { name: 'Snorkeling', value: 'snorkeling', href: '#' },
+  { name: 'Historical', value: 'historical', href: '#' },
+  { name: 'City Tour', value: 'city-tour', href: '#' },
+  { name: 'Cultural', value: 'cultural', href: '#' },
+  { name: 'Multi-day', value: 'multi-day', href: '#' },
+  { name: 'Adventure', value: 'adventure', href: '#' }, // Added 9th category
 ];
 
-// Mock function to simulate fetching locations for a category
-const fetchLocationsByCategory = async (category: string) => {
-  // In a real application, this would be an API call
-  // For now, we'll simulate with a timeout and return mock data
-  
-  // Mock location data based on category
-  const mockLocationsData: Record<string, any[]> = {
-    'Safari': [
-      { id: 1, title: "Desert Safari Adventure", location: "Hurghada", rating: "4.9", image: "/images/dest2.jpg" },
-      { id: 2, title: "Quad Biking Experience", location: "Giza", rating: "4.7", image: "/images/dest4.jpg" },
-      { id: 3, title: "Camel Trek", location: "Luxor", rating: "4.8", image: "/images/dest5.jpg" },
-      { id: 4, title: "Bedouin Dinner", location: "Sharm El Sheikh", rating: "4.6", image: "/images/dest6.jpg" },
-      { id: 5, title: "Desert Camping", location: "Cairo", rating: "4.9", image: "/images/dest3.jpg" },
-      { id: 6, title: "Stargazing Tour", location: "Hurghada", rating: "4.8", image: "/images/dest1.png" }
-    ],
-    'Boat Tour': [
-      { id: 1, title: "Nile River Cruise", location: "Luxor", rating: "4.9", image: "/images/dest5.jpg" },
-      { id: 2, title: "Fishing Trip", location: "Hurghada", rating: "4.7", image: "/images/dest1.png" },
-      { id: 3, title: "Sunset Cruise", location: "Sharm El Sheikh", rating: "4.8", image: "/images/dest6.jpg" },
-      { id: 4, title: "Island Hopping", location: "Hurghada", rating: "4.9", image: "/images/dest2.jpg" },
-      { id: 5, title: "Glass Bottom Boat", location: "Sharm El Sheikh", rating: "4.6", image: "/images/dest4.jpg" },
-      { id: 6, title: "Yacht Experience", location: "Cairo", rating: "4.8", image: "/images/dest3.jpg" }
-    ],
-    'Diving': [
-      { id: 1, title: "Red Sea Diving", location: "Hurghada", rating: "4.9", image: "/images/dest1.png" },
-      { id: 2, title: "Wreck Diving", location: "Sharm El Sheikh", rating: "4.8", image: "/images/dest6.jpg" },
-      { id: 3, title: "Night Diving", location: "Hurghada", rating: "4.7", image: "/images/dest2.jpg" },
-      { id: 4, title: "Cave Diving", location: "Dahab", rating: "4.9", image: "/images/dest4.jpg" },
-      { id: 5, title: "Beginner Diving", location: "Sharm El Sheikh", rating: "4.6", image: "/images/dest5.jpg" },
-      { id: 6, title: "Diving Certification", location: "Hurghada", rating: "4.8", image: "/images/dest3.jpg" }
-    ],
-    'Snorkeling': [
-      { id: 1, title: "Coral Reef Snorkeling", location: "Hurghada", rating: "4.8", image: "/images/dest1.png" },
-      { id: 2, title: "Dolphin House", location: "Marsa Alam", rating: "4.9", image: "/images/dest2.jpg" },
-      { id: 3, title: "Ras Mohammed", location: "Sharm El Sheikh", rating: "4.7", image: "/images/dest6.jpg" },
-      { id: 4, title: "Giftun Island", location: "Hurghada", rating: "4.8", image: "/images/dest5.jpg" },
-      { id: 5, title: "Blue Hole", location: "Dahab", rating: "4.9", image: "/images/dest4.jpg" },
-      { id: 6, title: "Paradise Island", location: "Sharm El Sheikh", rating: "4.6", image: "/images/dest3.jpg" }
-    ],
-    'Historical': [
-      { id: 1, title: "Pyramids Tour", location: "Giza", rating: "4.9", image: "/images/dest4.jpg" },
-      { id: 2, title: "Valley of Kings", location: "Luxor", rating: "4.8", image: "/images/dest5.jpg" },
-      { id: 3, title: "Karnak Temple", location: "Luxor", rating: "4.9", image: "/images/dest3.jpg" },
-      { id: 4, title: "Abu Simbel", location: "Aswan", rating: "4.7", image: "/images/dest2.jpg" },
-      { id: 5, title: "Egyptian Museum", location: "Cairo", rating: "4.8", image: "/images/dest6.jpg" },
-      { id: 6, title: "Philae Temple", location: "Aswan", rating: "4.6", image: "/images/dest1.png" }
-    ],
-    'City Tour': [
-      { id: 1, title: "Cairo City Tour", location: "Cairo", rating: "4.8", image: "/images/dest6.jpg" },
-      { id: 2, title: "Luxor City Tour", location: "Luxor", rating: "4.9", image: "/images/dest5.jpg" },
-      { id: 3, title: "Alexandria Tour", location: "Alexandria", rating: "4.7", image: "/images/dest3.jpg" },
-      { id: 4, title: "Aswan City Tour", location: "Aswan", rating: "4.8", image: "/images/dest2.jpg" },
-      { id: 5, title: "Islamic Cairo", location: "Cairo", rating: "4.9", image: "/images/dest4.jpg" },
-      { id: 6, title: "Coptic Cairo", location: "Cairo", rating: "4.6", image: "/images/dest1.png" }
-    ],
-    'Cultural': [
-      { id: 1, title: "Nubian Village", location: "Aswan", rating: "4.8", image: "/images/dest2.jpg" },
-      { id: 2, title: "Local Market Tour", location: "Cairo", rating: "4.7", image: "/images/dest6.jpg" },
-      { id: 3, title: "Cooking Class", location: "Luxor", rating: "4.9", image: "/images/dest5.jpg" },
-      { id: 4, title: "Felucca Ride", location: "Aswan", rating: "4.8", image: "/images/dest1.png" },
-      { id: 5, title: "Traditional Crafts", location: "Cairo", rating: "4.6", image: "/images/dest3.jpg" },
-      { id: 6, title: "Bedouin Experience", location: "Sharm El Sheikh", rating: "4.9", image: "/images/dest4.jpg" }
-    ],
-    'Multi-day': [
-      { id: 1, title: "Nile Cruise 5 Days", location: "Luxor to Aswan", rating: "4.9", image: "/images/dest5.jpg" },
-      { id: 2, title: "Cairo & Giza Tour", location: "Cairo", rating: "4.8", image: "/images/dest6.jpg" },
-      { id: 3, title: "Red Sea Resort", location: "Hurghada", rating: "4.9", image: "/images/dest1.png" },
-      { id: 4, title: "Egypt Explorer", location: "Multiple", rating: "4.7", image: "/images/dest3.jpg" },
-      { id: 5, title: "Desert & Oasis", location: "Western Desert", rating: "4.8", image: "/images/dest2.jpg" },
-      { id: 6, title: "Sinai Adventure", location: "Sinai", rating: "4.9", image: "/images/dest4.jpg" }
-    ],
-    'Adventure': [
-      { id: 1, title: "Rock Climbing", location: "Sinai", rating: "4.8", image: "/images/dest4.jpg" },
-      { id: 2, title: "Hot Air Balloon", location: "Luxor", rating: "4.9", image: "/images/dest5.jpg" },
-      { id: 3, title: "Sandboarding", location: "Giza", rating: "4.7", image: "/images/dest2.jpg" },
-      { id: 4, title: "Kitesurfing", location: "Dahab", rating: "4.8", image: "/images/dest3.jpg" },
-      { id: 5, title: "Hiking Expedition", location: "Sinai", rating: "4.9", image: "/images/dest1.png" },
-      { id: 6, title: "Canyon Exploration", location: "Red Sea", rating: "4.6", image: "/images/dest6.jpg" }
-    ]
+// Function to transform tour data for display
+const transformTourData = (tour: any) => {
+  return {
+    id: tour.id,
+    title: tour.title,
+    city: tour.destination || tour.location,
+    location: tour.destination || tour.location,
+    rating: tour.averageRating || "0",
+    image: tour.primaryPhoto?.url || tour.photos?.[0]?.url || "/images/placeholder.jpg",
+    price: `$${tour.adultPrice}`,
+    duration: tour.duration,
+    groupSize: tour.maxGroupSize,
+    slug: tour.slug,
+    description: tour.shortDesc,
+    category: tour.category
   };
-  
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 500));
-  
-  // Return locations for the selected category or default data
-  return mockLocationsData[category] || [
-    { id: 1, title: "Boat Tour", location: "Hurghada", rating: "4.8", image: "/images/dest1.png" },
-    { id: 2, title: "Desert Safari", location: "Hurghada", rating: "4.9", image: "/images/dest2.jpg" },
-    { id: 3, title: "Nile Cruise", location: "Luxor", rating: "4.7", image: "/images/dest5.jpg" },
-    { id: 4, title: "Temple Tour", location: "Cairo", rating: "4.9", image: "/images/dest3.jpg" },
-    { id: 5, title: "Diving Adventure", location: "Sharm", rating: "4.6", image: "/images/dest6.jpg" },
-    { id: 6, title: "Camel Ride", location: "Giza", rating: "4.8", image: "/images/dest4.jpg" }
-  ];
 };
 
-export function ActivityTypeSection() {
+interface ActivityTypeSectionProps {
+  tours: any[]; // Array of tour objects from your API
+}
+
+export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
   const [activeTab, setActiveTab] = useState(0);
   const [activities, setActivities] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch locations when component mounts or when active tab changes
+  // Filter and transform tours when component mounts or when active tab changes
   useEffect(() => {
-    const fetchActivities = async () => {
+    const filterActivities = () => {
       setIsLoading(true);
       try {
-        const category = tourCategoryData[activeTab]?.name;
-        if (category) {
-          const locations = await fetchLocationsByCategory(category);
-          setActivities(locations);
+        const categoryValue = tourCategoryData[activeTab]?.value;
+        
+        // Filter tours by category
+        let filteredTours = tours;
+        if (categoryValue) {
+          filteredTours = tours.filter(tour => tour.category === categoryValue);
+        }
+        
+        // Transform the data for display
+        const transformedActivities = filteredTours.map(transformTourData);
+        
+        // If no tours found for this category, use default data
+        if (transformedActivities.length === 0) {
+          // You can either show empty state or use mock data
+          setActivities([]);
+        } else {
+          setActivities(transformedActivities);
         }
       } catch (error) {
-        console.error('Error fetching activities:', error);
+        console.error('Error filtering activities:', error);
         setActivities([]);
       } finally {
         setIsLoading(false);
       }
     };
     
-    fetchActivities();
-  }, [activeTab]);
+    filterActivities();
+  }, [activeTab, tours]);
 
   return (
     <section className="py-16 w-full" id="activities">
@@ -168,6 +109,16 @@ export function ActivityTypeSection() {
         {isLoading && (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+          </div>
+        )}
+
+        {/* Empty State */}
+        {!isLoading && activities.length === 0 && (
+          <div className="flex justify-center items-center h-64">
+            <div className="text-center">
+              <p className="text-gray-500 mb-4">No tours found for this category.</p>
+              <p className="text-sm text-gray-400">Try selecting a different category.</p>
+            </div>
           </div>
         )}
 

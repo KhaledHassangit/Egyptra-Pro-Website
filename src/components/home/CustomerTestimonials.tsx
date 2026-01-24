@@ -2,24 +2,36 @@
 
 import { useEffect, useState } from "react"
 import Container from "@/util/Container"
-import { useGetReviewsQuery } from '@/features/reviews/reviewsApi';
-import { Review } from "@/constants/types"
+import { Review, ReviewsResponse } from "@/constants/types"
 import SectionHeader from "@/util/SectionHeader"
-import { AutoSkeletonLoader } from "react-loadly";
 import { NoReviews, ReviewCard } from "../reviews/ReviewCard";
 import { createSampleReview } from "@/helpers/helpers";
 import { ReviewsCarousel } from "../reviews/ReviewsCarousel";
 import { NavigationButtons } from "../reviews/NavigationButtons";
+import { AutoSkeletonLoader } from "react-loadly";
 
-export function CustomerTestimonials() {
+interface CustomerTestimonialsProps {
+  Reviews: ReviewsResponse;
+}
+
+export function CustomerTestimonials({ Reviews }: CustomerTestimonialsProps) {
   const [api, setApi] = useState<any>(null)
   const [canScrollPrev, setCanScrollPrev] = useState(false)
   const [canScrollNext, setCanScrollNext] = useState(true)
+  const [isLoading, setIsLoading] = useState(true); // Start with loading true for initial render
 
-  const { data: reviewsData, isLoading, error } = useGetReviewsQuery();
-
-  const testimonials: Review[] = reviewsData?.data || [];
+  // Correctly access the deeply nested data structure
+  const testimonials: Review[] = Reviews?.data?.data || [];
   const hasReviews = testimonials.length > 0;
+
+  // Simulate loading for a brief moment for better UX
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 0);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (!api) return
@@ -51,8 +63,6 @@ export function CustomerTestimonials() {
     api?.scrollNext()
   }
 
-  if (error) return <div className="text-center text-red-500">Error loading reviews</div>;
-
   return (
     <Container className="py-20">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-5">
@@ -71,7 +81,7 @@ export function CustomerTestimonials() {
         />
       </div>
 
-      {/* Show skeleton when loading */}
+      {/* Show skeleton during initial loading */}
       {isLoading && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 sm:p-4">
           {[...Array(3)].map((_, i) => (
@@ -89,7 +99,7 @@ export function CustomerTestimonials() {
         </div>
       )}
 
-      {/* Show actual reviews when not loading and we have reviews */}
+      {/* Show actual reviews after loading */}
       {!isLoading && hasReviews && (
         <ReviewsCarousel
           testimonials={testimonials}
@@ -102,5 +112,5 @@ export function CustomerTestimonials() {
       {/* Show no reviews message when not loading and we have no reviews */}
       {!isLoading && !hasReviews && <NoReviews />}
     </Container>
-  )
+  ) 
 }

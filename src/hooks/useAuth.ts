@@ -10,7 +10,7 @@ import { z } from 'zod';
 import { useLoginMutation, useRegisterMutation } from '@/features/auth/authApi';
 import { setCredentials } from '@/features/auth/authSlice';
 import { notify } from '@/util/notify';
-import { loginSchema, registerSchema, type LoginFormData, type RegisterFormData } from '@/lib/validation';
+import { loginSchema, registerSchema, type LoginFormData, type RegisterFormData } from '@/constants/validation';
 
 export const useAuth = () => {
   const router = useRouter();

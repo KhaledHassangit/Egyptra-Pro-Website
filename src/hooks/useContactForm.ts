@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { validateContactForm } from '@/lib/validation';
+import { validateContactForm } from '@/constants/validation';
 import { ContactFormData } from '@/constants/types';
 import { useSubmitContactFormMutation } from '@/features/contact/contactApi';
 

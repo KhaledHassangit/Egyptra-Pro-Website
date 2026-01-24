@@ -1,6 +1,6 @@
 // features/contact/api/contactApi.ts
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { axiosBaseQuery } from '@/lib/api';
+import { axiosBaseQuery } from '@/api/api';
 import { ContactFormData, ContactResponse } from '@/constants/types';
 
 export const contactApi = createApi({

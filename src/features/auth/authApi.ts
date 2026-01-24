@@ -1,5 +1,5 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
-import { axiosBaseQuery } from '@/lib/api';
+import { axiosBaseQuery } from '@/api/api';
 import { AuthResponse } from '@/constants/types';
 
 

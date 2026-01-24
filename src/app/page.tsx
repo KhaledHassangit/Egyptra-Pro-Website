@@ -7,8 +7,18 @@ import { CustomerTestimonials } from "@/components/home/CustomerTestimonials";
 import { WhyChooseUsSection } from "@/components/home/WhyChooseUsSection";
 import { TrustIndicators } from "@/components/home/TrustIndicators";
 import { AboutSection } from "@/components/home/AboutSection";
+import { fetchTours } from "@/services/tourService";
+import { fetchReviews } from "@/services/reviewsService";
 
-export default function Home() {
+export default async function Home() {
+  const [Tours] = await Promise.all([
+    fetchTours(),
+  ]);
+  const [Reviews] = await Promise.all([
+    fetchReviews(),
+  ]);
+  console.log("Tours:", Tours);
+  
   return (
     <div className="overflow-x-hidden">
       <HeroSection />
@@ -16,10 +26,10 @@ export default function Home() {
       <TrustIndicators />
       <AboutSection />
       <DestinationsSection />
-      <PopularTourSection />
-      <ActivityTypeSection />
+      <PopularTourSection tours={Tours.data} />
+      <ActivityTypeSection tours={Tours.data} />
       <ExclusiveDealsSection />
-      <CustomerTestimonials />
+      <CustomerTestimonials  Reviews={Reviews}/>
       <WhyChooseUsSection />
     </div>
   );

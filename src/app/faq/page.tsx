@@ -63,7 +63,7 @@ export default function FaqPage() {
                     value={`item-${index}`}
                     className="border border-gray-200 rounded-[10px] overflow-hidden px-0 bg-[#F9FAFB] data-[state=open]:border-[#155DFC] data-[state=open]:border-[0.8px]"
                   >
-                    <AccordionTrigger className="px-5 py-5 text-left bg-[#F9FAFB] hover:bg-[#F9FAFB] hover:no-underline transition-colors group">
+                    <AccordionTrigger className="px-4 py-4 text-left bg-[#F9FAFB] hover:bg-[#F9FAFB] hover:no-underline transition-colors group">
                       <div className="flex items-center gap-3 w-full">
                         <div className="w-8 h-8 rounded-full bg-[#6B7280] flex items-center justify-center flex-shrink-0 transition-colors group-data-[state=open]:bg-[#155DFC]">
                           <CircleHelp className="w-5 h-5 text-white" />
@@ -71,7 +71,7 @@ export default function FaqPage() {
                         <span className="font-medium text-[#101828] text-[16px] text-left pr-4">{faq.question}</span>
                       </div>
                     </AccordionTrigger>
-                    <AccordionContent className="px-6 py-4 bg-[#F9FAFB] text-[#4A5565] text-[14px]  data-[state=open]:border-t-[#155DFC] data-[state=open]:border-t-[0.8px] ml-11">
+                    <AccordionContent className="px-5 py-3 bg-[#F9FAFB] text-[#4A5565] text-[14px]  data-[state=open]:border-t-[#155DFC] data-[state=open]:border-t-[0.8px] ml-11">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

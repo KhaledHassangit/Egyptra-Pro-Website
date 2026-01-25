@@ -43,11 +43,11 @@ export function DestinationsSection() {
             </span>
           </div>
           
-          {/* Image 1 - Fixed with full width/height */}
+          {/* Image 1 - Hurghada main image */}
           <div className="relative w-full h-64 lg:h-[336px] overflow-hidden group">
             <Image
-              src="/images/dest1.png"
-              alt="Beach walkway"
+              src="/assets/destinations/hurghada-1.jpg"
+              alt="Hurghada"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -65,23 +65,23 @@ export function DestinationsSection() {
           </div>
         </div>
 
-        {/* Column 2 */}
+        {/* Column 2 - Additional Hurghada images */}
         <div className="flex flex-col gap-4 order-2 lg:order-2">
-          {/* Image 2 */}
+          {/* Image 2 - Hurghada */}
           <div className="relative w-full h-64 lg:h-[224px] overflow-hidden group">
             <Image
-              src="/images/dest2.jpg"
-              alt="Beach"
+              src="/assets/destinations/hurghada-2.jpg"
+              alt="Hurghada beach"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          {/* Image 5 */}
+          {/* Image 5 - Hurghada */}
           <div className="relative w-full h-64 lg:h-[224px] overflow-hidden group">
             <Image
-              src="/images/dest5.jpg"
-              alt="Beach destination"
+              src="/assets/destinations/hurghada-3.jpg"
+              alt="Hurghada destination"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -89,25 +89,25 @@ export function DestinationsSection() {
           </div>
         </div>
 
-        {/* Column 3 */}
+        {/* Column 3 - Additional Sharm El Sheikh images */}
         <div className="flex flex-col gap-4 order-3 lg:order-3">
-          {/* Image 3 */}
+          {/* Image 3 - Sharm El Sheikh */}
           <div className="relative w-full hidden lg:flex h-64 lg:h-[224px] overflow-hidden group"
                style={{ transform: "rotateY(180deg)" }}>
             <Image
-              src="/images/dest3.jpg"
-              alt="Suspension bridge"
+              src="/assets/destinations/sharm-1.jpg"
+              alt="Sharm El Sheikh"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-          {/* Image 6 */}
+          {/* Image 6 - Sharm El Sheikh */}
           <div className="relative hidden lg:flex w-full h-64 lg:h-[224px] overflow-hidden group"
                style={{ transform: "rotateY(180deg)" }}>
             <Image
-              src="/images/dest6.jpg"
-              alt="Sharm el shakh"
+              src="/assets/destinations/sharm-2.jpg"
+              alt="Sharm El Sheikh"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -117,19 +117,19 @@ export function DestinationsSection() {
 
         {/* Column 4 - Sharm El Sheikh */}
         <div className="flex flex-col gap-4 order-4 lg:order-4">
-          {/* Image 4 */}
+          {/* Image 4 - Sharm El Sheikh main image */}
           <div className="relative w-full h-64 lg:h-[336px] overflow-hidden group"
                style={{ transform: "rotateY(180deg)" }}>
             <Image
-              src="/images/dest4.jpg"
-              alt="Lake and mountains"
+              src="/assets/destinations/sharm-3.jpg"
+              alt="Sharm El Sheikh"
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           
-          {/* Label 2 */}
+          {/* Label 2 - Sharm El Sheikh */}
           <div className="w-full h-24 sm:h-28 md:h-32 lg:h-28 
                          bg-[#D0A87D] rounded-bl-[60px] sm:rounded-bl-[88px] lg:rounded-bl-[88px] 
                          flex items-center justify-center"

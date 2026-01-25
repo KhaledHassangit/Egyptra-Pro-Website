@@ -12,11 +12,11 @@ export const cities = [
   'luxor',
   'hurghada',
   'sharm-el-sheikh',
-  'el-gouna',
-  'marsa-alam',
-  'soma-bay',
-  'maadi-bay',
-  'salh-hasheed'
+  // 'el-gouna',
+  // 'marsa-alam',
+  // 'soma-bay',
+  // 'maadi-bay',
+  // 'salh-hasheed'
 ];
 
 type CityKey = (typeof cities)[number];
@@ -27,11 +27,19 @@ export const cityDisplayNames: Record<CityKey, string> = {
   'luxor': 'Luxor',
   'hurghada': 'Hurghada',
   'sharm-el-sheikh': 'Sharm El Sheikh',
-  'el_gouna': 'El Gouna',
-  'marsa-alam': 'Marsa Alam',
-  'soma-bay': 'Soma Bay',
-  'maadi-bay': 'Maadi Bay',
-  'salh-hasheed': 'Salh Hasheed'
+  // 'el_gouna': 'El Gouna',
+  // 'marsa-alam': 'Marsa Alam',
+  // 'soma-bay': 'Soma Bay',
+  // 'maadi-bay': 'Maadi Bay',
+  // 'salh-hasheed': 'Salh Hasheed'
+};
+
+// Map each city to its correct image path
+export const cityImagePaths: Record<CityKey, string> = {
+  'cairo': '/assets/destinations/cairo-1.jpg',
+  'luxor': '/assets/destinations/luxor-1.jpg',
+  'hurghada': '/assets/destinations/hurghada-1.jpg',
+  'sharm-el-sheikh': '/assets/destinations/sharm-1.jpg',
 };
 
 // Function to transform tour data for display
@@ -57,22 +65,25 @@ interface PopularTourSectionProps {
 }
 
 export function PopularTourSection({ tours }: PopularTourSectionProps) {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState<number | null>(null); // Initialize with null to show all tours
   
-  // Get the current city
-  const currentCity = cities[activeTab];
+  // Get the current city or null if no tab is selected
+  const currentCity = activeTab !== null ? cities[activeTab] : null;
   
-  // Filter tours by location
+  // Filter tours by location or show all if no tab is selected
   const filteredTours = tours.filter(tour => {
+    // If no tab is selected, show all tours
+    if (activeTab === null) return true;
+    
     // Check if location matches the current city (case insensitive)
     const tourLocation = (tour.location || "").toLowerCase();
     const tourDestination = (tour.destination || "").toLowerCase();
-    const cityToMatch = currentCity.toLowerCase().replace('-', ' ');
+    const cityToMatch = currentCity!.toLowerCase().replace('-', ' ');
     
     return tourLocation.includes(cityToMatch) || 
            tourDestination.includes(cityToMatch) ||
-           tourLocation.includes(currentCity) || 
-           tourDestination.includes(currentCity);
+           tourLocation.includes(currentCity!) || 
+           tourDestination.includes(currentCity!);
   });
   
   // Transform the data for display
@@ -100,6 +111,25 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
 
         {/* City Tabs */}
         <div className="flex gap-4 mb-8 overflow-x-auto pb-2">
+          {/* Add "All" tab */}
+          <button
+            className={`flex items-center gap-3 pb-2 border-b-2 transition-colors whitespace-nowrap ${
+              activeTab === null
+                ? 'border-[#265D92] text-[#265D92] font-medium'
+                : 'border-transparent text-gray-500 hover:text-gray-900'
+            }`}
+            onClick={() => setActiveTab(null)}
+          >
+            <div className="w-[25px] h-[25px] lg:w-[29px] lg:h-[29px] rounded-full bg-gray-200 overflow-hidden relative flex items-center justify-center">
+              <span className="text-xs font-bold text-gray-600">ALL</span>
+            </div>
+            <span className={`text-sm font-medium ${
+              activeTab === null ? 'text-[#265D92]' : ''
+            }`}>
+              All Cities
+            </span>
+          </button>
+          
           {cities.map((city, idx) => (
             <button
               key={city}
@@ -112,7 +142,7 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
             >
               <div className="w-[25px] h-[25px] lg:w-[29px] lg:h-[29px] rounded-full bg-gray-200 overflow-hidden relative">
                 <Image 
-                  src={`/images/cities/${city}.jpg`} // Update with your actual city images path
+                  src={cityImagePaths[city]} // Use the mapping instead of the template literal
                   alt={cityDisplayNames[city]} 
                   fill 
                   className="object-cover" 
@@ -165,8 +195,18 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
           ) : (
             <div className="flex justify-center items-center h-64">
               <div className="text-center">
-                <p className="text-gray-500 mb-4">No tours found for {cityDisplayNames[currentCity]}.</p>
-                <p className="text-sm text-gray-400">Try selecting a different city.</p>
+                <p className="text-gray-500 mb-4">
+                  {activeTab === null 
+                    ? "No tours found." 
+                    : `No tours found for ${cityDisplayNames[currentCity!]}.`
+                  }
+                </p>
+                <p className="text-sm text-gray-400">
+                  {activeTab === null 
+                    ? "Please check back later." 
+                    : "Try selecting a different city."
+                  }
+                </p>
               </div>
             </div>
           )}

@@ -17,7 +17,6 @@ export default async function Home() {
   const [Reviews] = await Promise.all([
     fetchReviews(),
   ]);
-  console.log("Tours:", Tours);
   
   return (
     <div className="overflow-x-hidden">

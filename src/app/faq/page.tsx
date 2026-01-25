@@ -1,88 +1,86 @@
 "use client"
 import Container from "@/util/Container";
-import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import UIButton from "@/util/UIButton";
+import Link from "@/components/shared/link";
+import PageHero from "@/util/PageHero";
+import { CircleHelp } from "lucide-react";
 
 export default function FaqPage() {
-  const [selectedCategory, setSelectedCategory] = useState("Travel Support");
-  
-  const categories = [
-    "Travel Support",
-    "Getting Started",
-    "Pricing and Payment",
-    "Cancellation and Changes"
-  ];
-  
   const faqs = [
     {
-      question: "Is there a tour guide with the group?",
-      answer: "Yes, all our group tours include professional, multi-lingual tour guides. Our guides are experts in the destinations we visit and provide insightful commentary throughout your journey. They're also available to assist with any questions or concerns you may have during the trip."
+      question: "What is included in the boat trip package?",
+      answer: "Our boat trip package includes round-trip transportation from your hotel, a professional guide, snorkeling equipment, life jackets, and lunch on board. We also provide soft drinks and water throughout the trip. For full-day excursions, we include a stop at a beautiful island or reef for swimming and snorkeling."
     },
     {
-      question: "What should I pack for my trip?",
-      answer: "Packing recommendations vary by destination and season. Generally, we suggest comfortable walking shoes, weather-appropriate clothing, a day bag for excursions, and any personal medications. Approximately 30 days before your departure, we'll send you a detailed packing list specific to your itinerary."
+      question: "Can I cancel or reschedule my booking?",
+      answer: "Yes, you can cancel or reschedule your booking up to 24 hours before the trip date for a full refund. Cancellations made less than 24 hours before the trip may incur a 50% cancellation fee. To reschedule, please contact our customer service team at least 24 hours in advance, and we'll be happy to accommodate your request based on availability."
     },
     {
-      question: "Are meals included in the tour price?",
-      answer: "Most of our tours include breakfast daily, and many also include additional meals as specified in your itinerary. We typically leave some meals free for you to explore local cuisine on your own. Your detailed itinerary will clearly indicate which meals are included."
+      question: "What should I bring with me?",
+      answer: "We recommend bringing sunscreen, a hat, sunglasses, a towel, and your swimwear. If you're planning to snorkel, you might want to bring an underwater camera. Don't forget to bring some cash for any additional purchases or tips. During winter months (November-March), we also suggest bringing a light jacket as it can get cooler on the water."
     },
     {
-      question: "How much luggage can I bring?",
-      answer: "Our standard luggage allowance is one checked bag (up to 50 lbs/23 kg) and one carry-on per person. For tours involving smaller vehicles or internal flights, there may be stricter limitations. We'll provide specific luggage information with your travel documents."
+      question: "Is the trip suitable for children?",
+      answer: "Yes, our boat trips are family-friendly and suitable for children of all ages. We have life jackets in various sizes, including for children. However, please note that children must be supervised by an adult at all times during the trip, especially when swimming or snorkeling. We offer discounted rates for children under 12."
     },
     {
-      question: "Is travel insurance recommended?",
-      answer: "Yes, we strongly recommend travel insurance for all our tours. Travel insurance can protect you against unforeseen circumstances including trip cancellation, medical emergencies, lost luggage, and more. We offer comprehensive travel insurance options at the time of booking."
+      question: "Do you provide transportation from hotels?",
+      answer: "Yes, we provide complimentary round-trip transportation from most hotels in the area. Our air-conditioned vehicles will pick you up from your hotel lobby in the morning and return you after the trip. When booking, please provide your hotel details, and we'll confirm the exact pickup time. For hotels located outside our standard pickup zones, additional charges may apply."
     }
   ];
-  
+
   return (
-    <Container>
-      <div className="flex flex-col md:flex-row min-h-screen bg-gray-900 text-white">
-        {/* Sidebar Navigation */}
-        <div className="w-full md:w-64 bg-gray-800 p-6">
-          <h2 className="text-xl font-bold mb-6">Support Center</h2>
-          <nav className="space-y-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
-                  selectedCategory === category
-                    ? "bg-blue-600 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </nav>
-        </div>
-        
-        {/* FAQ Content */}
-        <div className="flex-1 p-6 md:p-10">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-3xl font-bold mb-8">{selectedCategory}</h1>
-            
-            <div className="space-y-6">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-gray-800 rounded-lg p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-blue-400">{faq.question}</h3>
-                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
-                </div>
-              ))}
+    <section>
+      <PageHero currentPageUrl="faq" currentPage="FAQ" title="FAQ" />
+      <Container className="py-16">
+        <div className="border border-[#E5E7EB] border-[0.8px] shadow-[0px_1px_3px_0px_rgba(51,51,51,0.1)] p-[50px] rounded-[16px]">
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Left Section */}
+            <div className="lg:w-1/3">
+              <h2 className="font-bold text-[32px] leading-[40px] mb-4 text-[#101828]">Have Any Questions?</h2>
+              <p className="text-[14px] leading-[20px] text-[#4A5565] mb-8">
+                Our team is here to help you with any questions about your booking, travel plans, or anything else you need to know about your trip. We're committed to making your experience as smooth as possible.
+              </p>
+              <UIButton className="!rounded-[10px]">
+                <Link href="/contact_us">
+                  Contact Us
+                </Link>
+              </UIButton>
             </div>
-            
-            {/* Contact Support Section */}
-            <div className="mt-12 bg-gray-800 rounded-lg p-8 text-center">
-              <h3 className="text-2xl font-semibold mb-4">Still have questions?</h3>
-              <p className="text-gray-300 mb-6">Can't find the answer you're looking for? Our customer support team is here to help.</p>
-              <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
-                Contact Support
-              </button>
+
+            {/* Right Section - FAQ Accordion */}
+            <div className="lg:w-2/3">
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem
+                    key={index}
+                    value={`item-${index}`}
+                    className="border border-gray-200 rounded-[10px] overflow-hidden px-0 bg-[#F9FAFB] data-[state=open]:border-[#155DFC] data-[state=open]:border-[0.8px]"
+                  >
+                    <AccordionTrigger className="px-5 py-5 text-left bg-[#F9FAFB] hover:bg-[#F9FAFB] hover:no-underline transition-colors group">
+                      <div className="flex items-center gap-3 w-full">
+                        <div className="w-8 h-8 rounded-full bg-[#6B7280] flex items-center justify-center flex-shrink-0 transition-colors group-data-[state=open]:bg-[#155DFC]">
+                          <CircleHelp className="w-5 h-5 text-white" />
+                        </div>
+                        <span className="font-medium text-[#101828] text-[16px] text-left pr-4">{faq.question}</span>
+                      </div>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-6 py-4 bg-[#F9FAFB] text-[#4A5565] text-[14px]  data-[state=open]:border-t-[#155DFC] data-[state=open]:border-t-[0.8px] ml-11">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 }

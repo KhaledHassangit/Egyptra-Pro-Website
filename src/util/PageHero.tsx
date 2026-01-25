@@ -5,7 +5,7 @@ import Link from "@/components/shared/link";
 const PageHero = ({ title, currentPage, currentPageUrl }: PageHeroProps) => {
   return (
     <section 
-      className="relative w-full h-[120px] sm:h-[150px] md:h-[180px] text-white overflow-hidden"
+      className="relative w-full h-[100px] sm:h-[120px] md:h-[140px] text-white overflow-hidden"
       style={{
         backgroundImage: `url('/images/1.jpg')`,
         backgroundSize: 'cover',

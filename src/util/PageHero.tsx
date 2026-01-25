@@ -17,7 +17,7 @@ const PageHero = ({ title, currentPage, currentPageUrl }: PageHeroProps) => {
         style={{ backgroundColor: '#0373DECC' }}
       />
 
-      <Container className="relative z-10 flex flex-col items-start justify-start gap-2 sm:gap-3 pt-6 sm:pt-8 md:pt-10 text-left">
+      <Container className="relative flex flex-col items-start justify-start gap-2 sm:gap-3 pt-6 sm:pt-8 md:pt-10 text-left">
         <h1 
           className="font-medium leading-[1.2]"
           style={{ 

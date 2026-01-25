@@ -12,7 +12,6 @@ interface ToursResponse {
     totalItems: number;
 }
 
-// Fetch tours by location (just like fetchBrands)
 export const fetchTours = async () => {
     try {
         const data = await api.get<ToursResponse>("/api/v1/tours", {

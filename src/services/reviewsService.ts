@@ -6,9 +6,7 @@ import { ReviewsResponse } from "@/constants/types";
 export const fetchReviews = async () => {
   try {
     const data = await api.get<ReviewsResponse>("/api/v1/reviews", {
-
     });
-    
     return data;
   } catch (error) {
     console.error(`Error fetching reviews `, error);

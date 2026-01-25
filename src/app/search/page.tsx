@@ -96,7 +96,7 @@ const SearchPage = () => {
         <main className="pb-12 sm:pb-16 lg:pb-20 xl:pb-24 2xl:pb-32">
             <SearchPageHero />
             <Container className="mt-12 sm:mt-16 lg:mt-20 xl:mt-24 2xl:mt-32">
-                <div className="space-y-4 sm:space-y-6">
+                <div className="space-y-4 sm:space-y-6 mb-4">
                     <SectionHeader
                         title="Tours & Activities"
                         description="6 experiences found"
@@ -105,7 +105,7 @@ const SearchPage = () => {
                     />
                 </div>
 
-                <TrustBadges />
+                {/* <TrustBadges /> */}
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                     {mockTours.map((tour, index) => (

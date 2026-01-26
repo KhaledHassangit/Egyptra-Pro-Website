@@ -26,7 +26,7 @@ const SearchCard = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <div className={cn(
-        "bg-white shadow-md p-6 md:p-8 flex flex-col gap-6 relative",
+        "bg-white  p-6 md:p-8 flex flex-col gap-6 relative",
         isAdvancedFiltersOpen ? "rounded-t-2xl" : "rounded-2xl"
       )}>
         {/* Search Bar */}

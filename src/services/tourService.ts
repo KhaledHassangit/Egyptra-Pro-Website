@@ -30,23 +30,23 @@ export const fetchTours = async () => {
 };
 
 // Fetch tours by category
-export const fetchToursByCategory = async (category?: string) => {
-    try {
-        const data = await api.get<ToursResponse>("/api/v1/tours", {
-            params: {
-                category,
-                isPopular: true,
-                page: 1,
-                limit: 10,
-            },
-        });
-        console.log("Tours by category fetched successfully:", data);
-        return data;
-    } catch (error) {
-        console.error("Error fetching tours by category:", error);
-        throw error;
-    }
-};
+// export const fetchToursByCategory = async (category?: string) => {
+//     try {
+//         const data = await api.get<ToursResponse>("/api/v1/tours", {
+//             params: {
+//                 category,
+//                 isPopular: true,
+//                 page: 1,
+//                 limit: 10,
+//             },
+//         });
+//         console.log("Tours by category fetched successfully:", data);
+//         return data;
+//     } catch (error) {
+//         console.error("Error fetching tours by category:", error);
+//         throw error;
+//     }
+// };
 
 // // Fetch popular tours
 // export const fetchPopularTours = async () => {

@@ -1,501 +1,375 @@
-import Container from "@/util/Container";
-import PageHero from "@/util/PageHero";
+import React from 'react';
+import { 
+  Eye,
+  Database, 
+  Zap, 
+  Users, 
+  Shield, 
+  Lock, 
+  Mail, 
+  Cookie, 
+  Calendar, 
+  RefreshCw, 
+  Phone,
+  MapPin,
+  Send
+} from "lucide-react";
+import Container from '@/util/Container';
+import PageHero from '@/util/PageHero';
 
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero 
+     <PageHero 
         title="Privacy Policy" 
         currentPage="Privacy Policy" 
         currentPageUrl="/privacy" 
       />
-      
-      <Container className="py-12 md:py-20">
-        {/* Main Content Card */}
-        <div className="mx-auto">
-          {/* Introduction with gradient card */}
-          <div className="mb-16">
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/5 via-white to-secondary/5 p-8 md:p-10 border border-primary/20">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-secondary/5 rounded-full translate-y-20 -translate-x-20"></div>
-              
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-8 bg-primary rounded-full"></div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Protecting Your Privacy</h2>
+      {/* Main Content */}
+      <Container className="mx-auto py-20">
+        <div className="space-y-6">
+          
+          {/* Overview and Content */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Eye className="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Overview and Content</h2>
+                <p className="text-gray-500 text-sm">Understanding our privacy practices</p>
+              </div>
+            </div>
+            <p className="text-gray-600 leading-relaxed">
+              This Privacy Policy describes how Egyptra Travel ("we," "us," or "our") collects, uses, and shares your personal information when you use our website, book tours, or interact with our services.
+            </p>
+            
+            <div className="mt-6">
+              <h3 className="font-semibold text-gray-900 mb-4">Information We Collect:</h3>
+              <ul className="space-y-2.5">
+                {[
+                  "Personal identification information (name, email, phone number)",
+                  "Booking and travel preferences",
+                  "Payment information",
+                  "Passport and identification details (for international travel)",
+                  "Travel insurance information",
+                  "Communication history with our support team",
+                  "Website usage data and cookies"
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 text-gray-600">
+                    <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* How We Use Your Information */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Database className="w-6 h-6 text-purple-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">How We Use Your Information</h2>
+                <p className="text-gray-500 text-sm">Learn how your data helps us serve you better</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">We use your personal information to:</p>
+            <ul className="space-y-2.5">
+              {[
+                "Process your bookings and reservations",
+                "Provide customer support and respond to your inquiries",
+                "Send booking confirmations and travel updates",
+                "Process payments and prevent fraud",
+                "Personalize your experience and recommend relevant tours",
+                "Comply with legal obligations and regulations",
+                "Improve our services and website functionality",
+                "Send promotional offers (with your consent)"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-600">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Information Sharing and Disclosure */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Users className="w-6 h-6 text-green-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Information Sharing and Disclosure</h2>
+                <p className="text-gray-500 text-sm">Who we share your information with and why</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">We may share your personal information with:</p>
+            <ul className="space-y-3">
+              {[
+                { title: "Service Providers:", desc: "Hotels, tour operators, transportation companies necessary to fulfill your booking" },
+                { title: "Payment Processors:", desc: "Secure payment gateways to process transactions" },
+                { title: "Travel Insurance Partners:", desc: "If you opt for travel insurance" },
+                { title: "Government Authorities:", desc: "When required by law or for visa processing" },
+                { title: "Analytics Partners:", desc: "To understand website usage (anonymized data)" }
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="text-gray-600">
+                    <span className="font-semibold text-gray-900">{item.title}</span> {item.desc}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 text-gray-600">
+              We do not sell your personal information to third parties for marketing purposes.
+            </p>
+          </section>
+
+          {/* Data Security */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Shield className="w-6 h-6 text-blue-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Data Security</h2>
+                <p className="text-gray-500 text-sm">How we protect your information</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">We implement industry-standard security measures to protect your personal data:</p>
+            <ul className="space-y-2.5">
+              {[
+                "SSL/TLS encryption for all data transmission",
+                "Secure payment processing through PCI-DSS compliant providers",
+                "Regular security audits and vulnerability assessments",
+                "Access controls and authentication measures",
+                "Employee training on data protection practices",
+                "Regular backups and disaster recovery procedures"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-600">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 p-4 bg-blue-50 border-l-4 border-blue-500 rounded">
+              <h4 className="font-semibold text-gray-900 mb-1">Important Note:</h4>
+              <p className="text-gray-600 text-sm">
+                While we strive to protect your personal data, no method of transmission over the Internet is 100% secure. We encourage you to use strong passwords and keep your login credentials confidential.
+              </p>
+            </div>
+          </section>
+
+          {/* Your Rights and Choices */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Lock className="w-6 h-6 text-orange-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Your Rights and Choices</h2>
+                <p className="text-gray-500 text-sm">You have control over your personal data</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">You have the right to:</p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { title: "Access", desc: "Request a copy of your personal data we hold" },
+                { title: "Correction", desc: "Update or correct inaccurate information" },
+                { title: "Deletion", desc: "Request deletion of your personal data" },
+                { title: "Portability", desc: "Receive your data in a portable format" },
+                { title: "Opt-Out", desc: "Unsubscribe from marketing communications" },
+                { title: "Object", desc: "Object to processing of your personal data" }
+              ].map((item, index) => (
+                <div key={index} className="p-4 bg-gray-50 rounded-lg">
+                  <h4 className="font-semibold text-gray-900 mb-1">{item.title}</h4>
+                  <p className="text-gray-600 text-sm">{item.desc}</p>
                 </div>
-                <p className="text-lg text-gray-700 leading-relaxed">
-                  At Egyptra Pro, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website and services.
+              ))}
+            </div>
+          </section>
+
+          {/* Promotional Marketing Communications */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Mail className="w-6 h-6 text-pink-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Promotional Marketing Communications</h2>
+                <p className="text-gray-500 text-sm">Managing your communication preferences</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">
+              With your consent, we may send you promotional emails about special offers, new tours, and travel tips. You can opt out at any time by:
+            </p>
+            <ul className="space-y-2.5">
+              {[
+                'Clicking the "Unsubscribe" link in any promotional email',
+                "Updating your preferences in your account settings",
+                "Contacting our customer support team"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-600">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-6 p-4 bg-pink-50 rounded-lg">
+              <p className="text-gray-700 text-sm">
+                <strong>Note:</strong> Even if you opt out of promotional emails, we will still send you transactional emails related to your bookings and account.
+              </p>
+            </div>
+          </section>
+
+          {/* Cookies */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Cookie className="w-6 h-6 text-cyan-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Cookies</h2>
+                <p className="text-gray-500 text-sm">How we use cookies and similar technologies</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">
+              We use cookies and similar technologies to enhance your browsing experience, analyze site traffic, and personalize content.
+            </p>
+            <h4 className="font-semibold text-gray-900 mb-3">Types of Cookies We Use:</h4>
+            <ul className="space-y-2.5">
+              {[
+                { title: "Essential Cookies:", desc: "Required for basic website functionality" },
+                { title: "Performance Cookies:", desc: "Help us understand how visitors use our site" },
+                { title: "Functionality Cookies:", desc: "Remember your preferences and settings" },
+                { title: "Targeting Cookies:", desc: "Deliver relevant advertisements" }
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="text-gray-600">
+                    <span className="font-semibold text-gray-900">{item.title}</span> {item.desc}
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-600 mt-4">
+              You can manage cookie preferences through your browser settings.
+            </p>
+          </section>
+
+          {/* Retention of Personal Data */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Calendar className="w-6 h-6 text-indigo-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Retention of Personal Data</h2>
+                <p className="text-gray-500 text-sm">How long we keep your information</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">
+              We retain your personal data only as long as necessary to fulfill the purposes outlined in this privacy policy, unless a longer retention period is required by law.
+            </p>
+            <ul className="space-y-2.5">
+              {[
+                { title: "Booking Data:", desc: "Retained for 7 years for legal and accounting purposes" },
+                { title: "Marketing Data:", desc: "Until you opt out or request deletion" },
+                { title: "Account Data:", desc: "Until you close your account" },
+                { title: "Support Communications:", desc: "Retained for 3 years" }
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div className="text-gray-600">
+                    <span className="font-semibold text-gray-900">{item.title}</span> {item.desc}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {/* Changes to This Policy */}
+          <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                <RefreshCw className="w-6 h-6 text-teal-600" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-1">Changes to This Policy</h2>
+                <p className="text-gray-500 text-sm">Stay informed about updates</p>
+              </div>
+            </div>
+            <p className="text-gray-600 mb-4">
+              We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of any material changes by:
+            </p>
+            <ul className="space-y-2.5">
+              {[
+                "Posting the updated policy on our website",
+                'Updating the "Last updated" date at the top of this policy',
+                "Sending you an email notification for significant changes"
+              ].map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-gray-600">
+                  <div className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="text-gray-600 mt-4">
+              We encourage you to review this policy periodically to stay informed about how we protect your information.
+            </p>
+          </section>
+
+          {/* Contact Us */}
+          <section className="bg-blue-600 rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6 text-white" />
+              </div>
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-white mb-1">Contact Us</h2>
+                <p className="text-blue-100 text-sm">Have questions about this privacy policy?</p>
+              </div>
+            </div>
+            <p className="text-white mb-6">
+              If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Send className="w-4 h-4 text-white" />
+                  <h4 className="font-semibold text-white">Email</h4>
+                </div>
+                <a href="mailto:privacy@egyptra.com" className="text-blue-100 hover:text-white text-sm">
+                  privacy@egyptra.com
+                </a>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <Phone className="w-4 h-4 text-white" />
+                  <h4 className="font-semibold text-white">Phone</h4>
+                </div>
+                <a href="tel:+18001234567" className="text-blue-100 hover:text-white text-sm">
+                  +1 (800) 123-4567
+                </a>
+              </div>
+              <div className="bg-white/10 backdrop-blur rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <MapPin className="w-4 h-4 text-white" />
+                  <h4 className="font-semibold text-white">Address</h4>
+                </div>
+                <p className="text-blue-100 text-sm">
+                  123 Travel Street, Cairo, Egypt
                 </p>
               </div>
             </div>
-          </div>
-
-          <div className="space-y-16">
-            {/* Section 1 - Information Collection */}
-            <section className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/5 to-transparent rounded-3xl -z-10"></div>
-              <div className="flex items-start gap-6">
-                <div className="hidden md:block flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl font-bold">1</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="mb-2">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Information We Collect</h2>
-                    <div className="w-16 h-1 bg-primary rounded-full mt-3"></div>
-                  </div>
-                  
-                  <div className="space-y-10 mt-8">
-                    {/* Personal Information */}
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        Personal Information
-                      </h3>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {[
-                          "Name and contact information",
-                          "Passport details (when required for booking)",
-                          "Payment information",
-                          "Travel preferences and requirements",
-                          "Special assistance needs",
-                          "Communication preferences",
-                          "Emergency contact details",
-                          "Dietary restrictions and preferences",
-                          "Travel insurance information",
-                          "Loyalty program memberships"
-                        ].map((item, index) => (
-                          <div key={index} className="group flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:border-primary/50 hover:shadow-sm transition-all duration-300">
-                            <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                              <div className="w-2 h-2 bg-primary rounded-full"></div>
-                            </div>
-                            <span className="text-gray-700 group-hover:text-gray-900">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Automated Collection */}
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-800 mb-6 flex items-center gap-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                        Automatically Collected Information
-                      </h3>
-                      <div className="grid md:grid-cols-2 gap-4">
-                        {[
-                          "IP address and device information",
-                          "Browser type and version",
-                          "Pages visited and interaction data",
-                          "Booking and search history",
-                          "Cookies and similar tracking technologies",
-                          "Location data (if enabled)",
-                          "Referral source",
-                          "Session duration and timing"
-                        ].map((item, index) => (
-                          <div key={index} className="group flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:border-secondary/50 hover:shadow-sm transition-all duration-300">
-                            <div className="w-6 h-6 rounded-lg bg-secondary/10 flex items-center justify-center flex-shrink-0">
-                              <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                            </div>
-                            <span className="text-gray-700 group-hover:text-gray-900">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 2 - How We Use Information */}
-            <section className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-l from-secondary/5 to-transparent rounded-3xl -z-10"></div>
-              <div className="flex items-start gap-6">
-                <div className="hidden md:block flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-secondary to-yellow-500 flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl font-bold">2</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="mb-2">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">How We Use Your Information</h2>
-                    <div className="w-16 h-1 bg-secondary rounded-full mt-3"></div>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-8">We use your personal information for the following purposes:</p>
-                  
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {[
-                      { text: "Processing bookings and reservations", color: "from-blue-50 to-blue-100/50" },
-                      { text: "Customer support and communication", color: "from-green-50 to-green-100/50" },
-                      { text: "Service improvement and analytics", color: "from-purple-50 to-purple-100/50" },
-                      { text: "Marketing and promotional offers", color: "from-amber-50 to-amber-100/50" },
-                      { text: "Fraud prevention and security", color: "from-red-50 to-red-100/50" },
-                      { text: "Personalization and travel experience", color: "from-indigo-50 to-indigo-100/50" },
-                      { text: "Legal compliance and obligations", color: "from-gray-50 to-gray-100/50" },
-                      { text: "Loyalty programs and rewards", color: "from-cyan-50 to-cyan-100/50" },
-                      { text: "Insurance claims processing", color: "from-emerald-50 to-emerald-100/50" }
-                    ].map((item, index) => (
-                      <div 
-                        key={index}
-                        className={`bg-gradient-to-br ${item.color} rounded-xl p-5 border border-gray-200/50 hover:border-primary/30 hover:shadow-md transition-all duration-300 group`}
-                      >
-                        <div className="flex items-start gap-3">
-                          <div className="w-2 h-2 rounded-full bg-gray-400 mt-2 group-hover:scale-150 transition-transform"></div>
-                          <span className="text-gray-700 group-hover:text-gray-900">{item.text}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 3 - Information Sharing */}
-            <section className="relative">
-              <div className="flex items-start gap-6">
-                <div className="hidden md:block flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl font-bold">3</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="mb-2">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Information Sharing and Disclosure</h2>
-                    <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full mt-3"></div>
-                  </div>
-                  
-                  <div className="space-y-8 mt-8">
-                    {/* Service Providers */}
-                    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 border border-blue-200">
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-3 h-8 bg-blue-600 rounded-full"></div>
-                        <h3 className="text-xl font-semibold text-gray-800">Service Providers</h3>
-                      </div>
-                      <p className="text-gray-600 mb-6">We may share your information with trusted third parties who assist us in:</p>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {[
-                          "Processing payments",
-                          "Providing tour services",
-                          "Customer support",
-                          "Marketing and analytics",
-                          "Hotel and accommodation providers",
-                          "Transportation services"
-                        ].map((item, index) => (
-                          <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-white/80 backdrop-blur-sm">
-                            <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                            <span className="text-gray-700">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Legal Requirements */}
-                    <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-8 border border-amber-200">
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className="w-3 h-8 bg-amber-600 rounded-full"></div>
-                        <h3 className="text-xl font-semibold text-gray-800">Legal Requirements</h3>
-                      </div>
-                      <p className="text-gray-600 mb-6">We may disclose your information if required by law or to:</p>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {[
-                          "Comply with legal obligations",
-                          "Protect our rights and property",
-                          "Prevent fraud or abuse",
-                          "Ensure user safety",
-                          "Respond to government requests",
-                          "Enforce our terms of service"
-                        ].map((item, index) => (
-                          <div key={index} className="flex items-center gap-3 p-3 rounded-lg bg-white/80 backdrop-blur-sm">
-                            <div className="w-2 h-2 bg-amber-600 rounded-full"></div>
-                            <span className="text-gray-700">{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 4 - Data Security */}
-            <section className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-green-50/50 to-transparent rounded-3xl -z-10"></div>
-              <div className="flex items-start gap-6">
-                <div className="hidden md:block flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg">
-                    <span className="text-white text-2xl font-bold">4</span>
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="mb-2">
-                    <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Data Security</h2>
-                    <div className="w-16 h-1 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full mt-3"></div>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-8">We implement appropriate security measures to protect your information:</p>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {[
-                      "End-to-end encryption of sensitive data",
-                      "PCI-DSS compliant payment processing",
-                      "Regular security assessments and testing",
-                      "Role-based access control",
-                      "Employee security training programs",
-                      "24/7 system monitoring",
-                      "Backup and disaster recovery planning",
-                      "Multi-factor authentication"
-                    ].map((item, index) => (
-                      <div key={index} className="group flex items-start gap-4 p-5 rounded-xl bg-white border border-gray-200 hover:border-green-500/50 hover:shadow-md transition-all duration-300">
-                        <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                          <div className="w-3 h-3 bg-green-600 rounded-full"></div>
-                        </div>
-                        <div>
-                          <span className="text-gray-700 group-hover:text-gray-900 font-medium">{item}</span>
-                          <div className="w-full h-0.5 bg-green-100 mt-3 group-hover:bg-green-200 transition-colors"></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Section 5-10 Grid */}
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Section 5 */}
-              <section className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
-                    <span className="text-primary font-bold text-lg">5</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">Your Rights and Choices</h3>
-                </div>
-                <p className="text-gray-600">
-                  You can manage cookie preferences through your browser settings. For detailed information about our cookie usage, please refer to our Cookie Policy.
-                </p>
-              </section>
-
-              {/* Section 6 */}
-              <section className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                    <span className="text-amber-600 font-bold text-lg">6</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">Cookies and Tracking</h3>
-                </div>
-                <p className="text-gray-600 mb-3">We use cookies to remember preferences, analyze usage, and improve services.</p>
-                <div className="px-4 py-3 bg-amber-50 rounded-lg border border-amber-200">
-                  <p className="text-amber-700 text-sm font-medium">
-                    Manage preferences in browser settings. See our Cookie Policy for details.
-                  </p>
-                </div>
-              </section>
-
-              {/* Section 7 */}
-              <section className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                    <span className="text-blue-600 font-bold text-lg">7</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">Children's Privacy</h3>
-                </div>
-                <p className="text-gray-600 mb-4">
-                  Our services are not directed to children under 13. We do not knowingly collect personal information from children.
-                </p>
-                <div className="px-4 py-3 bg-blue-50 rounded-lg border border-blue-200">
-                  <p className="text-blue-700 text-sm font-medium">
-                    For family bookings, children's data must be managed by parents or legal guardians.
-                  </p>
-                </div>
-              </section>
-
-              {/* Section 8 */}
-              <section className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center">
-                    <span className="text-purple-600 font-bold text-lg">8</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">International Data Transfers</h3>
-                </div>
-                <p className="text-gray-600 mb-3">Your information may be transferred internationally with safeguards:</p>
-                <div className="space-y-2">
-                  {["Standard contractual clauses", "Data processing agreements", "Regular security audits", "Encryption during transfer"].map((item, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
-                      <span className="text-gray-700 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-
-              {/* Section 9 */}
-              <section className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-gray-500/10 flex items-center justify-center">
-                    <span className="text-gray-600 font-bold text-lg">9</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">Data Retention</h3>
-                </div>
-                <p className="text-gray-600 mb-3">We retain data as long as necessary for:</p>
-                <div className="space-y-2 mb-4">
-                  {["Fulfilling policy purposes", "Legal compliance", "Dispute resolution", "Agreement enforcement"].map((item, index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 bg-gray-500 rounded-full"></div>
-                      <span className="text-gray-700 text-sm">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="px-4 py-3 bg-gray-100 rounded-lg">
-                  <p className="text-gray-700 text-sm font-medium">After this period, data is securely deleted or anonymized.</p>
-                </div>
-              </section>
-
-              {/* Section 10 */}
-              <section className="bg-white rounded-2xl border border-gray-200 p-6 hover:shadow-lg transition-shadow duration-300">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center">
-                    <span className="text-indigo-600 font-bold text-lg">10</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900">Policy Updates</h3>
-                </div>
-                <p className="text-gray-600 mb-3">We update this policy to reflect:</p>
-                <div className="grid grid-cols-2 gap-2 mb-4">
-                  {["Practice changes", "New regulations", "Security improvements", "User protection"].map((item, index) => (
-                    <div key={index} className="text-center px-3 py-2 bg-indigo-50 rounded-lg">
-                      <span className="text-indigo-700 text-sm font-medium">{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-gray-600 text-sm">
-                  Material changes will be posted on our website with updated dates.
-                </p>
-              </section>
-            </div>
-
-            {/* Section 11 - Contact (Full width) */}
-            <section>
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-                {/* Decorative elements */}
-                <div className="absolute top-0 left-0 w-64 h-64 bg-gradient-to-br from-primary/20 to-transparent rounded-full -translate-x-32 -translate-y-32"></div>
-                <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-secondary/20 to-transparent rounded-full translate-x-32 translate-y-32"></div>
-                
-                <div className="relative z-10 p-8 md:p-12 text-white">
-                  <div className="max-w-3xl mx-auto">
-                    <div className="text-center mb-10">
-                      <div className="inline-flex items-center gap-3 px-6 py-3 bg-white/10 rounded-full backdrop-blur-sm mb-4">
-                        <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                        <span className="text-white/90">Contact Us</span>
-                      </div>
-                      <h2 className="text-3xl md:text-4xl font-bold mb-4">Get in Touch with Our Privacy Team</h2>
-                      <p className="text-gray-300 text-lg">
-                        If you have questions about this Privacy Policy or our privacy practices, please contact our Data Protection Officer:
-                      </p>
-                    </div>
-
-                    <div className="grid md:grid-cols-2 gap-6 mb-10">
-                      {/* Email */}
-                      <a 
-                        href="mailto:operations@egypttra.com"
-                        className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/20"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="p-3 bg-white rounded-xl group-hover:scale-110 transition-transform">
-                            <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-lg mb-1">Email</h4>
-                            <p className="text-blue-300 group-hover:text-blue-200 transition-colors">
-                              operations@egypttra.com
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-
-                      {/* Phone */}
-                      <a 
-                        href="tel:+201011957868"
-                        className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/20"
-                      >
-                        <div className="flex items-start gap-4">
-                          <div className="p-3 bg-white rounded-xl group-hover:scale-110 transition-transform">
-                            <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                            </svg>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-lg mb-1">Phone</h4>
-                            <p className="text-blue-300 group-hover:text-blue-200 transition-colors">
-                              +20 101 195 7868
-                            </p>
-                          </div>
-                        </div>
-                      </a>
-
-                      {/* Address */}
-                      <div className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/20">
-                        <div className="flex items-start gap-4">
-                          <div className="p-3 bg-white rounded-xl">
-                            <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-lg mb-1">Address</h4>
-                            <p className="text-gray-300">Cairo, Egypt</p>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Response Time */}
-                      <div className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/15 transition-all duration-300 border border-white/20">
-                        <div className="flex items-start gap-4">
-                          <div className="p-3 bg-white rounded-xl">
-                            <svg className="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-lg mb-1">Response Time</h4>
-                            <div className="flex items-center gap-2">
-                              <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-blue-400 to-green-400 w-3/4 rounded-full"></div>
-                              </div>
-                              <span className="text-green-300 font-bold">24-48h</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Urgent Notice */}
-                    <div className="bg-gradient-to-r from-amber-500/20 to-red-500/20 backdrop-blur-sm rounded-2xl p-6 border border-amber-500/30">
-                      <div className="flex items-center gap-4">
-                        <div className="p-3 bg-amber-500 rounded-xl">
-                          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.998-.833-2.732 0L4.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                          </svg>
-                        </div>
-                        <div>
-                          <h3 className="font-bold text-lg mb-2">Urgent Privacy Concerns</h3>
-                          <p className="text-amber-100">
-                            For urgent privacy concerns or data breaches, please contact us immediately at our dedicated privacy hotline: 
-                            <a href="tel:+201011957868" className="font-bold ml-1 text-white hover:underline">
-                              +20 101 195 7868
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
+            <p className="text-white mt-6 text-sm">
+              We will respond to your inquiry within 30 days.
+            </p>
+          </section>
         </div>
       </Container>
     </>

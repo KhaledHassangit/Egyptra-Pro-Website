@@ -14,7 +14,7 @@ interface ToursResponse {
 
 export const fetchTours = async () => {
     try {
-        const data = await api.get<ToursResponse>("/api/v1/tours", {
+        const data = await api.get<ToursResponse>("/api/tours", {
             params: {
                 isPopular: true,
                 page: 1,

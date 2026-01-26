@@ -45,7 +45,7 @@ const SearchCard = () => {
 
         {/* Popular Searches */}
         <div className="flex flex-col gap-3">
-          <span className="text-muted-foreground text-sm font-medium">Popular searches:</span>
+          <span className="text-muted-foreground text-left text-sm font-medium">Popular searches:</span>
           <div className="flex flex-wrap gap-2">
             {popularSearches.map((tag) => (
               <Badge
@@ -61,7 +61,7 @@ const SearchCard = () => {
 
         {/* Things To Do */}
         <div className="flex flex-col gap-3">
-          <span className="text-foreground text-sm font-bold">Things To Do</span>
+          <span className="text-foreground text-sm  text-left font-bold">Things To Do</span>
           <div className="flex flex-wrap gap-2 md:gap-3">
             {thingsToDo.map((item, index) => (
               <Badge
@@ -82,7 +82,7 @@ const SearchCard = () => {
         <Button
           variant="ghost"
           onClick={() => setIsAdvancedFiltersOpen(!isAdvancedFiltersOpen)}
-          className="flex items-center gap-2 text-primary font-medium text-sm h-fit p-0 hover:bg-transparent"
+          className="flex text-left items-center gap-2 text-primary font-medium text-sm h-fit p-0 hover:bg-transparent"
         >
           Advanced Filters
           <ChevronUp

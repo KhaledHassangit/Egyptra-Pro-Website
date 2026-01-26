@@ -98,7 +98,7 @@ const SearchCard = () => {
       {/* Advanced Filters Content with smooth animation */}
       <div 
         className={cn(
-          "bg-white shadow-md rounded-b-2xl overflow-hidden transition-all duration-200 ease-out",
+          "bg-white shadow-md rounded-b-2xl overflow-hidden transition-all duration-400 ease-in-out",
           isAdvancedFiltersOpen ? "max-h-[800px] opacity-100 mt-[-1px]" : "max-h-0 opacity-0"
         )}
       >

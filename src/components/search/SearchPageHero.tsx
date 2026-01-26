@@ -17,7 +17,7 @@ const SearchPageHero = () => {
                     style={{ backgroundColor: '#0373DECC' }}
                 />
 
-                <Container className="relative z-10 flex flex-col items-center justify-center text-center gap-4 md:gap-6 pt-6 md:pt-10 px-4 pb-8">
+                <Container className="relative z-10 flex flex-col items-center mx-auto text-center gap-4 md:gap-6 pt-6 md:pt-10 px-4 pb-8">
                     <h1 className="font-medium text-[28px] md:text-[40px] leading-[1.2]">
                         Discover Egypt's Wonders
                     </h1>

@@ -82,7 +82,7 @@ const SearchCard = () => {
         <Button
           variant="ghost"
           onClick={() => setIsAdvancedFiltersOpen(!isAdvancedFiltersOpen)}
-          className="flex text-left items-center gap-2 text-primary font-medium text-sm h-fit p-0 hover:bg-transparent"
+          className="flex text-left items-start gap-2 text-primary font-medium text-sm h-fit p-0 hover:bg-transparent"
         >
           Advanced Filters
           <ChevronUp

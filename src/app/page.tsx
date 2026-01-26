@@ -25,8 +25,8 @@ export default async function Home() {
       <TrustIndicators />
       <AboutSection />
       <DestinationsSection />
-      <PopularTourSection tours={Tours.data} />
-      <ActivityTypeSection tours={Tours.data} />
+      <PopularTourSection tours={Tours.data.data} />
+      <ActivityTypeSection tours={Tours.data.data} />
       <ExclusiveDealsSection />
       <CustomerTestimonials  Reviews={Reviews}/>
       <WhyChooseUsSection />

@@ -4,7 +4,6 @@ import { api } from "@/api/server-api";
 import { Tour } from "@/constants/types";
 
 
-// Define response type based on your API structure
 interface ToursResponse {
     data: Tour[];
     totalPages: number;

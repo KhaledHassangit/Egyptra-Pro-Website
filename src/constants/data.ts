@@ -441,3 +441,5 @@ export const stats = [
   { label: 'Platform Reviews', value: '100K+', icon: Star, id: 'reviews' },
   { label: 'Languages Supported', value: '20+', icon: Flag, id: 'languages' },
 ]
+
+

@@ -62,7 +62,6 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                                             
                                             "w-full md:flex-1",
                                             
-                                            // Responsive Minimum Width
                                             "min-w-[100px] sm:min-w-[120px] md:min-w-[140px] lg:min-w-[160px]",
                                             
                                             "border",

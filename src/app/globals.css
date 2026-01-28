@@ -255,16 +255,25 @@ input:focus{
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primaryy);
-  box-shadow: 0 0 8px 2px rgba(3, 115, 222, 0.4); /* Adds a soft glow */
+  box-shadow: 0 0 8px 2px rgba(3, 115, 222, 0.4); 
 }
 
 ::-webkit-scrollbar-thumb:active {
   background: var(--secondary);
-  box-shadow: none; /* Removes glow on click for a tactile feel */
+  box-shadow: none; 
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--primary) #f7f7f7;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;  
+  scrollbar-width: none; 
 }

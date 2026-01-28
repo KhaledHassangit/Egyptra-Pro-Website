@@ -100,8 +100,8 @@ export interface LoadingButtonProps {
 
 
 export interface PageHeroProps {
-    title: string
-    currentPage: string
+    title?: string
+    currentPage?: string
     currentPageUrl?: string
 }
 
@@ -397,7 +397,7 @@ export interface TourVideo {
 }
 
 export interface Tour {
-  id: string;
+  id: number;
   title: string;
   slug: string;
   description: string;

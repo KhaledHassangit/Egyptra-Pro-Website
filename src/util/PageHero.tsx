@@ -2,7 +2,16 @@ import { PageHeroProps } from '@/constants/types'
 import Container from '@/util/Container'
 import Link from "@/components/shared/link";
 
-const PageHero = ({ title, currentPage, currentPageUrl }: PageHeroProps) => {
+interface ExtendedPageHeroProps extends PageHeroProps {
+  breadcrumbItems?: { name: string; url?: string }[];
+}
+
+const PageHero = ({ 
+  title, 
+  currentPage, 
+  currentPageUrl, 
+  breadcrumbItems 
+}: ExtendedPageHeroProps) => {
   return (
     <section 
       className="relative w-full h-[100px] sm:h-[120px] md:h-[140px] text-white overflow-hidden"
@@ -27,25 +36,47 @@ const PageHero = ({ title, currentPage, currentPageUrl }: PageHeroProps) => {
         >
           {title}
         </h1>
-        <div className="flex items-center gap-2 text-sm sm:text-base font-medium">
-          <Link 
-            href="/" 
-            className="transition-all duration-300 hover:underline hover:text-opacity-80"
-          >
-            Home
-          </Link>
-          <span>/</span>
-          {currentPageUrl ? (
+        
+        {/* Use breadcrumbItems if provided, otherwise fall back to the original breadcrumb */}
+        {breadcrumbItems ? (
+          <div className="flex items-center gap-2 text-sm sm:text-base font-medium">
+            {breadcrumbItems.map((item, index) => (
+              <div key={index} className="flex items-center gap-2">
+                {item.url ? (
+                  <Link 
+                    href={item.url}
+                    className="transition-all duration-300 hover:underline hover:text-opacity-80"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span>{item.name}</span>
+                )}
+                {index < breadcrumbItems.length - 1 && <span>/</span>}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center gap-2 text-sm sm:text-base font-medium">
             <Link 
-              href={currentPageUrl}
+              href="/" 
               className="transition-all duration-300 hover:underline hover:text-opacity-80"
             >
-              {currentPage}
+              Home
             </Link>
-          ) : (
-            <span>{currentPage}</span>
-          )}
-        </div>
+            <span>/</span>
+            {currentPageUrl ? (
+              <Link 
+                href={currentPageUrl}
+                className="transition-all duration-300 hover:underline hover:text-opacity-80"
+              >
+                {currentPage}
+              </Link>
+            ) : (
+              <span>{currentPage}</span>
+            )}
+          </div>
+        )}
       </Container>
     </section>
   )

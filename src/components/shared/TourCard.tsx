@@ -25,7 +25,7 @@ export function TourCard({
     imagePath, city, title, price, rating, 
     duration, groupSize, location, variant = "default", className 
 }: TourCardProps) {
-    const [isHeartFilled, setIsHeartFilled] = useState(false);
+    const [isHeartFilled, setIsHeartFilled] = useState(true); // Set to true for wishlist page
     const [copied, setCopied] = useState(false);
     
     const handleCopyLink = async () => {
@@ -73,9 +73,10 @@ export function TourCard({
                             <Heart 
                                 size={16} 
                                 strokeWidth={2.5}
+                                // --- KEY CHANGE IS HERE ---
                                 className={cn(
-                                    "text-primary",
-                                    isHeartFilled ? "fill-current" : ""
+                                    "text-primary transition-colors",
+                                    isHeartFilled && "fill-current" 
                                 )}
                             />
                         </Button>

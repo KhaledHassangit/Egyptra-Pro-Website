@@ -103,7 +103,6 @@ export default function TourDetailsPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
       <div className="bg-gradient-to-b from-blue-50 to-white py-12 border-b">
         <div className="max-w-6xl mx-auto px-4">
           <div className="mb-6 text-sm text-gray-600">
@@ -113,7 +112,6 @@ export default function TourDetailsPage() {
             {tourData.title}
           </h1>
 
-          {/* Header Info */}
           <div className="flex items-center gap-6 flex-wrap mb-6">
             <div className="flex items-center gap-2">
               {[...Array(5)].map((_, i) => (
@@ -145,7 +143,6 @@ export default function TourDetailsPage() {
             </div>
           </div>
 
-          {/* Location Banner */}
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center gap-3">
             <MapPin className="text-blue-600 flex-shrink-0" size={20} />
             <span className="text-gray-900">
@@ -155,12 +152,9 @@ export default function TourDetailsPage() {
         </div>
       </div>
 
-      {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Left Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Tabs Navigation */}
             <Tabs
               value={activeTab}
               onValueChange={setActiveTab}
@@ -196,9 +190,7 @@ export default function TourDetailsPage() {
                 </TabsTrigger>
               </TabsList>
 
-              {/* Overview Tab */}
               <TabsContent value="overview" className="mt-6 space-y-6">
-                {/* Highlights */}
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Highlights</h3>
                   <div className="space-y-3">
@@ -214,7 +206,6 @@ export default function TourDetailsPage() {
                   </div>
                 </div>
 
-                {/* Description */}
                 <div>
                   <h3 className="text-2xl font-bold mb-4">Description</h3>
                   <p className="text-gray-700 leading-relaxed">
@@ -227,7 +218,6 @@ export default function TourDetailsPage() {
                 </div>
               </TabsContent>
 
-              {/* Includes Tab */}
               <TabsContent value="includes" className="mt-6 space-y-6">
                 <div>
                   <h3 className="text-2xl font-bold mb-4">What's Included</h3>
@@ -264,7 +254,6 @@ export default function TourDetailsPage() {
                 </div>
               </TabsContent>
 
-              {/* Info Tab */}
               <TabsContent value="info" className="mt-6 space-y-6">
                 <div className="rounded-lg border p-6">
                   <h3 className="text-xl font-bold mb-6">
@@ -311,7 +300,6 @@ export default function TourDetailsPage() {
                   </div>
                 </div>
 
-                {/* What to Bring */}
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                   <h4 className="font-bold mb-4 text-gray-900">
                     What to Bring
@@ -329,7 +317,6 @@ export default function TourDetailsPage() {
                   </div>
                 </div>
 
-                {/* Important Notes */}
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
                   <h4 className="font-bold mb-4 text-gray-900">
                     Important Notes
@@ -348,9 +335,7 @@ export default function TourDetailsPage() {
                 </div>
               </TabsContent>
 
-              {/* Reviews Tab */}
               <TabsContent value="reviews" className="mt-6 space-y-6">
-                {/* Header with Rating and Write Review Button */}
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-1">
@@ -374,7 +359,6 @@ export default function TourDetailsPage() {
                   </Button>
                 </div>
 
-                {/* Rating Breakdown */}
                 <div>
                   <h4 className="text-lg font-bold mb-4">Rating Breakdown</h4>
                   <div className="space-y-3">
@@ -409,7 +393,6 @@ export default function TourDetailsPage() {
                   </div>
                 </div>
 
-                {/* Individual Reviews */}
                 <div className="space-y-6">
                   {tourData.reviews.map((review) => (
                     <div key={review.id} className="border rounded-lg p-6">
@@ -443,7 +426,6 @@ export default function TourDetailsPage() {
                   ))}
                 </div>
 
-                {/* Load More Reviews */}
                 <div className="flex justify-center mt-8">
                   <Button
                     variant="outline"
@@ -456,12 +438,9 @@ export default function TourDetailsPage() {
             </Tabs>
           </div>
 
-          {/* Right Sidebar - Booking Card */}
           <div className="lg:col-span-1">
             <div className="bg-white rounded-lg p-6 sticky top-6">
-              {/* Top Features */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                {/* Rating */}
                 <div className="bg-gray-50 rounded-lg p-4">
                   <div className="flex items-center gap-1 mb-2">
                     {[...Array(5)].map((_, i) => (
@@ -477,7 +456,6 @@ export default function TourDetailsPage() {
                   <Badge className="bg-teal-500 text-white text-xs mt-2">TRIPADVISOR</Badge>
                 </div>
 
-                {/* Duration & Views */}
                 <div className="space-y-3">
                   <div className="bg-gray-50 rounded-lg p-4">
                     <p className="text-xs text-gray-600 uppercase">Duration</p>
@@ -490,7 +468,7 @@ export default function TourDetailsPage() {
                 </div>
               </div>
 
-              {/* Instant Confirmation */}
+
               <div className="bg-blue-50 rounded-lg p-4 mb-6 flex items-start gap-3">
                 <CheckCircle size={20} className="text-blue-600 flex-shrink-0 mt-1" />
                 <div>
@@ -499,7 +477,6 @@ export default function TourDetailsPage() {
                 </div>
               </div>
 
-              {/* Location Banner */}
               <div className="bg-blue-100 border-l-4 border-blue-600 rounded p-4 mb-6">
                 <p className="text-xs text-gray-700 flex items-start gap-2">
                   <MapPin size={16} className="flex-shrink-0 mt-0.5 text-blue-600" />
@@ -507,7 +484,6 @@ export default function TourDetailsPage() {
                 </p>
               </div>
 
-              {/* Book Now Button */}
               <Button
                 size="lg"
                 className="w-full bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold py-6 rounded-lg mb-6"
@@ -515,10 +491,9 @@ export default function TourDetailsPage() {
                 Book Now
               </Button>
 
-              {/* What to Expect */}
               <div className="border-t pt-4">
                 <div className="flex items-start gap-3">
-                  <Calendar size={18} className="text-gray-700 flex-shrink-0 mt-0.5" />
+                  <Calendar  className="text-gray-700 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-semibold text-sm text-gray-900">What to Expect</p>
                     <p className="text-xs text-gray-700 mt-2 leading-relaxed">

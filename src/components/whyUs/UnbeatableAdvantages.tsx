@@ -16,7 +16,6 @@ const UnbeatableAdvantages = () => {
                 </header>
 
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-                    {/* Left Column: Text Content */}
                     <div className="flex flex-col justify-center space-y-6 sm:space-y-8 lg:space-y-12">
                         {advantages.map((item, index) => (
                             <article key={index} className="flex gap-3 sm:gap-4">
@@ -55,7 +54,6 @@ const UnbeatableAdvantages = () => {
                         ))}
                     </div>
 
-                    {/* Right Column: Image */}
                     <div className="relative h-64 sm:h-80 md:h-96 lg:h-full min-h-[300px] w-full overflow-hidden shadow-xl ">
                         <Image
                             src="/images/dest3.jpg"
@@ -64,7 +62,6 @@ const UnbeatableAdvantages = () => {
                             className="object-cover"
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
                         />
-                        {/* Fallback color if image fails loading */}
                         <div className="absolute inset-0 bg-gray-200 -z-10" />
                     </div>
                 </div>

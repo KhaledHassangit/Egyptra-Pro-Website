@@ -29,7 +29,6 @@ const SearchCard = () => {
         "bg-white  p-6 md:p-8 flex flex-col gap-6 relative",
         isAdvancedFiltersOpen ? "rounded-t-2xl" : "rounded-2xl"
       )}>
-        {/* Search Bar */}
         <div className="flex gap-3">
           <div className="relative flex-1">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
@@ -43,7 +42,6 @@ const SearchCard = () => {
           </Button>
         </div>
 
-        {/* Popular Searches */}
         <div className="flex flex-col gap-3">
           <span className="text-muted-foreground text-left text-sm font-medium">Popular searches:</span>
           <div className="flex flex-wrap gap-2">
@@ -59,7 +57,6 @@ const SearchCard = () => {
           </div>
         </div>
 
-        {/* Things To Do */}
         <div className="flex flex-col gap-3">
           <span className="text-foreground text-sm  text-left font-bold">Things To Do</span>
           <div className="flex flex-wrap gap-2 md:gap-3">
@@ -78,7 +75,6 @@ const SearchCard = () => {
 
         <div className="h-px bg-border w-full" />
 
-        {/* Advanced Filters Toggle */}
         <Button
           variant="ghost"
           onClick={() => setIsAdvancedFiltersOpen(!isAdvancedFiltersOpen)}
@@ -95,7 +91,6 @@ const SearchCard = () => {
         </Button>
       </div>
 
-      {/* Advanced Filters Content with smooth animation */}
       <div 
         className={cn(
           "bg-white shadow-md rounded-b-2xl overflow-hidden transition-all duration-400 ease-in-out",
@@ -104,7 +99,6 @@ const SearchCard = () => {
       >
         <div className="p-6 md:p-8 flex flex-col gap-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Price Range */}
             <div className="space-y-4">
               <div className="flex items-center gap-2 text-foreground font-semibold text-sm">
                 <Tag size={16} />
@@ -132,7 +126,6 @@ const SearchCard = () => {
               <div className="h-px bg-border w-full md:hidden" />
             </div>
 
-            {/* Categories */}
             <div className="space-y-4">
               <h3 className="text-foreground font-semibold text-sm">Categories</h3>
               <div className="flex flex-col gap-3">
@@ -152,7 +145,6 @@ const SearchCard = () => {
               </div>
             </div>
 
-            {/* Sort By */}
             <div className="space-y-4">
               <div className="flex justify-between items-center">
                 <h3 className="text-foreground font-semibold text-sm">Sort By</h3>
@@ -178,7 +170,6 @@ const SearchCard = () => {
 
           <div className="h-px bg-border w-full" />
 
-          {/* Action Buttons */}
           <div className="flex gap-3">
             <Button
               variant="outline"

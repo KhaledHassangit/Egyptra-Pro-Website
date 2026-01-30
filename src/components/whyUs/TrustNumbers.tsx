@@ -59,7 +59,6 @@ const TrustNumbers = () => {
                     ))}
                 </div>
 
-                {/* Additional accessibility info */}
                 <div className="sr-only" role="status" aria-live="polite">
                     Our platform offers 1000+ tours and activities, serving over 1 million satisfied customers with 100K+ reviews in 20+ languages
                 </div>

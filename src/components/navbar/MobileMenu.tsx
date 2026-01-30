@@ -30,7 +30,6 @@ export function MobileMenu({
 
   return (
     <>
-      {/* Overlay */}
       <div 
         className={cn(
           "fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300",
@@ -39,14 +38,12 @@ export function MobileMenu({
         onClick={onClose}
       />
       
-      {/* Slide Menu - Only navigation links */}
       <div 
         className={cn(
           "fixed top-0 left-0 h-full w-[280px] bg-white shadow-2xl z-50 lg:hidden overflow-y-auto overflow-x-hidden border-r border-gray-200 transform transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
-        {/* Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-200">
           <h2 className="text-lg font-semibold">Menu</h2>
           <Button
@@ -59,9 +56,7 @@ export function MobileMenu({
           </Button>
         </div>
 
-        {/* Menu Content - Only navigation links */}
         <div className="p-4 space-y-2">
-          {/* Mobile Destinations Accordion */}
           <div>
             <Button 
               variant="ghost" 
@@ -88,7 +83,6 @@ export function MobileMenu({
             )}
           </div>
 
-          {/* Mobile Tour Category Accordion */}
           <div>
             <Button 
               variant="ghost" 
@@ -110,7 +104,6 @@ export function MobileMenu({
             )}
           </div>
 
-          {/* Mobile Travel Guide Accordion */}
           <div>
             <Button 
               variant="ghost" 

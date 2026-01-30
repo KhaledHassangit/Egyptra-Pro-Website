@@ -57,7 +57,6 @@ const ContactForm = ({ onSubmit }: ContactFormProps) => {
         <span className="absolute bottom-[-12px] left-0 w-[60px] h-[4px] bg-primary rounded-[2px]"></span>
       </div>
 
-      {/* Use a div with form element inside to ensure proper event handling */}
       <div>
         <form onSubmit={handleSubmit} noValidate className="space-y-4">
           <div className="grid grid-cols-2 gap-4">

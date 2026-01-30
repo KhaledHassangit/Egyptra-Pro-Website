@@ -48,27 +48,22 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
                   className="object-cover"
                   priority={index === 0}
                 />
-                {/* Overlay with gradient */}
                 <div className="absolute inset-0 overlay-bg"></div>
               </div>
             ))}
           </div>
 
-          {/* Top Center Divs Container */}
           <div className="absolute top-6 left-1/2 transform -translate-x-1/2 flex gap-4 z-10">
-            {/* First Div: Rating */}
             <div className="flex items-center gap-1 px-3 h-[35px] rounded-[10px] bg-[#FFFFFF1A]">
               <Star size={14} color="#FDC700" fill="#FDC700" />
               <span className="text-white text-[14px] font-normal text-nowrap">4.9/5 Rating</span>
             </div>
             
-            {/* Second Div: Secure Booking */}
             <div className="flex items-center gap-1 px-3 h-[35px] rounded-[10px] bg-[#FFFFFF1A]">
               <Shield size={14} className="text-white" />
               <span className="text-white text-[14px] font-normal text-nowrap">Secure Booking</span>
             </div>
             
-            {/* Third Div: Travelers */}
             <div className="flex items-center gap-1 px-3 h-[35px] rounded-[10px] bg-[#FFFFFF1A]">
               <Award size={14} className="text-white" />
               <span className="text-white text-[14px] font-normal text-nowrap">10,000+ Travelers</span>
@@ -96,7 +91,6 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
           </div>
         </div>
 
-        {/* Right Section: Forms and other content */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-4 sm:p-6 lg:p-12 bg-background">
           {children}
         </div>

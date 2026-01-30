@@ -35,7 +35,6 @@ const CompareSave = () => {
                     />
                 </header>
                 
-                {/* Mobile View - Card Layout */}
                 <div className="block lg:hidden">
                     <div className="space-y-4">
                         {rows.map((row, index) => (
@@ -70,7 +69,6 @@ const CompareSave = () => {
                     </div>
                 </div>
                 
-                {/* Desktop View - Table Layout */}
                 <div className="hidden lg:block w-full max-w-[1220px] mx-auto overflow-x-auto">
                     <div 
                         className="bg-white overflow-hidden"
@@ -80,7 +78,6 @@ const CompareSave = () => {
                             borderRadius: "4px"
                         }}
                     >
-                        {/* Header */}
                         <div 
                             className="grid grid-cols-3"
                             style={{ backgroundColor: "#0373DE1A" }}
@@ -125,16 +122,13 @@ const CompareSave = () => {
                             </div>
                         </div>
 
-                        {/* Table Body */}
                         <div className="relative">
-                            {/* Vertical lines */}
                             <div className="absolute inset-0 grid grid-cols-3 pointer-events-none z-20">
                                 <div style={{ borderRight: "1px solid var(--color-primary)" }}></div>
                                 <div style={{ borderRight: "1px solid var(--color-primary)" }}></div>
                                 <div></div>
                             </div>
                             
-                            {/* Content rows */}
                             {rows.map((row, index) => (
                                 <div 
                                     key={index} 
@@ -159,16 +153,13 @@ const CompareSave = () => {
                                             </span>
                                         </div>
                                         
-                                        {/* Second column - Egyptra - with fixed grid layout */}
                                         <div 
                                             className="flex items-center justify-center px-4"
                                         >
                                             <div className="grid grid-cols-[30px_1fr] gap-3 items-center w-full max-w-[300px]">
-                                                {/* Icon - fixed position in first column */}
                                                 <div className="flex justify-center">
                                                     {getIcon(row.egyptra)}
                                                 </div>
-                                                {/* Text - aligned with icon */}
                                                 <span 
                                                     style={{ 
                                                         color: "#4B4B4B",
@@ -185,11 +176,9 @@ const CompareSave = () => {
                                             className="flex items-center justify-center px-4"
                                         >
                                             <div className="grid grid-cols-[30px_1fr] gap-3 items-center w-full max-w-[300px]">
-                                                {/* Icon - fixed position in first column */}
                                                 <div className="flex justify-center">
                                                     {getIcon(row.others)}
                                                 </div>
-                                                {/* Text - aligned with icon */}
                                                 <span 
                                                     style={{ 
                                                         color: "#4B4B4B",
@@ -202,7 +191,6 @@ const CompareSave = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    {/* Hover background */}
                                     <div className="absolute inset-0 bg-gray-50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                                 </div>
                             ))}

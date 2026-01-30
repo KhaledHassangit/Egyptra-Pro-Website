@@ -4,7 +4,6 @@ import Container from "@/util/Container";
 import SectionHeader from "@/util/SectionHeader";
 import { useState, useEffect } from "react";
 
-// Category data with backend values
 export const tourCategoryData = [
   { name: 'Popular', value: '', href: '#' },
   { name: 'Safari', value: 'safari', href: '#' },
@@ -15,10 +14,9 @@ export const tourCategoryData = [
   { name: 'City Tour', value: 'city-tour', href: '#' },
   { name: 'Cultural', value: 'cultural', href: '#' },
   { name: 'Multi-day', value: 'multi-day', href: '#' },
-  { name: 'Adventure', value: 'adventure', href: '#' }, // Added 9th category
+  { name: 'Adventure', value: 'adventure', href: '#' }, 
 ];
 
-// Function to transform tour data for display
 const transformTourData = (tour: any) => {
   return {
     id: tour.id,
@@ -37,7 +35,7 @@ const transformTourData = (tour: any) => {
 };
 
 interface ActivityTypeSectionProps {
-  tours: any[]; // Array of tour objects from your API
+  tours: any[]; 
 }
 
 export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
@@ -45,25 +43,20 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
   const [activities, setActivities] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Filter and transform tours when component mounts or when active tab changes
   useEffect(() => {
     const filterActivities = () => {
       setIsLoading(true);
       try {
         const categoryValue = tourCategoryData[activeTab]?.value;
         
-        // Filter tours by category
         let filteredTours = tours;
         if (categoryValue) {
           filteredTours = tours.filter(tour => tour.category === categoryValue);
         }
         
-        // Transform the data for display
         const transformedActivities = filteredTours.map(transformTourData);
         
-        // If no tours found for this category, use default data
         if (transformedActivities.length === 0) {
-          // You can either show empty state or use mock data
           setActivities([]);
         } else {
           setActivities(transformedActivities);
@@ -105,14 +98,12 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
           </div>
         </div>
 
-        {/* Loading State */}
         {isLoading && (
           <div className="flex justify-center items-center h-64">
             <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
           </div>
         )}
 
-        {/* Empty State */}
         {!isLoading && activities.length === 0 && (
           <div className="flex justify-center items-center h-64">
             <div className="text-center">
@@ -122,12 +113,10 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
           </div>
         )}
 
-        {/* Desktop Layout - Custom grid layout */}
         {!isLoading && activities.length > 0 && (
           <>
             <div className="hidden lg:block">
               <div className="grid grid-cols-12 gap-8 max-w-7xl mx-auto">
-                {/* First column - 2 images stacked */}
                 <div className="col-span-3 space-y-8">
                   {activities[0] && (
                     <div className="relative rounded-2xl overflow-hidden group h-64">
@@ -165,7 +154,6 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
                   )}
                 </div>
 
-                {/* Second column - 1 tall image */}
                 <div className="col-span-4">
                   {activities[2] && (
                     <div className="relative rounded-2xl overflow-hidden group h-full">
@@ -186,9 +174,7 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
                   )}
                 </div>
 
-                {/* Third column - 3 images in layout */}
                 <div className="col-span-5 space-y-8">
-                  {/* Top wide image */}
                   {activities[3] && (
                     <div className="relative rounded-2xl overflow-hidden group h-64">
                       <Image
@@ -207,7 +193,6 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
                     </div>
                   )}
 
-                  {/* Bottom two images side by side */}
                   <div className="grid grid-cols-2 gap-8">
                     {activities[4] && (
                       <div className="relative rounded-2xl overflow-hidden group h-64">
@@ -248,7 +233,6 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
               </div>
             </div>
 
-            {/* Tablet Layout - 2 columns with all images */}
             <div className="hidden md:block lg:hidden">
               <div className="grid grid-cols-2 gap-6">
                 {activities.map((activity) => (
@@ -274,7 +258,6 @@ export function ActivityTypeSection({ tours }: ActivityTypeSectionProps) {
               </div>
             </div>
 
-            {/* Mobile Layout - Single column with all images */}
             <div className="block md:hidden">
               <div className="grid grid-cols-1 gap-4">
                 {activities.map((activity) => (

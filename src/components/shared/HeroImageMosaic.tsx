@@ -9,7 +9,7 @@ interface HeroImageMosaicProps {
 }
 
 export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
-  const [currentIndex, setCurrentIndex] = useState(2); // Start with Hurghada
+  const [currentIndex, setCurrentIndex] = useState(2); 
   const [isTransitioning, setIsTransitioning] = useState(false);
   const currentDestination = allDestinations[currentIndex];
 
@@ -46,7 +46,6 @@ export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
                 )}
               />
             </div>
-            {/* Navigation Controls */}
             <div className="mt-3 sm:mt-4">
               <div className="bg-transparent rounded-full  flex items-center ">
                 <button
@@ -72,7 +71,6 @@ export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
             </div>
           </div>
 
-          {/* Column 2 - Middle (Two stacked images) - Middle step */}
           <div className="flex flex-col gap-2 sm:gap-3 mt-4 sm:mt-24">
             <div className="relative w-[175px] h-[270px] rounded-xl sm:rounded-2xl overflow-hidden shadow-card">
               <Image
@@ -98,7 +96,6 @@ export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
             </div>
           </div>
 
-          {/* Column 3 - Right (Two stacked images) - Highest step */}
           <div className="flex flex-col gap-2 sm:gap-3">
             <div className="relative w-[175px] h-[270px] rounded-xl sm:rounded-2xl overflow-hidden shadow-card">
               <Image
@@ -126,9 +123,7 @@ export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
         </div>
       </div>
 
-      {/* ========== 2-1-2 STRUCTURE - 1025px فما فوق ========== */}
       <div className="lg:hidden flex justify-center gap-4 h-[500px]">
-        {/* Column 1: Two Images (Left) */}
         <div className="flex flex-col gap-4 w-[175px]">
           <div className="relative w-full h-[270px] rounded-xl overflow-hidden shadow-card">
             <Image
@@ -154,7 +149,6 @@ export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
           </div>
         </div>
 
-        {/* Column 2: Main Image + Navigation (Center) */}
         <div className="flex flex-col gap-4 w-[175px] items-center justify-center">
           <div className="relative w-full h-[270px] rounded-xl overflow-hidden shadow-card">
             <Image
@@ -192,7 +186,6 @@ export function HeroImageMosaic({ className }: HeroImageMosaicProps) {
           </div>
         </div>
 
-        {/* Column 3: Two Images (Right) */}
         <div className="flex flex-col gap-4 w-[175px]">
           <div className="relative w-full h-[270px] rounded-xl overflow-hidden shadow-card">
             <Image

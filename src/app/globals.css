@@ -238,18 +238,18 @@ input:focus{
 /* Option 2: Vibrant & Interactive */
 
 ::-webkit-scrollbar {
-  width: 14px; /* A bit wider for easier interaction */
+  width: 14px; 
 }
 
 ::-webkit-scrollbar-track {
-  background: #f7f7f7; /* Soft off-white is easier on the eyes */
+  background: #f7f7f7; 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary); /* Your main vibrant blue */
+  background: var(--primary); 
   border-radius: 10px;
-  border: 2px solid #f7f7f7; /* Border matches track for a "inset" look */
+  border: 2px solid #f7f7f7; 
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 

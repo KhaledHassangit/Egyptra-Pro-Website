@@ -60,9 +60,7 @@ export function TourCard({
                         sizes="(max-width: 768px) 340px, (max-width: 1200px) 50vw, 25vw"
                     />
                     
-                    {/* Action buttons */}
                     <div className="absolute top-3 right-3 flex flex-col gap-2">
-                        {/* Heart button */}
                         <Button
                             variant="ghost"
                             size="icon"
@@ -73,7 +71,6 @@ export function TourCard({
                             <Heart 
                                 size={16} 
                                 strokeWidth={2.5}
-                                // --- KEY CHANGE IS HERE ---
                                 className={cn(
                                     "text-primary transition-colors",
                                     isHeartFilled && "fill-current" 
@@ -81,7 +78,6 @@ export function TourCard({
                             />
                         </Button>
                         
-                        {/* Share dropdown */}
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button
@@ -144,7 +140,6 @@ export function TourCard({
                     </div>
                 </div>
                 
-                {/* Rest of the card content remains the same */}
                 <div className="flex justify-between px-2.5 py-2">
                     <div className="bg-[#D0A87D] px-2 rounded flex items-center gap-1">
                         <Clock size={13} className="text-white font-medium" />
@@ -186,7 +181,6 @@ export function TourCard({
         );
     }
 
-    // Default variant remains the same
     return (
         <div
             className={cn(

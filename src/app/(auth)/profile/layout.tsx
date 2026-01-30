@@ -36,10 +36,8 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
                 breadcrumbItems={breadcrumbItems}
             />
 
-            {/* Tabs Navigation   */}
             <div className="relative py-20">
                 <Container>
-                    {/* Scrollable container for mobile */}
                     <div className="overflow-x-auto scrollbar-hide md:overflow-visible">
                         <div className="flex w-full gap-3 md:justify-between min-w-max">
                             {tabs.map((tab) => {

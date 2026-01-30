@@ -46,7 +46,6 @@ export default function BookingsPage() {
 
   return (
     <div className="space-y-8">
-      {/* Page Header */}
       <div className="space-y-1">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-900">My Bookings</h2>
         <p className="text-gray-600 text-sm">
@@ -54,7 +53,6 @@ export default function BookingsPage() {
         </p>
       </div>
 
-      {/* Upcoming Bookings */}
       {upcomingBookings.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-gray-900">
@@ -67,12 +65,10 @@ export default function BookingsPage() {
                 className="bg-white rounded-xl border border-gray-200 p-6 hover:shadow-md transition-shadow duration-200"
               >
                 <div className="flex flex-col md:flex-row gap-6">
-                  {/* Tour Image Placeholder */}
                   <div className="w-full md:w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
                     <Calendar className="w-16 h-16 text-gray-400" />
                   </div>
 
-                  {/* Booking Details */}
                   <div className="flex-1 space-y-4">
                     <div>
                       <div className="flex items-start justify-between gap-4 mb-2">
@@ -127,7 +123,6 @@ export default function BookingsPage() {
         </div>
       )}
 
-      {/* Completed Bookings */}
       {completedBookings.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-xl font-semibold text-gray-900">
@@ -140,12 +135,10 @@ export default function BookingsPage() {
                 className="bg-white rounded-xl border border-gray-200 p-6 opacity-80 hover:opacity-100 hover:shadow-md transition-all duration-200"
               >
                 <div className="flex flex-col md:flex-row gap-6">
-                  {/* Tour Image Placeholder */}
                   <div className="w-full md:w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg overflow-hidden flex-shrink-0 flex items-center justify-center">
                     <Calendar className="w-16 h-16 text-gray-400" />
                   </div>
 
-                  {/* Booking Details */}
                   <div className="flex-1 space-y-4">
                     <div>
                       <div className="flex items-start justify-between gap-4 mb-2">
@@ -200,7 +193,6 @@ export default function BookingsPage() {
         </div>
       )}
 
-      {/* Empty State */}
       {bookings.length === 0 && (
         <div className="flex flex-col items-center justify-center py-20 px-4">
           <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">

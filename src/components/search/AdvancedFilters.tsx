@@ -62,7 +62,6 @@ const AdvancedFilters = () => {
                     </div>
                 </div>
 
-                {/* Categories */}
                 <div className="md:col-span-4 space-y-4">
                     <h3 className="text-black font-semibold text-sm">Categories</h3>
                     <div className="flex flex-col gap-3">
@@ -86,7 +85,6 @@ const AdvancedFilters = () => {
                     </div>
                 </div>
 
-                {/* Sort By - Custom Dropdown */}
                 <div className="md:col-span-4 space-y-4">
                     <h3 className="text-black font-semibold text-sm flex justify-between items-center w-full">
                         Sort By
@@ -128,7 +126,6 @@ const AdvancedFilters = () => {
 
             <div className="h-px bg-gray-100 w-full my-2" />
 
-            {/* Action Buttons */}
             <div className="flex gap-3 justify-start">
                 <Button variant="outline" className="h-12 px-8 text-gray-600 border-gray-300 hover:bg-gray-50">
                     Clear All

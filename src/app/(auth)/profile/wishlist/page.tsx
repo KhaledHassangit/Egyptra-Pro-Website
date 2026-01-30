@@ -53,7 +53,6 @@ const wishlistItems = [
 export default function WishlistPage() {
   return (
     <div className="space-y-8">
-      {/* Page Header */}
       <div className="space-y-1">
         <h2 className="text-[#101828] text-[30px] font-bold leading-[36px]">My Wishlist</h2>
         <p className="text-[#4A5565] text-base font-normal leading-[24px]">
@@ -61,7 +60,6 @@ export default function WishlistPage() {
         </p>
       </div>
 
-      {/* Wishlist Grid */}
       {wishlistItems.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {wishlistItems.map((item) => (
@@ -80,7 +78,6 @@ export default function WishlistPage() {
           ))}
         </div>
       ) : (
-        // Empty State
         <div className="flex flex-col items-center justify-center py-20 px-4">
           <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mb-4">
             <svg

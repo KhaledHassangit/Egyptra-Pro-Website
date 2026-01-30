@@ -42,7 +42,6 @@ export const FilterSidebar = ({
 
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 sticky top-4">
-      {/* Quick Filters */}
       <div className="border-b border-gray-200 pb-4 mb-4">
         <Collapsible open={quickFilterOpen} onOpenChange={setQuickFilterOpen}>
           <CollapsibleTrigger asChild>
@@ -71,7 +70,6 @@ export const FilterSidebar = ({
         </Collapsible>
       </div>
       
-      {/* Sort By */}
       <div className="border-b border-gray-200 pb-4 mb-4">
         <Collapsible open={sortByOpen} onOpenChange={setSortByOpen}>
           <CollapsibleTrigger asChild>
@@ -91,7 +89,6 @@ export const FilterSidebar = ({
         </Collapsible>
       </div>
       
-      {/* Price Range */}
       <div className="border-b border-gray-200 pb-4 mb-4">
         <Collapsible open={priceRangeOpen} onOpenChange={setPriceRangeOpen}>
           <CollapsibleTrigger asChild>
@@ -124,7 +121,6 @@ export const FilterSidebar = ({
                 </div>
               </div>
               
-              {/* Interactive Range Slider */}
               <div className="relative mt-6 mb-2 h-6" ref={sliderRef}>
                 <div className="absolute w-full h-[6px] bg-gray-200 rounded-full top-1/2 transform -translate-y-1/2">
                   <div 
@@ -155,7 +151,6 @@ export const FilterSidebar = ({
         </Collapsible>
       </div>
       
-      {/* Minimum Rating */}
       <div className="border-b border-gray-200 pb-4 mb-4">
         <Collapsible open={ratingOpen} onOpenChange={setRatingOpen}>
           <CollapsibleTrigger asChild>
@@ -194,7 +189,6 @@ export const FilterSidebar = ({
         </Collapsible>
       </div>
       
-      {/* Destination */}
       <div className="mb-4">
         <Collapsible open={destinationOpen} onOpenChange={setDestinationOpen}>
           <CollapsibleTrigger asChild>
@@ -214,7 +208,6 @@ export const FilterSidebar = ({
         </Collapsible>
       </div>
       
-      {/* Action Buttons */}
       <div className="flex flex-col gap-2 mt-8">
         <Button 
           onClick={applyFilters}

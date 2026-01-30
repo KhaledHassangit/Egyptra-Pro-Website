@@ -66,14 +66,12 @@ const ResetPasswordContent = () => {
     return (
         <Container>
             <div className="w-full max-w-md sm:max-w-lg mx-auto space-y-6 sm:space-y-8">
-                {/* Icon */}
                 <div className="flex justify-center">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center bg-primary">
                         <Key className="h-6 w-6 text-white" />
                     </div>
                 </div>
 
-                {/* Header */}
                 <div className="text-center mb-6 sm:mb-8">
                     <h2 className="text-2xl sm:text-3xl font-bold mt-2" style={{ fontWeight: '400', color: '#101828' }}>
                         Create New Password
@@ -89,9 +87,7 @@ const ResetPasswordContent = () => {
                     </div>
                 )}
 
-                {/* Form */}
                 <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
-                    {/* New Password */}
                     <div className="space-y-2">
                         <Label htmlFor="password" style={{ color: '#364153', fontWeight: '500', fontSize: '14px', lineHeight: '14px' }}>New Password</Label>
                         <div className="relative" style={{ height: '44px' }}>
@@ -125,7 +121,6 @@ const ResetPasswordContent = () => {
                         <p className="mt-1 text-xs text-gray-500">Minimum 8 characters</p>
                     </div>
 
-                    {/* Confirm Password */}
                     <div className="space-y-2">
                         <Label htmlFor="confirmPassword" style={{ color: '#364153', fontWeight: '500', fontSize: '14px', lineHeight: '14px' }}>Confirm Password</Label>
                         <div className="relative" style={{ height: '44px' }}>

@@ -81,7 +81,6 @@ export function CustomerTestimonials({ Reviews }: CustomerTestimonialsProps) {
         />
       </div>
 
-      {/* Show skeleton during initial loading */}
       {isLoading && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-2 sm:p-4">
           {[...Array(3)].map((_, i) => (
@@ -99,7 +98,6 @@ export function CustomerTestimonials({ Reviews }: CustomerTestimonialsProps) {
         </div>
       )}
 
-      {/* Show actual reviews after loading */}
       {!isLoading && hasReviews && (
         <ReviewsCarousel
           testimonials={testimonials}
@@ -109,7 +107,6 @@ export function CustomerTestimonials({ Reviews }: CustomerTestimonialsProps) {
         />
       )}
 
-      {/* Show no reviews message when not loading and we have no reviews */}
       {!isLoading && !hasReviews && <NoReviews />}
     </Container>
   ) 

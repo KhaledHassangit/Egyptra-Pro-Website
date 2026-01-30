@@ -36,13 +36,11 @@ const stats = [
 export default function OverviewPage() {
     return (
         <div className="space-y-8">
-            {/* Page Header */}
             <div className="space-y-1">
                 <h2 className="text-[#101828] text-[30px] font-bold leading-[36px]">Overview</h2>
                 <p className="text-[#4A5565] text-base font-normal leading-[24px]">View your dashboard</p>
             </div>
 
-            {/* Stats Grid - 4 Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {stats.map((stat, index) => {
                     const Icon = stat.icon;
@@ -59,7 +57,6 @@ export default function OverviewPage() {
                                     <Icon className={`w-7 h-7 ${stat.iconColor}`} strokeWidth={1.5} />
                                 </div>
 
-                                {/* Content */}
                                 <div className="space-y-6">
                                     <p className="text-[#667085] text-sm font-medium">{stat.label}</p>
                                     <p className="text-[#0A0D14] text-xl font-bold leading-none tracking-tight">{stat.value}</p>

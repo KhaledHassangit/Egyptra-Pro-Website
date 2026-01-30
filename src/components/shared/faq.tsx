@@ -37,7 +37,6 @@ export const Faq = () => {
   return (
   <div className=" border-[#E5E7EB] border-[0.8px] shadow-[0px_1px_3px_0px_rgba(51,51,51,0.1)] p-[50px] rounded-[16px]">
           <div className="flex flex-col lg:flex-row gap-12">
-            {/* Left Section */}
             <div className="lg:w-1/3">
               <h2 className="font-bold text-[32px] leading-[40px] mb-4 text-[#101828]">Have Any Questions?</h2>
               <p className="text-[14px] leading-[20px] text-[#4A5565] mb-8">
@@ -50,7 +49,6 @@ export const Faq = () => {
               </UIButton>
             </div>
 
-            {/* Right Section - FAQ Accordion */}
             <div className="lg:w-2/3">
               <Accordion type="single" collapsible className="space-y-4">
                 {faqs.map((faq, index) => (

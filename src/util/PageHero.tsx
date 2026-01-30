@@ -37,7 +37,6 @@ const PageHero = ({
           {title}
         </h1>
         
-        {/* Use breadcrumbItems if provided, otherwise fall back to the original breadcrumb */}
         {breadcrumbItems ? (
           <div className="flex items-center gap-2 text-sm sm:text-base font-medium">
             {breadcrumbItems.map((item, index) => (

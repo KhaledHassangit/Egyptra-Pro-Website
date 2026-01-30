@@ -22,9 +22,6 @@ export const notify = (message: string, type: NotifyType = 'info') => {
         }
     }
 
-    // Fallback to primary/destructive if specific colors aren't set in global css perfectly, 
-    // but we use the CSS variables as requested.
-    // Using 'description' or just 'message' depends on sonner usage, but here we invoke toast directly.
 
     if (type === 'success') {
         toast.success(message, {

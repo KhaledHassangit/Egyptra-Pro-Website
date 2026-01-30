@@ -25,11 +25,9 @@ export default function PrivacyPage() {
         currentPage="Privacy Policy" 
         currentPageUrl="/privacy" 
       />
-      {/* Main Content */}
       <Container className="mx-auto py-20">
         <div className="space-y-6">
           
-          {/* Overview and Content */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -65,7 +63,6 @@ export default function PrivacyPage() {
             </div>
           </section>
 
-          {/* How We Use Your Information */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -96,7 +93,6 @@ export default function PrivacyPage() {
             </ul>
           </section>
 
-          {/* Information Sharing and Disclosure */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-green-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -129,7 +125,6 @@ export default function PrivacyPage() {
             </p>
           </section>
 
-          {/* Data Security */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -164,7 +159,6 @@ export default function PrivacyPage() {
             </div>
           </section>
 
-          {/* Your Rights and Choices */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-orange-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -193,7 +187,6 @@ export default function PrivacyPage() {
             </div>
           </section>
 
-          {/* Promotional Marketing Communications */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-pink-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -226,7 +219,6 @@ export default function PrivacyPage() {
             </div>
           </section>
 
-          {/* Cookies */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -261,7 +253,6 @@ export default function PrivacyPage() {
             </p>
           </section>
 
-          {/* Retention of Personal Data */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -292,7 +283,6 @@ export default function PrivacyPage() {
             </ul>
           </section>
 
-          {/* Changes to This Policy */}
           <section className="bg-white rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -323,7 +313,6 @@ export default function PrivacyPage() {
             </p>
           </section>
 
-          {/* Contact Us */}
           <section className="bg-blue-600 rounded-2xl p-8 shadow-sm" style={{border: '0.8px solid #E5E7EB', borderRadius: '16px', padding: '32px'}}>
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">

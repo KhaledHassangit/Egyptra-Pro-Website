@@ -23,7 +23,6 @@ export const AuthFormContainer: React.FC = () => {
   return (
     <Container >
       <div className="w-full max-w-md sm:max-w-lg mx-auto space-y-6 sm:space-y-8">
-        {/* Header */}
         <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center mb-4">
             <Logo width={12} height={12} />
@@ -73,7 +72,6 @@ export const AuthFormContainer: React.FC = () => {
           </button>
         </div>
 
-        {/* Render the correct form based on state */}
         {isLogin ? (
           <LoginForm
             email={loginEmail}

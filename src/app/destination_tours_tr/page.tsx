@@ -108,10 +108,8 @@ function DestinationPageContent() {
                 onSearch={handleSearch}
             />
 
-            {/* 1. Tours Listings (Grid or first row) - using default variant */}
             <Container className="mb-12">
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
-                    {/* Filter/Sort mocks */}
                     <div className="flex gap-4">
                         {/* <button className="flex items-center gap-2 text-sm font-medium text-gray-600">
                     <Filter size={16}/> Filter
@@ -140,7 +138,6 @@ function DestinationPageContent() {
                 </div>
             </Container>
 
-            {/* 2. Recently Reviewed Tours - using detailed variant */}
             <Container>
                 <SectionCarousel
                     title={`Recently reviewed Tours in ${formattedLocation}`}
@@ -165,7 +162,7 @@ function DestinationPageContent() {
                 </SectionCarousel>
             </Container>
 
-            {/* 3. Top-Rated Tours - using detailed variant */}
+
             <Container>
                 <SectionCarousel
                     title={`Top-Rated Tours in ${formattedLocation}`}
@@ -190,7 +187,6 @@ function DestinationPageContent() {
                 </SectionCarousel>
             </Container>
 
-            {/* 4. Explore More Egyptian Destinations -  */}
             <Container>
                 <SectionCarousel
                     title="Explore More Egyptian Destinations"
@@ -216,7 +212,6 @@ function DestinationPageContent() {
                 </SectionCarousel>
             </Container>
 
-            {/* 5. Banner Section (250+ Amazing Things) - Fully Responsive */}
             <div className="mt-16 mb-16">
                 <Container>
                     <div className="relative bg-primary rounded-[8px] overflow-hidden text-white h-auto md:h-[700px] mx-auto">
@@ -260,7 +255,6 @@ function DestinationPageContent() {
                 </Container>
             </div>
 
-            {/* 6. Why Choose Us Section - Image hidden at md breakpoint and below */}
             <Container className="mb-20 py-10">
                 <div className="flex flex-col lg:flex-row gap-[16px] items-center">
                     <div className="w-full lg:w-1/2">
@@ -304,7 +298,6 @@ function DestinationPageContent() {
                 Things to do in Sharm el-Sheikh / Boat Tours / Safari / Contact Us
             </div>
             
-            {/* Add custom CSS to hide navigation buttons at md breakpoint */}
             <style jsx>{`
                 .hide-nav-at-md :global(.swiper-button-prev),
                 .hide-nav-at-md :global(.swiper-button-next) {

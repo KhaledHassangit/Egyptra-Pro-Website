@@ -27,7 +27,6 @@ const FeatureRows = () => {
         <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="features-heading">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-                    {/* Left Column: Image */}
                     <div className="order-2 lg:order-1 relative h-64 sm:h-80 md:h-96 lg:h-full min-h-[300px] w-full overflow-hidden shadow-xl ">
                         <Image
                             src="/images/dest1.png"
@@ -39,7 +38,6 @@ const FeatureRows = () => {
                         <div className="absolute inset-0 bg-gray-200 -z-10" />
                     </div>
 
-                    {/* Right Column: Text Content */}
                     <div className="order-1 lg:order-2 flex flex-col justify-center space-y-6 sm:space-y-8 lg:space-y-12">
                         {features.map((item, index) => (
                             <article key={index} className="flex gap-3 sm:gap-4">

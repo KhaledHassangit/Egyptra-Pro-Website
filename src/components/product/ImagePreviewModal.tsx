@@ -18,7 +18,6 @@ export function ImagePreviewModal({
 }: ImagePreviewModalProps) {
     return (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center">
-            {/* Close button */}
             <button
                 onClick={onClose}
                 className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
@@ -26,7 +25,6 @@ export function ImagePreviewModal({
                 <XIcon size={32} />
             </button>
 
-            {/* Previous button */}
             <button
                 onClick={onPrev}
                 className="absolute left-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
@@ -35,7 +33,6 @@ export function ImagePreviewModal({
                 <ChevronLeft size={32} />
             </button>
 
-            {/* Image */}
             <div className="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center px-16">
                 <Image
                     src={images[currentIndex]}
@@ -47,7 +44,6 @@ export function ImagePreviewModal({
                 />
             </div>
 
-            {/* Next button */}
             <button
                 onClick={onNext}
                 className="absolute right-4 text-white hover:text-gray-300 transition-colors z-10 bg-black/50 rounded-full p-3"
@@ -56,7 +52,6 @@ export function ImagePreviewModal({
                 <ChevronRight size={32} />
             </button>
 
-            {/* Image counter */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black/50 px-4 py-2 rounded-full">
                 {currentIndex + 1} / {images.length}
             </div>

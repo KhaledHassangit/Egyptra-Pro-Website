@@ -38,7 +38,6 @@ export function Footer() {
             <Container>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
 
-                    {/* Main Destinations Column */}
                     <div>
                         <div className="flex items-center mb-4">
                             <MapPin size={20} className="mr-2 text-primary" />
@@ -76,7 +75,6 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Plan Your Trip Column */}
                     <div>
                         <div className="flex items-center mb-4">
                             <Calendar size={20} className="mr-2 text-primary" />
@@ -114,7 +112,6 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Customer Support Column */}
                     <div>
                         <div className="flex items-center mb-4">
                             <Headphones size={20} className="mr-2 text-primary" />
@@ -152,7 +149,6 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* About Egyptra Column */}
                     <div>
                         <div className="flex items-center mb-4">
                             <h3 className="text-base font-semibold">About Egyptra</h3>
@@ -170,44 +166,35 @@ export function Footer() {
                         </div>
                     </div>
                 </div>
-                {/* Horizontal Divider */}
                 <div className="border-t border-white/20 my-6"></div>
 
-                {/* Bottom Section - EXACTLY as shown in the image */}
                 <div className="pt-6">
                     <div className="flex flex-col md:flex-row justify-between items-center">
-                        {/* Social Icons */}
                         <div className="flex flex-col gap-3" >
                             <span className="text-sm font-bold">Follow Us</span>
                             <div className="flex items-center space-x-3 mb-4 md:mb-0">
-                                {/* Facebook */}
                                 <div className="w-10 h-10 bg-[#4A5565] rounded-[10px] border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-[#5A6575] hover:shadow-lg hover:-translate-y-1 cursor-pointer">
                                     <Facebook size={18} className="text-[#D1D5DC]" />
                                 </div>
 
-                                {/* Twitter */}
                                 <div className="w-10 h-10 bg-[#4A5565] rounded-[10px] border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-[#5A6575] hover:shadow-lg hover:-translate-y-1 cursor-pointer">
                                     <Twitter size={18} className="text-[#D1D5DC]" />
                                 </div>
 
-                                {/* Instagram */}
                                 <div className="w-10 h-10 bg-[#4A5565] rounded-[10px] border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-[#5A6575] hover:shadow-lg hover:-translate-y-1 cursor-pointer">
                                     <Instagram size={18} className="text-[#D1D5DC]" />
                                 </div>
 
-                                {/* YouTube */}
                                 <div className="w-10 h-10 bg-[#4A5565] rounded-[10px] border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-[#5A6575] hover:shadow-lg hover:-translate-y-1 cursor-pointer">
                                     <Youtube size={18} className="text-[#D1D5DC]" />
                                 </div>
 
-                                {/* Pinterest */}
                                 <div className="w-10 h-10 bg-[#4A5565] rounded-[10px] border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-[#5A6575] hover:shadow-lg hover:-translate-y-1 cursor-pointer">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#D1D5DC]">
                                         <path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.177-4.068-2.845 0-4.515 2.135-4.515 4.34 0 .859.331 1.781.745 2.281a.3.3 0 01.069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z" fill="currentColor" />
                                     </svg>
                                 </div>
 
-                                {/* Google */}
                                 <div className="w-10 h-10 bg-[#4A5565] rounded-[10px] border border-white/10 flex items-center justify-center transition-all duration-300 hover:bg-[#5A6575] hover:shadow-lg hover:-translate-y-1 cursor-pointer">
                                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#D1D5DC]">
                                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor" />
@@ -220,7 +207,6 @@ export function Footer() {
 
                         </div>
 
-                        {/* Links */}
                         <div className="flex items-center space-x-2 text-center">
                             <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Sitemap</Link>
                             <span className="text-[#99A1AF]">|</span>
@@ -233,10 +219,8 @@ export function Footer() {
                     </div>
                 </div>
 
-                {/* Another Horizontal Divider */}
                 <div className="border-t border-white/20 my-6"></div>
 
-                {/* Copyright Text */}
                 <div className="text-center text-[#99A1AF] text-sm">
                     © 2026 Egyptra Travel. All rights reserved.                 
                 </div>

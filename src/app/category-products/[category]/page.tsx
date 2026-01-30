@@ -100,18 +100,15 @@ const CategoryPage = () => {
 
   return (
     <>
-      {/* Page Hero Section */}
       <PageHero 
         title="Desert Safari Adventures in Egypt" 
         currentPage="Safari" 
         currentPageUrl="/category/safari" 
       />
       
-      {/* Main Content Area */}
       <section className="py-20 bg-gray-50">
         <Container>
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Filters Section - Desktop */}
             <div className="hidden lg:block w-full lg:w-1/4">
               <FilterSidebar
                 selectedFilters={selectedFilters}
@@ -139,9 +136,7 @@ const CategoryPage = () => {
               />
             </div>
             
-            {/* Tours Section */}
             <div className="w-full lg:w-3/4">
-              {/* Mobile Filter Toggle */}
               <div className="flex justify-between items-center mb-6 lg:hidden">
                 <h3 className="text-lg font-semibold text-gray-900">Showing {toursData.length} tours</h3>
                 <button
@@ -153,7 +148,6 @@ const CategoryPage = () => {
                 </button>
               </div>
               
-              {/* Section Header */}
               <div className="mb-8">
                 <SectionHeader 
                   title="DESERT SAFARI ADVENTURES IN EGYPT" 
@@ -161,7 +155,6 @@ const CategoryPage = () => {
                 />
               </div>
               
-              {/* Tours Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  ">
                 {toursData.map((tour) => (
                   <div key={tour.id} className="transform transition-all duration-400 hover:scale-105 mx-auto">
@@ -182,7 +175,6 @@ const CategoryPage = () => {
         </Container>
       </section>
       
-      {/* Mobile Filter Sheet with IMPROVED animation */}
       <MobileFilterSheet
         isOpen={showFilters}
         onClose={() => setShowFilters(false)}

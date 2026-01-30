@@ -80,7 +80,6 @@ export const MobileFilterSheet = ({
 
   return (
     <>
-      {/* Backdrop with improved animation */}
       <div 
         className={`fixed inset-0 bg-black transition-opacity duration-300 ease-out ${
           isOpen ? 'opacity-50 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -88,7 +87,6 @@ export const MobileFilterSheet = ({
         onClick={onClose}
       />
       
-      {/* Filter Sheet with MUCH IMPROVED animation */}
       <div 
         className={`fixed inset-y-0 right-0 w-full max-w-sm bg-white shadow-2xl overflow-y-auto will-change-transform ${
           isOpen 
@@ -111,7 +109,6 @@ export const MobileFilterSheet = ({
         </div>
         
         <div className="p-4 space-y-4">
-          {/* Quick Filters */}
           <Collapsible open={quickFilterOpen} onOpenChange={setQuickFilterOpen}>
             <CollapsibleTrigger asChild>
               <div className="flex items-center justify-between cursor-pointer py-2">
@@ -138,7 +135,6 @@ export const MobileFilterSheet = ({
             </CollapsibleContent>
           </Collapsible>
           
-          {/* Sort By */}
           <Collapsible open={sortByOpen} onOpenChange={setSortByOpen}>
             <CollapsibleTrigger asChild>
               <div className="flex items-center justify-between cursor-pointer py-2">
@@ -156,7 +152,6 @@ export const MobileFilterSheet = ({
             </CollapsibleContent>
           </Collapsible>
           
-          {/* Price Range */}
           <Collapsible open={priceRangeOpen} onOpenChange={setPriceRangeOpen}>
             <CollapsibleTrigger asChild>
               <div className="flex items-center justify-between cursor-pointer py-2">
@@ -188,7 +183,6 @@ export const MobileFilterSheet = ({
                   </div>
                 </div>
                 
-                {/* Interactive Range Slider */}
                 <div className="relative mt-6 mb-2 h-6" ref={sliderRef}>
                   <div className="absolute w-full h-[6px] bg-gray-200 rounded-full top-1/2 transform -translate-y-1/2">
                     <div 
@@ -218,7 +212,6 @@ export const MobileFilterSheet = ({
             </CollapsibleContent>
           </Collapsible>
           
-          {/* Minimum Rating */}
           <Collapsible open={ratingOpen} onOpenChange={setRatingOpen}>
             <CollapsibleTrigger asChild>
               <div className="flex items-center justify-between cursor-pointer py-2">
@@ -255,7 +248,6 @@ export const MobileFilterSheet = ({
             </CollapsibleContent>
           </Collapsible>
           
-          {/* Destination */}
           <Collapsible open={destinationOpen} onOpenChange={setDestinationOpen}>
             <CollapsibleTrigger asChild>
               <div className="flex items-center justify-between cursor-pointer py-2">
@@ -273,7 +265,6 @@ export const MobileFilterSheet = ({
             </CollapsibleContent>
           </Collapsible>
           
-          {/* Action Buttons */}
           <div className="flex flex-col gap-2 pt-4 border-t border-gray-200">
             <Button 
               onClick={() => {

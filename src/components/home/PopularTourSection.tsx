@@ -34,7 +34,6 @@ export const cityDisplayNames: Record<CityKey, string> = {
   // 'salh-hasheed': 'Salh Hasheed'
 };
 
-// Map each city to its correct image path
 export const cityImagePaths: Record<CityKey, string> = {
   'cairo': '/assets/destinations/cairo-1.jpg',
   'luxor': '/assets/destinations/luxor-1.jpg',
@@ -42,7 +41,6 @@ export const cityImagePaths: Record<CityKey, string> = {
   'sharm-el-sheikh': '/assets/destinations/sharm-1.jpg',
 };
 
-// Function to transform tour data for display
 const transformTourData = (tour: any) => {
   return {
     id: tour.id,
@@ -61,21 +59,17 @@ const transformTourData = (tour: any) => {
 };
 
 interface PopularTourSectionProps {
-  tours: any[]; // Array of tour objects from your API
+  tours: any[]; 
 }
 
 export function PopularTourSection({ tours }: PopularTourSectionProps) {
-  const [activeTab, setActiveTab] = useState<number | null>(null); // Initialize with null to show all tours
+  const [activeTab, setActiveTab] = useState<number | null>(null); 
   
-  // Get the current city or null if no tab is selected
   const currentCity = activeTab !== null ? cities[activeTab] : null;
   
-  // Filter tours by location or show all if no tab is selected
   const filteredTours = tours.filter(tour => {
-    // If no tab is selected, show all tours
     if (activeTab === null) return true;
     
-    // Check if location matches the current city (case insensitive)
     const tourLocation = (tour.location || "").toLowerCase();
     const tourDestination = (tour.destination || "").toLowerCase();
     const cityToMatch = currentCity!.toLowerCase().replace('-', ' ');
@@ -86,13 +80,11 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
            tourDestination.includes(currentCity!);
   });
   
-  // Transform the data for display
   const displayTours = filteredTours.map(transformTourData);
 
   return (
     <section className="py-16" id="trips">
       <Container>
-        {/* Header Section - SectionHeader and button in flex with justify-between */}
         <div className="flex flex-col md:flex-row justify-between md:items-end mb-6">
           <div className="mb-4 md:mb-0">
             <SectionHeader
@@ -109,9 +101,7 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
           </div>
         </div>
 
-        {/* City Tabs */}
         <div className="flex gap-4 mb-8 overflow-x-auto pb-2">
-          {/* Add "All" tab */}
           <button
             className={`flex items-center gap-3 pb-2 border-b-2 transition-colors whitespace-nowrap ${
               activeTab === null
@@ -142,7 +132,7 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
             >
               <div className="w-[25px] h-[25px] lg:w-[29px] lg:h-[29px] rounded-full bg-gray-200 overflow-hidden relative">
                 <Image 
-                  src={cityImagePaths[city]} // Use the mapping instead of the template literal
+                  src={cityImagePaths[city]} 
                   alt={cityDisplayNames[city]} 
                   fill 
                   className="object-cover" 
@@ -157,7 +147,6 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
           ))}
         </div>
 
-        {/* Tour Cards Carousel */}
         <div className="overflow-hidden">
           {displayTours.length > 0 ? (
             <Carousel

@@ -74,7 +74,6 @@ export const ForgetPassword = () => {
     return (
         <Container>
             <div className="w-full max-w-md sm:max-w-lg mx-auto space-y-6 sm:space-y-8">
-                {/* Icon - First element (changes based on state) */}
                 <div className="flex justify-center">
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${isSubmitted ? 'bg-green-600' : 'bg-primary'}`}>
                         {isSubmitted ? (
@@ -85,7 +84,6 @@ export const ForgetPassword = () => {
                     </div>
                 </div>
 
-                {/* Header */}
                 <div className="text-center mb-6 sm:mb-8">
                     <h2 className="text-2xl sm:text-3xl font-bold mt-2" style={{ fontWeight: '400', color: '#101828' }}>
                         {isSubmitted ? 'Check Your Email' : 'Forgot Password?'}
@@ -98,11 +96,8 @@ export const ForgetPassword = () => {
                     </p>
                 </div>
 
-                {/* Form Content */}
                 {isSubmitted ? (
-                    // Show the "Check Your Email" confirmation page
                     <div className="text-center">
-                        {/* Removed the duplicate Mail icon here since it's now at the top */}
 
                         <div className="mb-6 text-left bg-gray-50 p-4 rounded-lg">
                             <h3 className="font-semibold text-sm mb-3" style={{ color: '#364153' }}>Helpful Tips</h3>
@@ -138,7 +133,6 @@ export const ForgetPassword = () => {
                         </div>
                     </div>
                 ) : (
-                    // Show the forgot password form
                     <div>
                         <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
                             <div className="space-y-2">

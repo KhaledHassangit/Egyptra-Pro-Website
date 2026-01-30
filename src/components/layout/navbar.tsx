@@ -23,13 +23,11 @@ export function Navbar() {
         setSelectors(prev => ({ ...prev, [type]: value }));
     };
 
-    // Get current language flag
     const getCurrentLanguageFlag = () => {
         const lang = languages.find(l => l.code === selectors.language);
         return lang ? lang.flag : 'gb';
     };
 
-    // Get current currency symbol
     const getCurrentCurrencySymbol = () => {
         const currency = currencies.find(c => c.code === selectors.currency);
         return currency ? currency.symbol : '$';
@@ -40,9 +38,7 @@ export function Navbar() {
             <nav className="w-full bg-white shadow-sm relative z-40">
                 <Container size='xl'>
                     <div className="flex justify-between items-center h-16 md:h-20">
-                        {/* Left Side - Logo and Mobile Menu Button */}
                         <div className="flex items-center space-x-2 md:space-x-4">
-                            {/* Mobile Menu Button */}
                             <div className="lg:hidden">
                                 <Button
                                     variant="ghost"
@@ -54,15 +50,11 @@ export function Navbar() {
                                 </Button>
                             </div>
 
-                            {/* Logo */}
                             <Logo width={12} height={12} />
                         </div>
 
-                        {/* Desktop Navigation - Center */}
-                        {/* Changed: Reduced padding on left side and added margin to shift right */}
                         <div className="hidden lg:flex flex-1 justify-end xl:justify-center items-center pl-2 pr-4 xl:px-4">
                             <div className="flex items-center space-x-2 xl:space-x-6 2xl:space-x-8">
-                                {/* Changed: Added text size classes to dropdown components */}
                                 <MegaMenu
                                     title="Destinations"
                                     data={destinationsData}
@@ -95,9 +87,7 @@ export function Navbar() {
                             </div>
                         </div>
 
-                        {/* Right Side - Icons & Selectors - Visible on all screen sizes */}
                         <div className="flex items-center space-x-1 md:space-x-2 xl:space-x-4">
-                            {/* Language and Currency Selector Container */}
                             <div
                                 className="hidden sm:flex items-center"
                                 style={{
@@ -106,7 +96,6 @@ export function Navbar() {
                                     padding: '4px'
                                 }}
                             >
-                                {/* Language Selector */}
                                 <div className="flex items-center space-x-1 px-2 py-2 xl:px-3">
                                     <DropdownMenu modal={false}>
                                         <DropdownMenuTrigger asChild>
@@ -159,10 +148,8 @@ export function Navbar() {
                                     </DropdownMenu>
                                 </div>
 
-                                {/* Separator */}
                                 <Separator orientation="vertical" className="h-6" style={{ backgroundColor: '#D1D5DC' }} />
 
-                                {/* Currency Selector */}
                                 <div className="px-2 py-2 xl:px-3">
                                     <DropdownMenu modal={false}>
                                         <DropdownMenuTrigger asChild>
@@ -231,7 +218,6 @@ export function Navbar() {
                 </Container>
             </nav>
 
-            {/* Mobile Menu - Only navigation links */}
             <MobileMenu
                 isOpen={mobileMenuOpen}
                 onClose={() => setMobileMenuOpen(false)}

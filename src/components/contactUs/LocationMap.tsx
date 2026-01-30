@@ -18,7 +18,6 @@ const LocationMap = () => {
   return (
     <div className="flex-1 bg-white rounded-[10px] shadow-[0px_-1px_3px_0px_rgba(0,0,0,0.1),0px_1px_3px_0px_rgba(0,0,0,0.1)] overflow-hidden relative">
       
-      {/* Reset Button */}
       <div className="absolute top-4 right-4 z-10 flex gap-2">
         <Button
           onClick={resetMap}
@@ -30,7 +29,6 @@ const LocationMap = () => {
         </Button>
       </div>
 
-      {/* Map */}
       <iframe
         key={mapKey}
         src={mapSrc}

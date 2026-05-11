@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import { Check, ChevronDown, Menu, Search, User, Heart, ShoppingCart } from 'lucide-react';
+import Link from 'next/link';
 import Container from '@/util/Container';
 import Logo from '@/util/Logo';
 import { Button } from "@/components/ui/button";
@@ -70,20 +71,24 @@ export function Navbar() {
                                     items={travelGuideData}
                                     className="text-sm xl:text-base font-bold"
                                 />
-                                <Button
-                                    variant="ghost"
-                                    className="px-0 py-5 h-auto hover:bg-transparent text-sm xl:text-base font-bold"
-                                    style={{ color: '#364153' }}
-                                >
-                                    Why Us
-                                </Button>
-                                <Button
-                                    variant="ghost"
-                                    className="px-0 py-5 h-auto hover:bg-transparent text-sm xl:text-base font-bold"
-                                    style={{ color: '#364153' }}
-                                >
-                                    Contact
-                                </Button>
+                                <Link href="/why_us">
+                                    <Button
+                                        variant="ghost"
+                                        className="px-0 py-5 h-auto hover:bg-transparent text-sm xl:text-base font-bold"
+                                        style={{ color: '#364153' }}
+                                    >
+                                        Why Us
+                                    </Button>
+                                </Link>
+                                <Link href="/contact_us">
+                                    <Button
+                                        variant="ghost"
+                                        className="px-0 py-5 h-auto hover:bg-transparent text-sm xl:text-base font-bold"
+                                        style={{ color: '#364153' }}
+                                    >
+                                        Contact
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
 
@@ -207,12 +212,16 @@ export function Navbar() {
                                 badgeVariant="default"
                                 badgeContent="3"
                             />
-                            <Button variant="ghost" size="icon" style={{ color: '#364153' }}>
-                                <User className="h-5 w-5" />
-                            </Button>
-                            <Button variant="ghost" size="icon" style={{ color: '#364153' }}>
-                                <Search className="h-5 w-5" />
-                            </Button>
+                            <Link href="/auth/customer_login">
+                                <Button variant="ghost" size="icon" style={{ color: '#364153' }}>
+                                    <User className="h-5 w-5" />
+                                </Button>
+                            </Link>
+                            <Link href="/search">
+                                <Button variant="ghost" size="icon" style={{ color: '#364153' }}>
+                                    <Search className="h-5 w-5" />
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </Container>

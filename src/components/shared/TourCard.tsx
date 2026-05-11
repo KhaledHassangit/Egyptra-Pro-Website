@@ -49,7 +49,6 @@ export function TourCard({
                     "bg-white border text-left mx-auto border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[400px] flex flex-col w-full relative",
                     className
                 )}
-                style={{ maxWidth: "340px" }}
             >
                 <div className="relative h-[200px] w-full overflow-hidden">
                     <Image
@@ -187,11 +186,10 @@ export function TourCard({
                 "bg-white border text-left border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-[335px] flex flex-col w-full",
                 className
             )}
-            style={{ maxWidth: "340px" }}
         >
             <div className="relative h-[180px] w-full overflow-hidden">
                 <Image
-                    src={imagePath}
+                    src={imagePath || '/images/placeholder.jpg' || '/images/placeholder.jpg'}
                     alt={`${city} Tour`}
                     fill
                     className="object-cover"

@@ -6,15 +6,15 @@ import { useState, useEffect } from "react";
 
 export const tourCategoryData = [
   { name: 'Popular', value: '', href: '#' },
-  { name: 'Safari', value: 'safari', href: '#' },
-  { name: 'Boat Tour', value: 'boat-tour', href: '#' },
-  { name: 'Diving', value: 'diving', href: '#' },
-  { name: 'Snorkeling', value: 'snorkeling', href: '#' },
-  { name: 'Historical', value: 'historical', href: '#' },
-  { name: 'City Tour', value: 'city-tour', href: '#' },
-  { name: 'Cultural', value: 'cultural', href: '#' },
-  { name: 'Multi-day', value: 'multi-day', href: '#' },
-  { name: 'Adventure', value: 'adventure', href: '#' }, 
+  { name: 'Safari', value: 'Safari', href: '#' },
+  { name: 'Boat Tour', value: 'Boat Tour', href: '#' },
+  { name: 'Diving', value: 'Diving', href: '#' },
+  { name: 'Snorkeling', value: 'Snorkeling', href: '#' },
+  { name: 'Historical', value: 'Historical', href: '#' },
+  { name: 'City Tour', value: 'City Tour', href: '#' },
+  { name: 'Cultural', value: 'Cultural', href: '#' },
+  { name: 'Multi-day', value: 'Multi-day', href: '#' },
+  { name: 'Adventure', value: 'Adventure', href: '#' }, 
 ];
 
 const transformTourData = (tour: any) => {

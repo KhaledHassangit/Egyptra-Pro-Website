@@ -101,7 +101,7 @@ function DestinationPageContent() {
             <PageHero
                 title={`Tours & Activities in ${formattedLocation}`}
                 currentPage={formattedLocation}
-                currentPageUrl={`/destinations?location=${location}`}
+                currentPageUrl={`/destination-tours?location=${location}`}
             />
 
             <SearchBar
@@ -202,7 +202,7 @@ function DestinationPageContent() {
                                 <div className="p-4">
                                     <h3 className="text-primary font-medium text-lg">{dest.name}</h3>
                                     <p className="text-[#282828] text-sm mb-2">{dest.count}</p>
-                                    <Link href={`/destinations?location=${dest.name.toLowerCase()}`} className="text-primary text-sm font-medium flex items-center gap-1">
+                                    <Link href={`/destination-tours?location=${dest.name.toLowerCase()}`} className="text-primary text-sm font-medium flex items-center gap-1">
                                         Explore {dest.name} →
                                     </Link>
                                 </div>

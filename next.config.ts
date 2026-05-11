@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  reactCompiler:true,
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -14,11 +15,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'z-cdn-media.chatglm.cn',
       },
+      {
+        protocol: 'https',
+        hostname: 'egyptra.pro',
+      },
     ],
-    domains: [
-      'egyptra.pro',
-    ],
-
   },
 };
 

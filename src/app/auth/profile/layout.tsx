@@ -14,9 +14,9 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
     const pathname = usePathname();
 
     const tabs = [
-        { name: 'Overview', path: '/profile/overview' },
-        { name: 'My Bookings', path: '/profile/bookings' },
-        { name: 'Wishlist', path: '/profile/wishlist' },
+        { name: 'Overview', path: '/auth/profile/overview' },
+        { name: 'My Bookings', path: '/auth/profile/bookings' },
+        { name: 'Wishlist', path: '/auth/profile/wishlist' },
     ];
 
     // Find the current active tab
@@ -25,7 +25,7 @@ export default function ProfileLayout({ children }: ProfileLayoutProps) {
     // Create breadcrumb items
     const breadcrumbItems = [
         { name: 'Home', url: '/' },
-        { name: 'Profile', url: '/profile' },
+        { name: 'Profile', url: '/auth/profile' },
         { name: activeTab?.name || 'Profile' } 
     ];
 

@@ -1,14 +1,15 @@
-// lib/tourApi.ts
 
 import { api } from "@/api/server-api";
 import { Tour } from "@/constants/types";
-
+import { toursData } from "@/constants/data";
 
 interface ToursResponse {
-    data: Tour[];
-    totalPages: number;
-    currentPage: number;
-    totalItems: number;
+    data: {
+        data: Tour[];
+        totalPages: number;
+        currentPage: number;
+        totalItems: number;
+    };
 }
 
 export const fetchTours = async () => {
@@ -24,7 +25,14 @@ export const fetchTours = async () => {
         return data;
     } catch (error) {
         console.error("Error fetching tours by location:", error);
-        throw error;
+        return {
+            data: {
+                data: toursData,
+                totalPages: 1,
+                currentPage: 1,
+                totalItems: toursData.length
+            }
+        };
     }
 };
 

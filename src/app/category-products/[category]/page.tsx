@@ -6,13 +6,27 @@ import SectionHeader from '@/util/SectionHeader'
 import PageHero from '@/util/PageHero'
 import { Filter } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
+import { useParams } from 'next/navigation'
 import { MobileFilterSheet } from '@/components/category/MobileFilterSheet'
 import { FilterSidebar } from '@/components/category/FilterSidebar'
-import { Tour, FilterState, FilterOption, SortOption } from '@/constants/types'
+import { FilterState } from '@/constants/types'
 import { destinationOptions, quickFilters, ratingOptions, sortOptions, toursData } from '@/constants/data'
 
 const CategoryPage = () => {
-  
+  const params = useParams()
+  const categoryParamRaw = params.category
+  const categoryParam = Array.isArray(categoryParamRaw) ? categoryParamRaw[0] : categoryParamRaw ?? 'all'
+  const categoryTitle = categoryParam
+    .split('-')
+    .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+
+  const filteredTours = toursData.filter((tour) => {
+    return tour.category?.toLowerCase() === categoryTitle.toLowerCase()
+  })
+
+  const displayTours = filteredTours.length ? filteredTours : toursData
+
   const [showFilters, setShowFilters] = useState(false)
   const [quickFilterOpen, setQuickFilterOpen] = useState(true)
   const [sortByOpen, setSortByOpen] = useState(true)
@@ -34,16 +48,11 @@ const CategoryPage = () => {
   const [isDraggingMax, setIsDraggingMax] = useState(false)
   const sliderRef = useRef<HTMLDivElement>(null)
 
-  const handleFilterChange = (filterType: string, value: any) => {
+  const handleFilterChange = (filterType: string, value: string | number) => {
     setSelectedFilters(prev => ({
       ...prev,
       [filterType]: value
     }))
-  }
-
-  const handleSearch = (query: string) => {
-    console.log("Searching for:", query)
-    // Implement search functionality
   }
 
   const applyFilters = () => {
@@ -101,9 +110,9 @@ const CategoryPage = () => {
   return (
     <>
       <PageHero 
-        title="Desert Safari Adventures in Egypt" 
-        currentPage="Safari" 
-        currentPageUrl="/category/safari" 
+        title={`${categoryTitle} Tours in Egypt`} 
+        currentPage={categoryTitle} 
+        currentPageUrl={`/category-products/${categoryParam}`} 
       />
       
       <section className="py-20 bg-gray-50">
@@ -138,7 +147,7 @@ const CategoryPage = () => {
             
             <div className="w-full lg:w-3/4">
               <div className="flex justify-between items-center mb-6 lg:hidden">
-                <h3 className="text-lg font-semibold text-gray-900">Showing {toursData.length} tours</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Showing {displayTours.length} tours</h3>
                 <button
                   onClick={() => setShowFilters(true)}
                   className="flex items-center gap-2 bg-white border border-gray-300 px-4 py-2 rounded-md shadow-sm hover:bg-gray-50 transition-all duration-200 transform active:scale-95"
@@ -155,20 +164,24 @@ const CategoryPage = () => {
                 />
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  ">
-                {toursData.map((tour) => (
-                  <div key={tour.id} className="transform transition-all duration-400 hover:scale-105 mx-auto">
-                    <TourCard
-                      imagePath={tour.imagePath}
-                      city={tour.city}
-                      title={tour.title}
-                      price={tour.price}
-                      rating={tour.rating}
-                      duration={tour.duration}
-                      variant="detailed"
-                    />
-                  </div>
-                ))}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {displayTours.map((tour) => {
+                  const imagePath = tour.imagePath ?? tour.primaryPhoto?.url ?? tour.photos?.[0]?.url ?? '/images/placeholder.jpg'
+
+                  return (
+                    <div key={tour.id} className="transform transition-all duration-400 hover:scale-105">
+                      <TourCard
+                        imagePath={imagePath}
+                        city={tour.city ?? tour.location ?? tour.destination}
+                        title={tour.title}
+                        price={tour.price}
+                        rating={tour.rating}
+                        duration={tour.duration}
+                        variant="detailed"
+                      />
+                    </div>
+                  )
+                })}
               </div>
             </div>
           </div>

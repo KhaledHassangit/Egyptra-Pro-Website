@@ -106,6 +106,15 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       >
         Sign In to Your Account
       </LoadingButton>
+
+      <div className="flex justify-between items-center text-sm text-gray-500 mt-3">
+        <Link href="/auth/profile" className="text-primary hover:underline">
+          Go to Profile
+        </Link>
+        <Link href="/forgot-password" className="text-primary hover:underline">
+          Forgot password?
+        </Link>
+      </div>
     </form>
   );
 };

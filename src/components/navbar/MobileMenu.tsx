@@ -125,12 +125,16 @@ export function MobileMenu({
             )}
           </div>
 
-          <Button variant="ghost" className="w-full justify-start p-2 h-auto" style={{ color: '#364153', fontWeight: 700 }}>
-            Why Us
-          </Button>
-          <Button variant="ghost" className="w-full justify-start p-2 h-auto" style={{ color: '#364153', fontWeight: 700 }}>
-            Contact
-          </Button>
+          <Link href="/why_us" className="w-full">
+            <Button variant="ghost" className="w-full justify-start p-2 h-auto" style={{ color: '#364153', fontWeight: 700 }}>
+              Why Us
+            </Button>
+          </Link>
+          <Link href="/contact_us" className="w-full">
+            <Button variant="ghost" className="w-full justify-start p-2 h-auto" style={{ color: '#364153', fontWeight: 700 }}>
+              Contact
+            </Button>
+          </Link>
         </div>
       </div>
     </>

@@ -46,31 +46,31 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li className="flex items-center group">
                                 <Plane size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Sharm El Sheikh</Link>
+                                <Link href="/destination-tours?location=sharm-el-sheikh" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Sharm El Sheikh</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Palmtree size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Hurghada</Link>
+                                <Link href="/destination-tours?location=hurghada" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Hurghada</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Pyramid size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Cairo</Link>
+                                <Link href="/destination-tours?location=cairo" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Cairo</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Castle size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Luxor</Link>
+                                <Link href="/destination-tours?location=luxor" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Luxor</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Sun size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Marsa Alam</Link>
+                                <Link href="/destination-tours?location=marsa-alam" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Marsa Alam</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Navigation size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">All Destinations</Link>
+                                <Link href="/destination-tours" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">All Destinations</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Compass size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Discover Tours and Activities</Link>
+                                <Link href="/destination-tours" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Discover Tours and Activities</Link>
                             </li>
                         </ul>
                     </div>
@@ -83,31 +83,31 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li className="flex items-center group">
                                 <FileText size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Egypt Travel Guide</Link>
+                                <Link href="/why_us" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Egypt Travel Guide</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Compass size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Discover Egypt</Link>
+                                <Link href="/destination-tours" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Discover Egypt</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Map size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Discovery Map</Link>
+                                <Link href="/contact_us" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Discovery Map</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Tag size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Tours by Category</Link>
+                                <Link href="/category-products/safari" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Tours by Category</Link>
                             </li>
                             <li className="flex items-center group">
                                 <ShoppingBag size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Shopping Guide</Link>
+                                <Link href="/contact_us" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Shopping Guide</Link>
                             </li>
                             <li className="flex items-center group">
                                 <CreditCard size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Book Directly</Link>
+                                <Link href="/contact_us" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Book Directly</Link>
                             </li>
                             <li className="flex items-center group">
                                 <HelpCircle size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Frequently Asked Questions</Link>
+                                <Link href="/faq" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Frequently Asked Questions</Link>
                             </li>
                         </ul>
                     </div>
@@ -120,31 +120,31 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li className="flex items-center group">
                                 <Info size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">About Egyptra</Link>
+                                <Link href="/" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">About Egyptra</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Phone size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Contact Us</Link>
+                                <Link href="/contact_us" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Contact Us</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Star size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Customer Reviews</Link>
+                                <Link href="/" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Customer Reviews</Link>
                             </li>
                             <li className="flex items-center group">
                                 <FileText size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Travel Blog</Link>
+                                <Link href="/" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Travel Blog</Link>
                             </li>
                             <li className="flex items-center group">
                                 <FileText size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Terms & Conditions</Link>
+                                <Link href="/terms" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Terms & Conditions</Link>
                             </li>
                             <li className="flex items-center group">
                                 <Shield size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Privacy Policy</Link>
+                                <Link href="/privacy" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Privacy Policy</Link>
                             </li>
                             <li className="flex items-center group">
                                 <User size={16} className="mr-2 text-primary group-hover:translate-x-1 transition-transform" />
-                                <Link href="#" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Agent Portal</Link>
+                                <Link href="/auth/customer_login" className="text-[#D1D5DC] hover:text-white text-sm transition-colors group-hover:translate-x-1 inline-block">Agent Portal</Link>
                             </li>
                         </ul>
                     </div>
@@ -157,10 +157,10 @@ export function Footer() {
                             Discover Egypt's top-ranked experiences with Egyptra, trusted by 100,000+ happy travelers. Enjoy all-inclusive pricing with transfers and no hidden costs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-3 ">
-                            <Link href="#" className="footer-btn box-shadow text-[10px] font-bold py-2.5 px-4 rounded transition-all duration-300 text-white h-[50px] text-center flex items-center justify-center bg-primary hover:bg-primary/90 hover:shadow-lg hover:-translate-y-1">
+                            <Link href="/why_us" className="footer-btn box-shadow text-[10px] font-bold py-2.5 px-4 rounded transition-all duration-300 text-white h-[50px] text-center flex items-center justify-center bg-primary hover:bg-primary/90 hover:shadow-lg hover:-translate-y-1">
                                 Why Choose US
                             </Link>
-                            <Link href="#" className="footer-2nd-btn box-shadow text-white text-[10px] h-[50px] font-bold py-2.5 px-4 rounded transition-all duration-300 text-center flex items-center justify-center bg-secondary hover:bg-secondary/90 hover:shadow-lg hover:-translate-y-1">
+                            <Link href="/destination-tours?location=hurghada" className="footer-2nd-btn box-shadow text-white text-[10px] h-[50px] font-bold py-2.5 px-4 rounded transition-all duration-300 text-center flex items-center justify-center bg-secondary hover:bg-secondary/90 hover:shadow-lg hover:-translate-y-1">
                                 TOP RATED IN HURGHADA
                             </Link>
                         </div>
@@ -208,13 +208,13 @@ export function Footer() {
                         </div>
 
                         <div className="flex items-center space-x-2 text-center">
-                            <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Sitemap</Link>
+                            <Link href="/" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Sitemap</Link>
                             <span className="text-[#99A1AF]">|</span>
-                            <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Privacy Policy</Link>
+                            <Link href="/privacy" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Privacy Policy</Link>
                             <span className="text-[#99A1AF]">|</span>
-                            <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Terms & Conditions</Link>
+                            <Link href="/terms" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Terms & Conditions</Link>
                             <span className="text-[#99A1AF]">|</span>
-                            <Link href="#" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Contact us</Link>
+                            <Link href="/contact_us" className="text-[#99A1AF] hover:text-white text-sm transition-colors ">Contact us</Link>
                         </div>
                     </div>
                 </div>

@@ -150,7 +150,7 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
       <div className="flex items-start space-x-2">
         <Checkbox id="terms" className="mt-0.5" />
         <label htmlFor="terms" className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 text-muted-foreground">
-          I agree to the <a href="#" className="text-primary hover:underline">Terms of Service</a> and <a href="#" className="text-primary hover:underline">Privacy Policy</a>
+          I agree to the <Link href="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
         </label>
       </div>
       

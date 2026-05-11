@@ -1,5 +1,6 @@
 // DestinationsSection.tsx
 import Image from "next/image"
+import Link from "@/components/shared/link"
 import Container from "@/util/Container"
 import UIButton from "@/util/UIButton"
 import SectionHeader from "@/util/SectionHeader"
@@ -16,9 +17,11 @@ export function DestinationsSection() {
         </div>
         
         <div className="flex-shrink-0">
-          <UIButton className="text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-2 sm:py-3">
-            View All Destinations
-          </UIButton>
+          <Link href="/destination-tours" className="inline-block">
+            <UIButton className="text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 py-2 sm:py-3">
+              View All Destinations
+            </UIButton>
+          </Link>
         </div>
       </div>
 

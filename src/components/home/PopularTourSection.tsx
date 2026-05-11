@@ -5,6 +5,7 @@ import Container from "@/util/Container";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import UIButton from "@/util/UIButton";
 import SectionHeader from "@/util/SectionHeader";
+import Link from "@/components/shared/link";
 import { TourCard } from "../shared/TourCard";
 
 export const cities = [
@@ -93,11 +94,13 @@ export function PopularTourSection({ tours }: PopularTourSectionProps) {
             />
           </div>
           <div className="flex-shrink-0">
-            <UIButton
-              className="px-8"
-            >
-              View All Tours
-            </UIButton>
+            <Link href="/destination-tours" className="inline-block">
+              <UIButton
+                className="px-8"
+              >
+                View All Tours
+              </UIButton>
+            </Link>
           </div>
         </div>
 
